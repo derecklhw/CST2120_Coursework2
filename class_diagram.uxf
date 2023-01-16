@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>140</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Users
+--
+-User_Id: ObjectId
+-Name: string
+-Surname: string
+-Password: string
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>310</x>
+      <y>150</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>products
+--
+-product_Id: ObjectId
+-Name: string
+-Description: string
+-price: int
+-stock: int
+-category: string
+-image_link: string</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>620</x>
+      <y>150</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>orders
+--
+-Order_Id: ObjectId
+-Client_Id: ObjectId
+-Product_Id: ObjectId
+-number_of_product: int
+-price: int
+-total_order_price: int
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

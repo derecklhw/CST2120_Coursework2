@@ -1,0 +1,425 @@
+
+/* ############ main body / every page exept login ############## */
+
+.body_background{
+    background-color: #f0f0f0;
+}
+
+/* ##################################### */
+/* ########### Header ################## */
+.header{
+    background-color:#383b3a;
+    border:1px ;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px
+}
+.header_bt{
+    display: inline;
+    position: relative;
+    border: 5px ;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #ff8800;
+    cursor: pointer;
+    box-shadow: 0 9px #bc6401;
+    transition: 0.2s ease-in;  
+    border-radius: 12px;
+    font-family: 'Century Gothic'; 
+}
+.center_button{
+    display: inline;
+    padding-right: 20px;
+}
+.header_bt:hover{
+    background-color: #fcb25e;
+}
+.header_bt:active {
+    background-color: #fcb25e;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+    
+}
+
+.logo_image{
+    float: left;
+    vertical-align: top;
+    display: inline;
+    border: 5px ;
+    padding-bottom: 10px;
+}
+.welcoming_text{
+    float: right;
+    vertical-align: top;
+    display: inline;
+    border: 5px ;
+    padding: 10px;
+    color: darkgrey;
+    white-space: nowrap;
+    font-family: 'Century Gothic';
+    font-size: 20px;
+    text-shadow: 1px 1px 0 grey,
+     1px 2px 0 grey,
+     1px 3px 0 grey,
+     1px 4px 0 grey,
+     1px 5px 0 grey;
+
+}
+
+
+/* #################################### */
+/* ############## footer ############## */
+.footer{
+    left: 10px;  
+    bottom: 5px;  
+    right: 10px; 
+    font-size: 15px;
+    height: 100px;
+    font-family: "Century Gothic";
+}
+
+.footer a[href]{
+    color: grey;
+}
+
+.footer_left{
+    bottom: 5;
+    height: 100px;
+    width: 603px;
+    background-color: #383b3a;
+    float: left;
+    text-align: center; 
+}
+.footer_right{
+    height: 100px;
+    width: 604px;
+    background-color: #383b3a;
+    float: right;
+    text-align: right;
+    padding-right: 40px;
+    color: grey;
+}
+
+/*##############################################*/
+/*############### Game Page ####################*/
+@keyframes animation_rotation {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.game_page{
+    display: inline;
+    position: relative;
+}
+
+#game_canvas{
+    
+    float: left;
+    height: 400px;
+    width: 700px;
+    background-image: url("/common/image/blue-smooth-wall-textured-background2.jpg");
+    background-size: contain;
+    outline: black 3px solid;
+    margin-left: 10px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+#game_canvas h1{
+    color: #f0f0f0;
+    font-family: 'Century Gothic';
+
+}
+
+#clicker{
+    position: relative;
+    width:150px;
+    height:150px;
+    top : 50px;
+    left: 320px;
+    animation: rotation 20s linear infinite;
+    cursor:pointer;
+    transition: transform .2s; 
+}
+#clicker:hover{
+    transform: scale(1.2);
+}
+#clicker:active{
+    transform: scale(1.2);
+}
+.button_container{
+    position: relative;
+    bottom: 582px;
+    overflow-y: auto;
+    overflow-x: auto;
+    height: 400px;
+    width: 200px;
+    background: #a75a02;
+    
+}
+.button_list{
+    padding-left: 5px;
+    width: 150px;
+    list-style-type: none;
+    
+}
+.game_button{
+   
+    border: 5px ;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 20px;
+    margin-left: 5px;
+    width: 120px;
+
+    background-color: #ff8800;
+    cursor: pointer;
+    box-shadow: 0 9px #181511;
+    transition: 0.2s ease-in;  
+    border-radius: 12px;
+    font-family: 'Century Gothic'; 
+    font-size: x-small;
+}
+
+.game_button:hover{
+    background-color: #fcb25e;
+}
+.game_button:active {
+    background-color: #fcb25e;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+    
+}
+
+
+.clickNumberDisplay{
+    position: relative;
+    top: 55px;
+    left: 43px;
+    text-align: center;
+}
+#ennemy{
+    width: 50px;
+    height: 50px;
+    visibility:hidden;
+    position: relative;
+    left: 640px;
+    bottom: 195px;
+    transition: all 2s;
+}
+.animate_ennemy{
+    transform: scale(2);
+}
+#end_game_bt{
+    position: relative;
+    left: 318px;
+    bottom: 10px;
+}
+
+#heart_container{
+    position: relative;
+    bottom: 190px;
+    left: 600px;
+    width: 110px;
+    height: 150px;
+}
+.heart_list{
+    list-style-type: none;
+}
+
+#heart1{
+    visibility: visible;
+}
+#heart2{
+    visibility: visible;
+}
+#heart3{
+    visibility: visible;
+}
+
+/* ######################################## */
+/* ############## Leaderboard ############# */
+
+.short_leaderboard{
+    float: right;
+    height: 400px;
+    width: 400px;
+    background-color: #2D3142;
+    margin-right: 50px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.leaderboard_table{
+    margin: 30px 70px 70px;
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+}
+
+.table_element{
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+    font-family: 'Century Gothic';
+}
+.table_element td{
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.table_element thead th {
+    color: #ffffff;
+    background: #636765;
+}
+.table_element thead th:nth-child(even){
+    background: #fcb25e;
+
+}
+.table_element tr{
+    padding: 10;
+    font-size: 20px;
+}
+
+.table_element tr:nth-child(even){
+    background: #abb0ad;
+
+}
+
+
+/* ############################################# */
+/* ############### Login/index page ############ */
+
+.login{
+    background-image: url("/common/image/blue-smooth-wall-textured-background2.jpg");
+    background-position: center;
+    background-repeat:repeat-x;
+    background-size:contain;
+}
+
+.login_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    color: antiquewhite;
+}
+
+#interactive_login_email{
+    text-align: left;
+    padding-left: 75px;
+    padding-bottom: 5px;
+}
+#interactive_login_password{
+    text-align: left;
+    padding-left: 75px;
+    padding-bottom: 5px;
+}
+#form{
+    width: 320px;
+    padding: 20px;
+    background: #f0f0f0;
+    border-radius: 5px;
+    color: #c9640b;
+    border-top: 5px solid #ff7700;
+    margin: 0 auto;
+}
+.input_batch{
+    padding-bottom: 20px;
+    
+}
+.login_box h1{
+    padding-top: -50px;
+}
+
+.login_welcoming{
+    padding-bottom: 20px;
+    width: 500px;
+    font-family: "Lucida Console";
+}
+
+
+#button-2 {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#button-2 a {
+position: relative;
+transition: all .35s ease-Out;
+}
+  
+#slide {
+width: 100%;
+height: 100%;
+left: -200px;
+background: #ff7700;
+position: absolute;
+transition: all .35s ease-Out;
+bottom: 0;
+}
+
+#button-2:hover #slide {
+left: 0;
+}
+
+#button-2:hover a {
+color: #2D3142;
+}
+
+.button{
+display: inline-flex;
+align-items: center;
+justify-content: center;
+height: 40px;
+width: 150px;
+border: 2px solid #ff7700;
+color: #BFC0C0;
+text-transform: uppercase;
+text-decoration: none;
+margin: 20px 20px 20px 20px;
+font-size: .8em;
+letter-spacing: 1.5px;
+overflow: hidden;
+}
+
+
+/* ############################################## */
+/* ############### Instruction page ############# */
+
+p {
+    font-size: 120%;
+}  
+
+.instruction{
+    padding-left: 50px;
+}
+
+.instruction h1,
+.instruction p{
+    font-family: 'Century Gothic';
+}
+
+.text_box{
+    width: 700px;
+}
+.how_to_play_box{
+    width: 500px;
+    float: left;
+    padding-right: 150px;
+
+}
+.instruction img{
+    padding-bottom: 50px;
+}

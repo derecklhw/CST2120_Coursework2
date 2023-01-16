@@ -1,0 +1,21 @@
+/* make red box not transparent for #dialog */
+#dialog {
+    background: #ae1919;
+
+}
+
+/* make table event row in grey and odd in orange */
+#event_table tr:nth-child(even) {
+    background-color: #e6e6e6;
+}
+#event_table tr:nth-child(odd) {
+    background-color: #ffcc99;
+}
+
+/* make first row of event_table event cell in blue and odd cell in red
+#event_table tr:first-child td:nth-child(even) {
+    background-color: #5656bb;
+}
+#event_table tr:first-child td:nth-child(odd) {
+    background-color: #9c4e4e;
+} */
