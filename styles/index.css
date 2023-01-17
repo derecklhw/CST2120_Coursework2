@@ -116,37 +116,67 @@ footer {
   width: 100%;
   background-color: #292c2e;
   color: #fff;
-  padding: 40px 5%;
+  padding: 0.5% 5%;
 }
 
 footer .columns {
-    display: flex;
+  display: flex;
 }
 
 footer .columns .social,
 footer .columns .contact-us,
-footer .columns .customer-service{
-    width: 33%;
+footer .columns .customer-service {
+  width: 33%;
+  margin: 0 20px;
 }
 
-footer .columns .social img{
-    width: 150px;
+footer .columns .social img {
+  width: 150px;
 }
 
 footer .columns .social p {
-    color: #8a857d;
-    width: 95%;
+  color: #8a857d;
+  width: 95%;
 }
 
-footer .columns .social .social-medias a{
-    font-size: 25px;
+footer .columns .social .social-medias a {
+  font-size: 25px;
+  color: #fff;
+  text-decoration: none;
+  margin: 4% 2%;
+}
+
+footer .columns .contact-us,
+footer .columns .customer-service {
+  margin-top: 7%;
+}
+
+footer .columns .contact-us ul li,
+footer .columns .customer-service ul li{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  margin: 5% 0;
+}
+
+footer .columns .contact-us ul li p,
+footer .columns .customer-service ul li a {
+  color: #8a857d;
+  list-style: none;
+  margin-left: 1%;
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+footer .columns .customer-service ul li a:hover{
+    color: #669202;
+}
+
+footer .copyright {
     color: #fff;
-    text-decoration: none;
-    margin: 4% 2%;
+    display: flex;
+    justify-content: center;
+    margin: 2%;
 }
 
-footer .columns .contact-us ul li {
-    color: #8a857d;
-    margin: 5% 0;
-    list-style: none; ;
-}
+
