@@ -125,18 +125,17 @@ footer .columns {
 
 footer .columns .social,
 footer .columns .contact-us,
-footer .columns .customer-service {
+footer .columns .quick-links {
   width: 33%;
   margin: 0 20px;
 }
 
 footer .columns .social img {
-  width: 150px;
+  width: 120px;
 }
 
 footer .columns .social p {
   color: #8a857d;
-  width: 95%;
 }
 
 footer .columns .social .social-medias a {
@@ -147,12 +146,12 @@ footer .columns .social .social-medias a {
 }
 
 footer .columns .contact-us,
-footer .columns .customer-service {
-  margin-top: 7%;
+footer .columns .quick-links {
+  margin-top: 4%;
 }
 
 footer .columns .contact-us ul li,
-footer .columns .customer-service ul li{
+footer .columns .quick-links ul li {
   display: flex;
   flex-direction: row;
   justify-content: left;
@@ -160,7 +159,7 @@ footer .columns .customer-service ul li{
 }
 
 footer .columns .contact-us ul li p,
-footer .columns .customer-service ul li a {
+footer .columns .quick-links ul li a {
   color: #8a857d;
   list-style: none;
   margin-left: 1%;
@@ -168,15 +167,79 @@ footer .columns .customer-service ul li a {
   transition: 0.25s;
 }
 
-footer .columns .customer-service ul li a:hover{
-    color: #669202;
+footer .columns .quick-links ul li a:hover {
+  color: #669202;
 }
 
 footer .copyright {
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    margin: 2%;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  margin: 2%;
 }
 
+section {
+  width: 100%;
+}
 
+.section-wrap {
+  width: 100%;
+  padding: 2rem 3.6rem;
+}
+
+.sub-section-title {
+  display: flex;
+  padding-bottom: 0.6rem;
+  justify-content: space-between;
+}
+
+.sub-section-title p {
+  margin-left: 0.4rem;
+  color: #343236;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.sub-section-title a {
+  margin-right: 0.4rem;
+  display: flex;
+  align-items: center;
+  color: #b76242;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+#recommendation .section-wrap .products {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#recommendation .section-wrap .products .fruit {
+  margin: 0.4rem;
+  position: relative;
+  flex-basis: 330px;
+  flex-grow: 1;
+  height: 240px;
+  border-radius: 0.1rem;
+}
+
+#recommendation .section-wrap .products .fruit img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom;
+  display: block;
+}
+
+#recommendation .section-wrap .products .fruit .text {
+  position: absolute;
+  color: #fff;
+  top: 0;
+  left: 0;
+  padding: 1rem;
+  width: 100%;
+}
