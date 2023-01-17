@@ -1,0 +1,17 @@
+({
+    User_id:{
+        type: ObjectId
+    },
+    Name:{
+        type: String
+    },
+    SurName:{
+        type: String
+    },
+    Email:{
+        type: String
+    },
+    Password:{
+        type: String
+    },
+})

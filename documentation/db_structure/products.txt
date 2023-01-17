@@ -1,0 +1,23 @@
+({
+    product_id: {
+        type: ObjectId
+    },
+    name: {
+        type: String,
+    },
+    description: {
+        type: String,
+    },
+    price: {
+        type: Number
+    },
+    stock: {
+        type: Number
+    },
+    image_link: {
+        type: String
+    },
+    date: {
+        type: Date
+    }
+});
