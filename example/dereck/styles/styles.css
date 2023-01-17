@@ -1,0 +1,866 @@
+/* || General styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+}
+
+#gamemode h3,
+#how-to-play h3,
+#leaderboard h3,
+#gameplay-video h3,
+.login-container .login-welcome,
+.support-container .change-password-heading,
+.register-container .register-welcome {
+  text-align: center;
+  font-size: 75px;
+  font-weight: 900;
+  -webkit-text-stroke: 2px #fff;
+  color: transparent;
+}
+
+/* || Background Embedded Video styles */
+
+.back-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .back-video {
+    /* height = 100 * (9 / 16) = 56.25 */
+    height: 56.25vw;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .back-video {
+    /* width = 100 / (9 / 16) = 177.777777 */
+    width: 177.78vh;
+  }
+}
+
+/* || Floating Buttons styles */
+
+.floating-buttons .float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  background-color: #fff;
+  color: #000000;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 1;
+  right: 40px;
+}
+
+.floating-buttons .my-float {
+  margin-top: 22px;
+}
+
+.floating-buttons .setting {
+  bottom: 90px;
+}
+
+.floating-buttons .sound {
+  bottom: 20px;
+}
+
+.floating-buttons .float:hover {
+  opacity: 0.5;
+}
+
+/* || Hero and Footer */
+/* || Hero Container styles */
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* || Hero Navigation Bar styles */
+
+.hero nav {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: 0.5s;
+}
+
+.hero nav:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* || Hero Navigation Bar Logo styles */
+
+.hero nav .logo img {
+  width: 85px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.hero nav .logo {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.hero nav:hover .logo {
+  color: #333;
+}
+
+/* || Hero Navigation Bar Logo Rotate Effect styles */
+
+@-webkit-keyframes rotating {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.rotating {
+  -webkit-animation: rotating 10s linear infinite;
+  -moz-animation: rotating 10s linear infinite;
+  -ms-animation: rotating 10s linear infinite;
+  -o-animation: rotating 10s linear infinite;
+  animation: rotating 10s linear infinite;
+}
+
+/* || Hero Navigation Bar Links styles */
+
+.hero nav ul li {
+  list-style: none;
+  display: inline-block;
+  margin-left: 40px;
+}
+
+.hero nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  transition: 0.25s;
+}
+
+.hero nav:hover ul li a {
+  color: #333;
+}
+
+.hero nav ul li a:hover {
+  text-decoration: underline;
+  text-decoration-color: #fff;
+}
+
+/* || Hero Navigation Bar Content styles */
+
+.hero .content {
+  text-align: center;
+}
+
+.hero .content h1 {
+  font-size: 75px;
+  color: #fff;
+  font-weight: 500;
+  transition: 0.5s;
+}
+
+.hero .content h1:hover {
+  -webkit-text-stroke: 2px #fff;
+  color: transparent;
+}
+
+.hero .content .play-here {
+  text-decoration: none;
+  display: inline-block;
+  color: #fff;
+  font-size: 25px;
+  border: 2px solid #fff;
+  padding: 15px 70px;
+  border-radius: 50px;
+  margin-top: 20px;
+  transition: 0.5s;
+}
+
+.hero .content .play-here:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* || Footer styles */
+
+footer {
+  width: 100%;
+  padding: 40px 5%;
+  background: linear-gradient(#000000, #3c3c3c);
+  color: #fff;
+}
+
+/* || Footer Divs styles */
+
+footer div {
+  margin-bottom: 10px;
+}
+
+footer .follow,
+footer .columns {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer .copyright {
+  display: flex;
+  justify-content: center;
+}
+
+/* || Footer Div Heading styles */
+
+footer .follow h3,
+footer .columns h3 {
+  letter-spacing: 1px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+footer .follow h3 {
+  font-size: 30px;
+}
+
+/* || Footer Column Div styles */
+
+footer .columns li {
+  list-style: none;
+}
+
+footer .columns a {
+  text-decoration: none;
+  display: block;
+  color: #fff;
+  margin-bottom: 10px;
+  font-size: 15px;
+  transition: 0.25s;
+}
+
+footer .columns a:hover {
+  text-decoration: underline;
+  color: #a3a3a3;
+}
+
+footer .columns h3,
+footer .copyright {
+  color: #898989;
+}
+
+/* || Footer Follow Div styles */
+
+footer .social-icons a {
+  font-size: 30px;
+  margin: 0 10px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+footer .social-icons a:hover {
+  opacity: 0.5;
+}
+
+.fa-facebook {
+  color: #3b5998;
+}
+
+.fa-twitter {
+  color: #00acee;
+}
+
+.fa-instagram {
+  color: #8a3ab9;
+}
+
+.fa-github {
+  color: #f5f5f5;
+}
+
+/* || index.html */
+/* || Section what-is styles*/
+
+#what-is {
+  justify-content: space-between;
+  color: #fff;
+}
+
+/* || Section what-is Content styles */
+#what-is .content {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+}
+
+#what-is .content h3 {
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+
+#what-is .content p {
+  font-size: 1.25em;
+  margin-bottom: 20px;
+}
+
+/* || Section what-is Image styles */
+
+#what-is .image-container {
+  position: relative;
+  width: 150%;
+  margin-left: 20px;
+}
+
+#what-is img {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: 0.5s ease;
+  backface-visibility: hidden;
+}
+
+#what-is .middle {
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+#what-is .image-container:hover img {
+  opacity: 0.3;
+}
+
+#what-is .image-container:hover .middle {
+  opacity: 1;
+}
+
+/* || Section what-is Text styles */
+
+#what-is .text {
+  color: white;
+  font-size: 40px;
+  padding: 16px 32px;
+  text-decoration: none;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  padding: 14px 20px;
+}
+
+/* || Section gameplay-video styles */
+
+#gameplay-video {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#gameplay-video .game-play {
+  width: 75%;
+  height: 75%;
+  border: none;
+}
+
+/* || explore.html */
+/* || Section gamemode styles */
+
+#gamemode {
+  justify-content: center;
+}
+
+/* || Section gamemode Swiper styles */
+
+#gamemode .swiper {
+  width: 75%;
+  height: fit-content;
+}
+
+#gamemode .swiper-wrapper {
+  margin-top: 20px;
+}
+
+#gamemode .swiper-slide img {
+  width: 100%;
+  background: transparent;
+}
+
+#gamemode .swiper .swiper-button-prev,
+#gamemode .swiper .swiper-button-next {
+  color: #fff;
+}
+
+#gamemode .swiper .swiper-pagination-bullet-active {
+  background: #fff;
+}
+
+/* || Section gamemode Img styles */
+
+#gamemode img {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: 0.5s ease;
+  backface-visibility: hidden;
+}
+
+/* || Section gamemode Swiper Image Hover Effect styles */
+
+#gamemode .middle {
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  display: block;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.25);
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 180px 70px;
+}
+
+#gamemode .swiper-slide:hover img {
+  opacity: 0.3;
+}
+
+#gamemode .swiper-slide:hover .middle {
+  opacity: 1;
+}
+
+#gamemode .text,
+h4 {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 200%;
+}
+
+#gamemode h4 {
+  font-weight: 550;
+  letter-spacing: 10px;
+}
+
+/* || Section how-to-play styles */
+
+#how-to-play {
+  display: flex;
+  flex-direction: column;
+}
+
+#how-to-play .container {
+  width: 90%;
+  height: 80%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 3% 5%;
+  font-size: 130%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#how-to-play .instructions,
+.ai-image {
+  height: 80%;
+  width: 50%;
+}
+
+#how-to-play .instructions h4 {
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+}
+
+#how-to-play .instructions p {
+  margin-bottom: 20px;
+}
+
+#how-to-play .instructions-images {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#how-to-play .instructions-images img {
+  width: 80%;
+  object-fit: cover;
+}
+
+#how-to-play .instructions-images figcaption {
+  position: relative;
+  left: 17%;
+}
+
+#how-to-play .ai-image img {
+  object-fit: cover;
+  width: 80%;
+  height: 100%;
+  margin-left: 15%;
+}
+
+#how-to-play a {
+  width: 20%;
+  position: absolute;
+  bottom: 10%;
+  right: 20%;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 15px 70px;
+  border-radius: 50px;
+  transition: 0.5s;
+}
+
+#how-to-play a:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* || how-top-play and leaderboard.html h3 styles*/
+
+#how-to-play h3,
+#leaderboard h3,
+#gameplay-video h3 {
+  padding: 2% 0;
+}
+
+/* || leaderboard.html */
+
+#leaderboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* || leaderboard and game-leaderboard general styles */
+
+#leaderboard table,
+.game-container table {
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  color: #fff;
+  border-spacing: "0";
+  padding: "0";
+}
+
+#leaderboard thead,
+.game-container thead {
+  font-size: 150%;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+#leaderboard table td,
+.game-container table td {
+  max-width: 2em;
+  padding: 0.5em;
+  text-align: center;
+}
+
+#leaderboard tbody tr:not(:last-child),
+.game-container tbody tr:not(:last-child) {
+  box-shadow: 0 2px rgba(100, 100, 100, 0.5);
+}
+
+#leaderboard tbody tr:hover,
+.game-container tbody tr:hover {
+  transform: scale(1.045);
+  transition: 0.2s ease-in-out;
+  -webkit-transition: background-color 0.2s linear;
+  -ms-transition: background-color 0.2s linear;
+}
+
+#leaderboard tbody tr td:nth-child(2) p,
+.game-container tbody tr td:nth-child(2) p {
+  display: inline-block;
+  padding-left: 0.5em;
+  text-align: left;
+}
+
+#leaderboard table td:nth-child(2),
+.game-container table td:nth-child(2) {
+  max-width: 5em;
+}
+
+#leaderboard tbody tr:nth-child(even),
+.game-container tbody tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+#leaderboard tbody tr:nth-child(odd),
+.game-container tbody tr:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+/* || leaderboard Search Input styles */
+
+#leaderboard #myInput {
+  width: 80%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 30px;
+  background: transparent;
+  color: #fff;
+}
+
+/* || game.html */
+/* || Div game styles */
+
+#game_section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#game_container {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.65);
+  margin-top: 7%;
+  padding: 0px;
+  width: 80%;
+  height: 80%;
+}
+
+#game_score {
+  color: white;
+  margin-top: 1%;
+  font-size: 150%;
+  display: flex;
+  justify-content: center;
+  font-family: sans-serif;
+}
+
+#game_canvas {
+  width: 100%;
+  height: 100%;
+}
+
+div .screen {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 50%);
+}
+
+div .screen button {
+  text-decoration: none;
+  display: inline-block;
+  color: #fff;
+  background-color: transparent;
+  font-size: 40px;
+  margin: 10px;
+  padding: 15px 12px;
+  border-radius: 50px;
+}
+
+div .screen button:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+#load {
+  font-size: 3em;
+}
+
+#load.screen {
+  animation: fadeIn 2s infinite alternate;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+}
+
+/* || Login, Support and Registration General styles */
+
+.login-container,
+.support-container,
+.register-container {
+  margin-top: 7%;
+  width: 55%;
+  height: 90%;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  text-align: center;
+  font-size: 180%;
+}
+
+.login-container .login-welcome,
+.support-container .change-password-heading,
+.register-container .register-welcome {
+  padding: 5% 0;
+  margin: 0;
+  font-size: 50px;
+  text-transform: uppercase;
+}
+
+.login-container .registration,
+.register-container .login-link {
+  color: #fff;
+  transition: 0.5s;
+  margin: 0;
+}
+
+.login-container .login-form,
+.support-container .change-password-form,
+.register-container .registration-form {
+  height: 100%;
+  margin: 5% 10%;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  text-align: left;
+  align-items: center;
+  column-gap: 2%;
+}
+
+.login-container .login-form input,
+.support-container .change-password-form input,
+.register-container .registration-form input {
+  width: 100%;
+  height: 50%;
+  margin: 0 0;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 100%;
+  text-align: center;
+}
+
+/* || Login Button styles */
+
+.login-container .login-form {
+  height: 50%;
+}
+
+.login-container .login-button-section {
+  height: 50%;
+}
+
+#login-button {
+  margin-bottom: 5%;
+  border-style: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.fa-right-to-bracket {
+  --fa-animation-duration: 3s;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.login-container .registration:hover,
+.fa-right-to-bracket:hover,
+.register-container .login-link:hover {
+  color: rgb(198, 198, 198);
+}
+
+/* || support.html styles*/
+
+.support-container .strong-password-message {
+  font-size: 60%;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  text-align: center;
+}
+
+/* || registration.html styles*/
+
+.register-container p {
+  font-size: 20px;
+}
+
+.register-container .registration-form {
+  font-size: 18px;
+}
+
+.register-container .align-text-center {
+  text-align: center;
+}
+
+.register-container .registration-validation-section {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  text-align: left;
+  background-color: rgba(255, 255, 255, 0.55);
+  display: grid;
+  grid-template-columns: 10% 90%;
+}
+
+.register-container .registration-validation-section p {
+  margin: 2% 0% 2% 2%;
+  font-size: 80%;
+  color: #660000;
+}
+
+.register-container .registration-validation-section i {
+  text-align: center;
+  width: 100%;
+  color: #660000;
+  font-size: 170%;
+}
