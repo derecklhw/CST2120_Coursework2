@@ -242,4 +242,16 @@ section {
   left: 0;
   padding: 1rem;
   width: 100%;
+  box-sizing: border-box;
+  font-weight: bold;
+  text-shadow: 0 0 0.9rem #444;
+}
+
+#recommendation .section-wrap .products .fruit .text h2,
+#recommendation .section-wrap .products .fruit .text p {
+  font-size: 1.8rem;
+}
+
+#recommendation .section-wrap .products .fruit .text span {
+  font-size: 2.8rem;
 }
