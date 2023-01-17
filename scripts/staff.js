@@ -5,8 +5,11 @@ var data_product = [
     {'Product Name': 'Product 2', 'Description': 'Description 2', 'Price': 'Price 2', 'Stock': 'Stock 2','image_link':'image_link 2','edit': '<button class="edit">edit</button>'},
     {'Product Name': 'Product 3', 'Description': 'Description 3', 'Price': 'Price 3', 'Stock': 'Stock 3','image_link':'image_link 3','edit': '<button class="edit">edit</button>'},
     {'Product Name': 'Product 4', 'Description': 'Description 4', 'Price': 'Price 4', 'Stock': 'Stock 4','image_link':'image_link 4','edit': '<button class="edit">edit</button>'},
-    {'Product Name': 'Product 5', 'Description': 'Description 5', 'Price': 'Price 5', 'Stock': 'Stock 5','image_link':'image_link 5','edit': '<button class="edit">edit</button>'}
-];
+    {'Product Name': 'Product 2', 'Description': 'Description 2', 'Price': 'Price 2', 'Stock': 'Stock 2','image_link':'image_link 2','edit': '<button class="edit">edit</button>'},
+    {'Product Name': 'Product 3', 'Description': 'Description 3', 'Price': 'Price 3', 'Stock': 'Stock 3','image_link':'image_link 3','edit': '<button class="edit">edit</button>'},
+    {'Product Name': 'Product 4', 'Description': 'Description 4', 'Price': 'Price 4', 'Stock': 'Stock 4','image_link':'image_link 4','edit': '<button class="edit">edit</button>'},
+    {'Product Name': 'Product 2', 'Description': 'Description 2', 'Price': 'Price 2', 'Stock': 'Stock 2','image_link':'image_link 2','edit': '<button class="edit">edit</button>'},
+    {'Product Name': 'Product 4', 'Description': 'Description 4', 'Price': 'Price 4', 'Stock': 'Stock 4','image_link':'image_link 4','edit': '<button class="edit">edit</button>'}];
 
 // generate a orders_header array
 var orders_header = ['Order ID', 'Client ID','Product ID', 'Quantity', 'Price', 'Total price','delete'];
