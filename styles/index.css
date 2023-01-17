@@ -61,7 +61,7 @@
   text-decoration: none;
   color: #fff;
   font-size: 20px;
-  padding: 12px
+  padding: 12px;
 }
 
 .hero nav ul li a:hover {
@@ -108,6 +108,45 @@
 }
 
 .hero .content .shop-now:hover {
-  background-color: #0b0e15;
-  border-color: #0b0e15;
+  background-color: #292c2e;
+  border-color: #292c2e;
+}
+
+footer {
+  width: 100%;
+  background-color: #292c2e;
+  color: #fff;
+  padding: 40px 5%;
+}
+
+footer .columns {
+    display: flex;
+}
+
+footer .columns .social,
+footer .columns .contact-us,
+footer .columns .customer-service{
+    width: 33%;
+}
+
+footer .columns .social img{
+    width: 150px;
+}
+
+footer .columns .social p {
+    color: #8a857d;
+    width: 95%;
+}
+
+footer .columns .social .social-medias a{
+    font-size: 25px;
+    color: #fff;
+    text-decoration: none;
+    margin: 4% 2%;
+}
+
+footer .columns .contact-us ul li {
+    color: #8a857d;
+    margin: 5% 0;
+    list-style: none; ;
 }
