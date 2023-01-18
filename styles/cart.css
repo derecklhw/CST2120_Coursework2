@@ -1,60 +1,79 @@
 @import "common.css";
 
 .sub-sections {
-    width: 100%;
-    height: auto;
-    display: flex;
-  }
+  width: 100%;
+  height: auto;
+  display: flex;
+}
 
-  #cart-section{
-    width: 75%;
-    height: auto;
-    background-color: aquamarine;
-  }
+#cart-section {
+  width: 75%;
+  height: auto;
+  background-color: #fff;
+  display: flex;
+}
 
-  #checkout-section {
-    width: 25%;
-    height: auto;
-    background-color: #fff;
-  }
+#checkout-section {
+  width: 25%;
+  height: auto;
+  background-color: #fff;
+}
 
-  #checkout-section .calculation-section, .total-section, .checkout-btn-section {
-    display: flex;
-    flex-direction: column;
-    padding: 5%;
-    border: solid 1px #292c2e;
+#checkout-section .calculation-section,
+.total-section,
+.checkout-btn-section {
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+  border: solid 1px #292c2e;
+}
 
+#checkout-section .calculation-section .row,
+#checkout-section .total-section .row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 2% 0;
+}
 
-  }
+#checkout-section .calculation-section .row .value,
+#checkout-section .total-section .row .value {
+  color: #669202;
+}
 
-  #checkout-section .calculation-section .row,
-  #checkout-section .total-section .row{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin: 2% 0;
-  }
+#checkout-section .checkout-btn-section {
+  align-items: center;
+}
 
-  #checkout-section .calculation-section .row .value,
-  #checkout-section .total-section .row .value {
-    color: #669202;
-  }
+#checkout-section .checkout-btn-section p {
+  color: #fff;
+  font-size: 1rem;
+  text-align: center;
+  background-color: #292c2e;
+  text-decoration: none;
+  padding: 0.6rem 0.8rem;
+  cursor: pointer;
+  transition: 0.25s;
+}
 
-  #checkout-section .checkout-btn-section {
-    align-items: center;
-  }
+#checkout-section .checkout-btn-section p:hover {
+  background-color: #669202;
+}
 
-  #checkout-section .checkout-btn-section p {
-    color: #fff;
-    font-size: 1rem;
-    text-align: center;
-    background-color: #292c2e;
-    text-decoration: none;
-    padding: 0.6rem 0.8rem;
-    cursor: pointer;
-    transition: 0.25s;
-  }
+#cart-section .product-order{
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+}
 
-  #checkout-section .checkout-btn-section p:hover{
-    background-color: #669202;
-  }
+#cart-section .product-order .product-img{
+  width: 16%;
+  height: 50%;
+}
+
+#cart-section .product-order .product-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
