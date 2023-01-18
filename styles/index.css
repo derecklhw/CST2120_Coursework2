@@ -285,10 +285,44 @@ section {
 
 #catalogue .section-wrap .search-sorting-bar {
   width: 100%;
-  height: 100px;
+  height: 55px;
   border: solid 1px #292c2e;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 0 2%;
 }
 
+#search-section {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
+#search-section #search-input {
+  padding: 2%;
+  width: 92%;
+}
+
+#search-section a {
+  color: #343434;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+#sort-section {
+  width: 15%;
+}
+
+#sort-section label {
+  color: #343236;
+}
+
+select {
+  padding: 2% 4%;
+  color: #343434;
+  background-color: transparent;
+  border: solid 1px #292c2e;
+
+}
