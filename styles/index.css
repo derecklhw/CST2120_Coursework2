@@ -125,6 +125,7 @@
   width: 100%;
   height: auto;
   justify-content: start;
+  border: 1px solid #292c2e;
 }
 
 #catalogue .section-wrap .featured-products .product-wrap {
