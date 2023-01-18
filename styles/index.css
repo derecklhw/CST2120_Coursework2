@@ -361,3 +361,63 @@ section {
   width: 100%;
   object-fit: cover;
 }
+
+#catalogue .section-wrap .featured-products .product-wrap .product-description {
+  margin-top: 0.4rem;
+  padding: 0.8rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#catalogue
+  .section-wrap
+  .featured-products
+  .product-wrap
+  .product-description
+  .product-name {
+  color: #343236;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+#catalogue
+  .section-wrap
+  .featured-products
+  .product-wrap
+  .product-description
+  .product-price {
+  font-size: 1.2rem;
+  margin-top: 0.6rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+#catalogue
+  .section-wrap
+  .featured-products
+  .product-wrap
+  .product-description
+  .add-to-cart-btn {
+  margin-top: 1.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+#catalogue
+  .section-wrap
+  .featured-products
+  .product-wrap
+  .product-description
+  .add-to-cart-btn
+  p {
+    color: #fff;
+    font-size: 1rem;
+    text-align: center;
+    background-color: #669202;
+    text-decoration: none;
+    padding: 0.6rem 0.8rem;
+    border-radius: 50px;
+}
