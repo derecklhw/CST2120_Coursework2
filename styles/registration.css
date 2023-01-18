@@ -1,62 +1,66 @@
 @import "common.css";
 
-body {
-  background-color: grey;
-  font-family: "Roboto" sans-serif;
-}
-.signup-box {
+.signup-section {
   width: 360px;
-  height: 620px;
+  height: 560px;
   margin: auto;
   background-color: white;
-  border-radius: 3px;
+  border-radius: 10px;
 }
 
-h1 {
+.signup-section h1 {
   text-align: center;
   padding-top: 15px;
+  border-bottom: 1px solid silver;
+  padding-bottom: 20px;
 }
 
-h4 {
-  text-align: center;
-}
-form {
+.signup-section form {
   width: 300px;
   margin-left: 20px;
 }
-form label {
+
+.signup-section form .entry {
+  border-bottom: 1px solid gray;
+}
+
+.signup-section form .entry label {
   display: flex;
   margin-top: 20px;
   font-size: 18px;
+  color: #669202;
 }
-form input {
+
+.signup-section form .entry input {
   width: 100%;
   padding: 7px;
   border: none;
-  border: 1px solid gray;
   border-radius: 6px;
   outline: none;
+  font-size: 16px;
 }
-input[type="button"] {
+
+.signup-section form input[type="button"] {
   width: 320px;
   height: 35px;
   margin-top: 20px;
   border: none;
-  background-color: #49c1a2;
+  background-color: #669202;
   color: white;
   font-size: 18px;
+  border-radius: 25px;
 }
-p {
+.signup-section p {
   text-align: center;
   padding-top: 20px;
   font-size: 15px;
 }
-.para-2 {
+.signup-section .para-2 {
   text-align: center;
-  color: white;
+  color: black;
   font-size: 15px;
-  margin-top: -10px;
+  margin: -10px 0;
 }
-.para-2 a {
-  color: #49c1a2;
+.signup-section .para-2 a {
+  color: #2691d9;
 }
