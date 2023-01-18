@@ -14,4 +14,7 @@
     Password:{
         type: String
     },
+    Phone:{
+        type: String
+    },
 })

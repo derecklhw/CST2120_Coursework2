@@ -6,7 +6,7 @@
         type: ObjectId,
         required: true
     },
-    products: [{
+    order_product: [{
         product_id: {
             type: String
         },
