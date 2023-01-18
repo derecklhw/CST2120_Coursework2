@@ -193,7 +193,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
 }
 
 #catalogue
@@ -210,5 +209,17 @@
     text-decoration: none;
     padding: 0.6rem 0.8rem;
     border-radius: 50px;
+    cursor: pointer;
+    transition: 0.25s;
 }
+
+#catalogue
+  .section-wrap
+  .featured-products
+  .product-wrap
+  .product-description
+  .add-to-cart-btn
+  p:hover {
+    background-color: #292c2e;
+  }
 
