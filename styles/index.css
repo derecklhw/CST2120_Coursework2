@@ -255,3 +255,30 @@ section {
 #recommendation .section-wrap .products .fruit .text span {
   font-size: 2.8rem;
 }
+
+#catalogue {
+  width: 100%;
+  position: relative;
+}
+
+#catalogue .banner-section img {
+  width: 100%;
+  object-fit: cover;
+  object-position: bottom;
+  display: block;
+}
+
+#catalogue .banner-section .shop-now {
+  position: absolute;
+  text-decoration: none;
+  display: inline-block;
+  color: #fff;
+  font-size: 13 px;
+  border: 2px solid #669202;
+  padding: 10px 25px;
+  border-radius: 50px;
+  background-color: #669202;
+  transition: 0.5s;
+  top: 68%;
+  left: 13%;
+}
