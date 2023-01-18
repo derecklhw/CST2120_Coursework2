@@ -1,35 +1,124 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Animated Login Form</title>
-        <link rel="stylesheet" href="styles/login.css">
-   </head>
-   <body>
-        <div class="center">
-            <h1>Login</h1>
-            <form method="post">
-                <div class="txt_field">
-                   <input type="text" required>
-                   <span></span>
-                   <label>Username</label>
-                </div>
-                <div class="txt_field">
-                    <input type="password" required>
-                    <span></span>
-                    <label>Password</label>
-                </div>
-                <div class="pass">Forgot Password?</div>
-                <input type="submit" value="Login">
-                <div clas="signup_link">
-                    Not a member?<a href="#">Signup</a>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="styles/login.css" />
+    <script
+      src="https://kit.fontawesome.com/6792829ccf.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="hero">
+      <img class="background" src="assets/images/background.jpg" />
+      <nav>
+        <a href="">
+          <img src="assets/images/logo.png" alt="logo" />
+        </a>
+        <ul>
+          <li><a href="">Home</a></li>
+          <li><a href="">Catalogue</a></li>
+          <li><a href="">User</a></li>
+        </ul>
+        <ul>
+          <li>
+            <a id="basket-text" href=""
+              ><span class="fa-solid fa-basket-shopping"></span> Basket</a
+            >
+          </li>
+          <li>
+            <a id="login-text" href=""
+              ><span class="fa-solid fa-user"></span> Login</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <div class="center">
+        <h1>Login</h1>
+        <form method="post">
+          <div class="txt_field">
+            <input type="text" required />
+            <span></span>
+            <label>Username</label>
+          </div>
+          <div class="txt_field">
+            <input type="password" required />
+            <span></span>
+            <label>Password</label>
+          </div>
+          <div class="pass">Forgot Password?</div>
+          <input type="submit" value="Login" />
+          <div clas="signup_link">Not a member?<a href="#">Signup</a></div>
+        </form>
+      </div>
+    </div>
 
+    <main></main>
 
-                </div>
-
-            </form>
-
-
+    <footer>
+      <div class="columns">
+        <div class="social">
+          <img src="assets/images/logo.png" alt="logo" />
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident
+            maiores asperiores laborum at repellendus ab optio? Expedita sed in,
+            sequi praesentium illum consectetur eaque quibusdam neque debitis
+            culpa reiciendis laudantium!
+          </p>
+          <div class="social-medias">
+            <a href="https://facebook.com" class="fa-brands fa-facebook"></a>
+            <a href="https://google.com" class="fa-brands fa-google"></a>
+            <a href="https://twitter.com" class="fa-brands fa-twitter"></a>
+            <a href="https://linkedin.com" class="fa-brands fa-linkedin"></a>
+            <a href="https://youtube.com" class="fa-brands fa-youtube"></a>
+            <a href="https://instagram.com" class="fa-brands fa-instagram"></a>
+          </div>
         </div>
-   </body>
+        <div class="contact-us">
+          <h2>Contact Us</h2>
+          <ul>
+            <li>
+              <i class="fa-solid fa-location-dot"></i>
+              <p>Coastal Road, Flic en Flac</p>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope"></i>
+              <p>sales@mdx.mu</p>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i>
+              <p>403 6400</p>
+            </li>
+            <li>
+              <i class="fa-solid fa-clock"></i>
+              <p>8:00 - 19:00, Mon - Sat</p>
+            </li>
+          </ul>
+        </div>
+        <div class="quick-links">
+          <h2>Quick Links</h2>
+          <ul>
+            <li>
+              <a href="">Home</a>
+            </li>
+            <li>
+              <a href="">Catalogue</a>
+            </li>
+            <li>
+              <a href="">Past Orders</a>
+            </li>
+            <li>
+              <a href="">Support</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&#169; Copyright 2023 by Fruity Shop. All Rights Reserved</p>
+      </div>
+    </footer>
+  </body>
 </html>

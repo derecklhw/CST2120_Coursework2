@@ -125,6 +125,7 @@
   width: 100%;
   height: auto;
   justify-content: start;
+  border: 1px solid #292c2e;
 }
 
 #catalogue .section-wrap .featured-products .product-wrap {
@@ -202,15 +203,15 @@
   .product-description
   .add-to-cart-btn
   p {
-    color: #fff;
-    font-size: 1rem;
-    text-align: center;
-    background-color: #669202;
-    text-decoration: none;
-    padding: 0.6rem 0.8rem;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: 0.25s;
+  color: #fff;
+  font-size: 1rem;
+  text-align: center;
+  background-color: #669202;
+  text-decoration: none;
+  padding: 0.6rem 0.8rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.25s;
 }
 
 #catalogue
@@ -220,6 +221,5 @@
   .product-description
   .add-to-cart-btn
   p:hover {
-    background-color: #292c2e;
-  }
-
+  background-color: #292c2e;
+}
