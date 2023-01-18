@@ -1,92 +1,88 @@
 <!-- basic shop website -->
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>Untitled Document</title>
     <!-- link with csm.css -->
-    <link href="styles\csm.css" rel="stylesheet" type="text/css">
-    <script 
-        src="https://kit.fontawesome.com/6792829ccf.js"
-        crossorigin="anonymous"
+    <link href="styles\csm.css" rel="stylesheet" type="text/css" />
+    <script
+      src="https://kit.fontawesome.com/6792829ccf.js"
+      crossorigin="anonymous"
     ></script>
-</head>
+  </head>
 
+  <body>
+    <!-- import jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- import bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- import staff.js -->
+    <script async src="scripts\staff.js" type="text/javascript"></script>
+    <!-- Header woth four button -->
 
-<body>
-<!-- import jquery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<!-- import bootstrap -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- import staff.js -->
-<script async src="scripts\staff.js" type="text/javascript"></script>
-<!-- Header woth four button -->
+    <div id="header">
+      <button id="list_products">
+        <i class="fa-sharp fa-solid fa-list"></i> List Products
+      </button>
+      <button id="view_orders">
+        <i class="fa-sharp fa-solid fa-list"></i> List Orders
+      </button>
+      <button id="add">
+        <i class="fa-sharp fa-solid fa-plus"></i> Add Product
+      </button>
+      <button id="remove">
+        <i class="fa-sharp fa-solid fa-eraser"></i> Remove
+      </button>
+    </div>
 
-
-<div id="header">
-    <button id="list_products"><i class="fa-sharp fa-solid fa-list"></i> List Products</button>
-    <button id="view_orders"><i class="fa-sharp fa-solid fa-list"></i> List Orders</button>
-    <button id="add"><i class="fa-sharp fa-solid fa-plus"></i> Add Product</button>
-    <button id="remove"><i class="fa-sharp fa-solid fa-eraser"></i> Remove</button>
-
-</div>
-
-<div id="dialog" >
-    <div>product name</div>
-    <input type="text" id="Product_input" />
-    <div>price</div>
-    <input type="text" id="price_input" />
-    <div>description</div>
-    <input type="text" id="description_input" />
-    <div>nb_available</div>
-    <input type="text" id="nb_available_input" />
-    <div class="button" id="button-2">
+    <div id="dialog">
+      <div>product name</div>
+      <input type="text" id="Product_input" />
+      <div>price</div>
+      <input type="text" id="price_input" />
+      <div>description</div>
+      <input type="text" id="description_input" />
+      <div>nb_available</div>
+      <input type="text" id="nb_available_input" />
+      <div class="button" id="button-2">
         <button id="add_product">add</button>
+      </div>
+      <div class="button" id="button-2">
+        <button id="closeDialog" onclick="$('#dialog').dialog('close');">
+          Cancel
+        </button>
+      </div>
     </div>
-    <div class="button" id="button-2">
-        <button id="closeDialog" onclick="$('#dialog').dialog('close');">Cancel</button>
-    </div>
-</div>
 
-<div id="container">
-    <div id="box">
+    <div id="container">
+      <div id="box">
         <div id="up_element">
-            <div>Product name</div>
-            <input type="text" id="field 1" />
-            <div>Price</div>
-            <input type="text" id="field 2" />
-            <div>Stock</div>
-            <input type="text" id="field 3" />
+          <div>Product name</div>
+          <input type="text" id="field 1" />
+          <div>Price</div>
+          <input type="text" id="field 2" />
+          <div>Stock</div>
+          <input type="text" id="field 3" />
         </div>
         <div id="down_element">
-            <!-- select element -->
-            <select id="select">
-                <option value="1">higer price</option>
-                <option value="2">More popular</option>
-                <option value="3">lower price</option>
-            </select>
-            <button id="search">search</button>
-
+          <!-- select element -->
+          <select id="select">
+            <option value="1">higer price</option>
+            <option value="2">More popular</option>
+            <option value="3">lower price</option>
+          </select>
+          <button id="search">search</button>
         </div>
+      </div>
 
+      <table width="100%">
+        <tbody id="event_table"></tbody>
+      </table>
     </div>
-
-
-
-    <table width="100%">
-        <tbody id = "event_table">
-        </tbody>
-    </table>
-
-</div>
-
-
-</body>
+  </body>
 </html>
-
-
-
 
 <!-- <tr>
             <td>Product</td>
