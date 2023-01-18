@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>50</x>
-      <y>140</y>
+      <x>0</x>
+      <y>70</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -14,7 +14,9 @@
 -User_Id: ObjectId
 -Name: string
 -Surname: string
+-Email: string
 -Password: string
+-Phone: string
 
 </panel_attributes>
     <additional_attributes/>
@@ -22,8 +24,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>310</x>
-      <y>150</y>
+      <x>260</x>
+      <y>80</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -41,8 +43,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>620</x>
-      <y>150</y>
+      <x>570</x>
+      <y>80</y>
       <w>210</w>
       <h>190</h>
     </coordinates>
@@ -50,11 +52,39 @@
 --
 -Order_Id: ObjectId
 -Client_Id: ObjectId
--Product_Id: ObjectId
--number_of_product: int
--price: int
--total_order_price: int
+-order_product: order_product
+-total_price: int
+-date: datetime
 </panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>580</x>
+      <y>380</y>
+      <w>160</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>order_product
+--
+-product_id: ObjectId
+-quantity: int
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>660</x>
+      <y>260</y>
+      <w>30</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=
+m2=*
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
   </element>
 </diagram>

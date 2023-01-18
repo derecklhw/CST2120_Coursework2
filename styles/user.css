@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+}
+
+.left-container {
+    float: left;
+    width: 30%;
+    height: 500px;
+    /* background-color: aqua; */
+}
+
+.right-container {
+    float: right;
+    width: 70%;
+    height: 500px;
+    /* background-color: blue; */
+}
+table{
+    width:100%;
+    background-color: red;
+}
+
+.left-container, .right-container {
+    display: grid;
+    place-items: center;
+    border: 3px solid #284f64;
+  }
+
+  .left-container div, .right-container div {
+    margin: 0; /* This will remove any margins that are set by default */
+    margin-bottom: 2px; /* This will add a 5px margin to the bottom of each paragraph */
+    line-height: 1;
+  }
+
+  .info-container {
+    position: relative;
+    top: -100px; /* This will move the Info container 50px up from its default position */
+  }
+
+  #User_name{
+    position: relative;
+    top: -100px; /* This will move the Info container 50px up from its default position */
+  }

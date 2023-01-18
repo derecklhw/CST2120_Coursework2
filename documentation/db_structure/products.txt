@@ -14,10 +14,10 @@
     stock: {
         type: Number
     },
+    category: {
+        type: String
+    },
     image_link: {
         type: String
     },
-    date: {
-        type: Date
-    }
 });
