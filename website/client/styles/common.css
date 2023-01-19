@@ -1,9 +1,13 @@
+/* || General styles */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: sans-serif;
 }
+
+/* || Background Image styles */
 
 .background {
   position: absolute;
@@ -26,6 +30,8 @@
   }
 }
 
+/* || Hero Container styles */
+
 .hero {
   width: 100%;
   height: 100vh;
@@ -35,6 +41,8 @@
   align-items: center;
   justify-content: center;
 }
+
+/* || Hero Navigation styles */
 
 .hero nav {
   width: 100%;
@@ -47,9 +55,13 @@
   justify-content: space-around;
 }
 
+/* || Hero Logo styles */
+
 .hero nav img {
   width: 120px;
 }
+
+/* || Hero Navigation Links styles */
 
 .hero nav ul li {
   list-style: none;
@@ -62,7 +74,7 @@
   color: #fff;
   font-size: 20px;
   padding: 12px;
-  text-transform: uppercase ;
+  text-transform: uppercase;
 }
 
 .hero nav ul li a:hover {
@@ -71,6 +83,8 @@
   border-radius: 50px;
   padding: 10px;
 }
+
+/* || Hero Content styles */
 
 .hero .content {
   text-align: center;
@@ -113,6 +127,8 @@
   border-color: #292c2e;
 }
 
+/* || Footer styles */
+
 footer {
   width: 100%;
   background-color: #292c2e;
@@ -124,12 +140,16 @@ footer .columns {
   display: flex;
 }
 
+/* || Footer Section styles */
+
 footer .columns .social,
 footer .columns .contact-us,
 footer .columns .quick-links {
   width: 33%;
   margin: 0 20px;
 }
+
+/* || Footer Social Media styles */
 
 footer .columns .social img {
   width: 120px;
@@ -145,6 +165,8 @@ footer .columns .social .social-medias a {
   text-decoration: none;
   margin: 4% 2%;
 }
+
+/* || Footer Contact us and Quick links styles */
 
 footer .columns .contact-us,
 footer .columns .quick-links {
@@ -172,12 +194,16 @@ footer .columns .quick-links ul li a:hover {
   color: #669202;
 }
 
+/* || Footer copyright styles */
+
 footer .copyright {
   color: #fff;
   display: flex;
   justify-content: center;
   margin: 2%;
 }
+
+/* || Section general styles */
 
 section {
   width: 100%;
@@ -187,6 +213,8 @@ section {
   width: 100%;
   padding: 2rem 3.6rem;
 }
+
+/* || Sub section title styles */
 
 .sub-section-title {
   display: flex;
