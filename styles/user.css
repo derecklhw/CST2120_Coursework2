@@ -15,10 +15,10 @@
     height: 500px;
     /* background-color: blue; */
 }
-table{
+/* table{
     width:100%;
     background-color: red;
-}
+} */
 
 .left-container, .right-container {
     display: grid;
@@ -40,4 +40,25 @@ table{
   #User_name{
     position: relative;
     top: -100px; /* This will move the Info container 50px up from its default position */
+  }
+
+  #event_table {
+    width: 100%;
+    /* margin-left: 20%; */
+    text-align: center;
+  }
+
+  #event_table tr:nth-child(even) {
+    background-color: #e6e6e6;
+  }
+  #event_table tr:nth-child(odd) {
+    background-color: #ffcc99;
+  }
+  #event_table td {
+    padding: 10px;
+    text-align: center;
+  }
+  #event_table th {
+    padding: 10px; /* Add a padding of 10px to all cells in the table header */
+    background-color: #c2b3a4;
   }

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="15.0.0">
-  <zoom_level>10</zoom_level>
+  <zoom_level>9</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>70</y>
-      <w>210</w>
-      <h>190</h>
+      <x>126</x>
+      <y>99</y>
+      <w>189</w>
+      <h>171</h>
     </coordinates>
     <panel_attributes>Users
 --
@@ -24,10 +24,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>260</x>
-      <y>80</y>
-      <w>210</w>
-      <h>190</h>
+      <x>405</x>
+      <y>99</y>
+      <w>189</w>
+      <h>171</h>
     </coordinates>
     <panel_attributes>products
 --
@@ -43,10 +43,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>570</x>
-      <y>80</y>
-      <w>210</w>
-      <h>190</h>
+      <x>666</x>
+      <y>99</y>
+      <w>189</w>
+      <h>171</h>
     </coordinates>
     <panel_attributes>orders
 --
@@ -61,10 +61,10 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>580</x>
-      <y>380</y>
-      <w>160</w>
-      <h>110</h>
+      <x>693</x>
+      <y>360</y>
+      <w>144</w>
+      <h>99</h>
     </coordinates>
     <panel_attributes>order_product
 --
@@ -76,15 +76,15 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>660</x>
-      <y>260</y>
-      <w>30</w>
-      <h>140</h>
+      <x>747</x>
+      <y>261</y>
+      <w>27</w>
+      <h>117</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=
 m2=*
 </panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
   </element>
 </diagram>

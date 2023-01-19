@@ -7,8 +7,9 @@
         required: true
     },
     order_product: [{
+
         product_id: {
-            type: String
+            type: ObjectId
         },
         quantity: {
             type: Number
