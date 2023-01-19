@@ -3,8 +3,8 @@
 .container {
   display: flex;
   width: 100%;
-  background-color: rgba(244,244,244, 0.5);
-  border: 3px solid #fff;
+  background-color: rgba(244, 244, 244, 0.75);
+  border: 3px solid rgba(244, 244, 244, 0.75);
   border-radius: 10px;
 }
 
@@ -22,15 +22,15 @@
   border-right: 3px solid #dcdad7;
 }
 
-.left-container .account-logo{
+.left-container .account-logo {
   position: relative;
   top: 35%;
   font-size: 200%;
 }
 
-.left-container .account-name{
+.left-container .account-name {
   position: relative;
-  top:50%;
+  top: 50%;
 }
 
 .left-container .account-name p {
@@ -41,6 +41,38 @@
 .right-container {
   float: right;
   width: 70%;
+}
+
+.right-container h2 {
+  position: relative;
+  top: 10%;
+  font-size: 200%;
+}
+
+.right-container .info-container {
+  position: relative;
+  top: 17%;
+  width: 35%;
+}
+
+.right-container .info-container .details-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 15% 0;
+  font-size: 125%;
+}
+
+.right-container .info-container .details-container .value {
+  color: #515151;
+}
+
+.right-container .info-container .details-container a{
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.right-container .info-container .details-container a:hover {
+  font-size: 126%;
 }
 
 #your-order {
