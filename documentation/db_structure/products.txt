@@ -5,14 +5,14 @@
     name: {
         type: String,
     },
-    description: {
-        type: String,
-    },
     price: {
         type: Number
     },
-    stock: {
+    stock_available: {
         type: Number
+    },
+    season: {
+        type: String
     },
     category: {
         type: String

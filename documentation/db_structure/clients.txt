@@ -17,4 +17,7 @@
     Phone:{
         type: String
     },
+    Adress:{
+        type: String
+    },
 })

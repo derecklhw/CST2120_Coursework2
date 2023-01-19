@@ -1,15 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<diagram program="umlet" version="15.0.0">
-  <zoom_level>9</zoom_level>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>126</x>
-      <y>99</y>
-      <w>189</w>
-      <h>171</h>
-    </coordinates>
-    <panel_attributes>Users
+<diagram program="umletino" version="15.0.0"><zoom_level>9</zoom_level><element><id>UMLClass</id><coordinates><x>0</x><y>144</y><w>189</w><h>171</h></coordinates><panel_attributes>Users
 --
 -User_Id: ObjectId
 -Name: string
@@ -17,74 +6,28 @@
 -Email: string
 -Password: string
 -Phone: string
+-Adress: string
 
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>405</x>
-      <y>99</y>
-      <w>189</w>
-      <h>171</h>
-    </coordinates>
-    <panel_attributes>products
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>279</x><y>144</y><w>189</w><h>171</h></coordinates><panel_attributes>products
 --
 -product_Id: ObjectId
 -Name: string
--Description: string
 -price: int
--stock: int
+-stock_available: int
+-season: string
 -category: string
--image_link: string</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>666</x>
-      <y>99</y>
-      <w>189</w>
-      <h>171</h>
-    </coordinates>
-    <panel_attributes>orders
+-image_link: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>540</x><y>144</y><w>189</w><h>171</h></coordinates><panel_attributes>orders
 --
 -Order_Id: ObjectId
 -Client_Id: ObjectId
 -order_product: order_product
 -total_price: int
 -date: datetime
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>693</x>
-      <y>360</y>
-      <w>144</w>
-      <h>99</h>
-    </coordinates>
-    <panel_attributes>order_product
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>567</x><y>405</y><w>144</w><h>99</h></coordinates><panel_attributes>order_product
 --
 -product_id: ObjectId
 -quantity: int
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>747</x>
-      <y>261</y>
-      <w>27</w>
-      <h>117</h>
-    </coordinates>
-    <panel_attributes>lt=-
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>621</x><y>306</y><w>36</w><h>117</h></coordinates><panel_attributes>lt=-
 m1=
 m2=*
-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
-  </element>
-</diagram>
+</panel_attributes><additional_attributes>10;10;10;110</additional_attributes></element></diagram>
