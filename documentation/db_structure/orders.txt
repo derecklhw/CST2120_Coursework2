@@ -7,7 +7,6 @@
         required: true
     },
     order_product: [{
-
         product_id: {
             type: ObjectId
         },
