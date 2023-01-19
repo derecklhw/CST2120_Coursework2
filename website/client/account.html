@@ -4,48 +4,65 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home Page</title>
+    <title>Fruity Shop - Account Page</title>
     <link rel="stylesheet" href="styles/account.css" />
+    <!-- Link to fontawesome api -->
     <script
       src="https://kit.fontawesome.com/6792829ccf.js"
       crossorigin="anonymous"
     ></script>
   </head>
   <body>
+    <!--  Hero Section -->
     <div class="hero">
+      <!-- Hero background image -->
       <img class="background" src="assets/images/background/background1.jpg" />
+
+      <!-- Navigation bar -->
       <nav>
-        <a href="">
+        <!-- Website logo -->
+        <a href="index.html">
           <img src="assets/images/logo.png" alt="logo" />
         </a>
+        <!-- Navigation links-->
         <ul>
-          <li><a href="">Home</a></li>
-          <li><a href="">Catalog</a></li>
-          <li><a href="">Account</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#catalogue">Catalog</a></li>
+          <li><a href="account.html">Account</a></li>
         </ul>
+        <!-- Basket and login links -->
         <ul>
           <li>
-            <a id="basket-text" href=""
+            <a id="basket-text" href="cart.html"
               ><span class="fa-solid fa-basket-shopping"></span> Basket</a
             >
           </li>
           <li>
-            <a id="login-text" href=""
+            <a id="login-text" href="login.html"
               ><span class="fa-solid fa-user"></span> Login</a
             >
           </li>
         </ul>
       </nav>
+
+      <!-- User Account Section-->
       <div class="container">
+        <!-- Left container -->
         <div class="left-container">
+          <!-- User Logo -->
           <div class="account-logo">
             <p class="fa-solid fa-user fa-2xl"></p>
           </div>
+
+          <!-- User Account Name -->
           <div class="account-name">
             <p>Damien Maujean</p>
           </div>
         </div>
+
+        <!-- Right container -->
         <div class="right-container">
+          <!-- User Account Details and Edit Buttons -->
           <h2>Account Details</h2>
           <div class="info-container">
             <div class="details-container">
@@ -73,60 +90,65 @@
       </div>
     </div>
     <main>
+      <!-- Your Orders section -->
       <section id="your-orders" name="your-orders">
         <div class="section-wrap">
+          <!-- Banner Image -->
           <div class="banner-section">
-            <!-- <a href="" class="shop-now">Shop Now</a> -->
             <img src="assets/images/banner/banner1.jpg" alt="banner" />
           </div>
 
           <div class="sub-section-title">
             <p>Your Orders</p>
           </div>
+
+          <!-- Your Orders' Table -->
           <div class="table-container">
             <table id="order-table">
               <thead>
-                <td>Product</td>
-                <td>Price</td>
+                <td>Order Id</td>
+                <td>Order Date</td>
                 <td>Description</td>
-                <td>nb_available</td>
-                <td>image_link</td>
+                <td>Total Price</td>
+                <td>Delivering Address</td>
               </thead>
 
               <tr>
-                <td>Product 1</td>
-                <td>10</td>
-                <td>Product 1 description</td>
-                <td>10</td>
-                <td>to be fill</td>
+                <td>Order 1</td>
+                <td>10/10/2022</td>
+                <td>Order 1 description</td>
+                <td>10.00</td>
+                <td>Flic en Flac</td>
               </tr>
 
               <tr>
-                <td>Product 2</td>
-                <td>20</td>
-                <td>Product 2 description</td>
-                <td>20</td>
-                <td>to be fill</td>
+                <td>Order 2</td>
+                <td>12/01/2023</td>
+                <td>Order 2 description</td>
+                <td>20.00</td>
+                <td>Tamarin</td>
               </tr>
 
               <tr>
-                <td>Product 3</td>
-                <td>30</td>
-                <td>Product 3 description</td>
-                <td>30</td>
-                <td>to be fill</td>
+                <td>Order 3</td>
+                <td>13/01/2023</td>
+                <td>Order 3 description</td>
+                <td>30.00</td>
+                <td>Tamarin</td>
               </tr>
 
               <tr>
-                <td>Product 4</td>
-                <td>40</td>
-                <td>Product 4 description</td>
-                <td>40</td>
-                <td>to be fill</td>
+                <td>Order 4</td>
+                <td>31/02/2023</td>
+                <td>Order 4 description</td>
+                <td>40.00</td>
+                <td>Tamarin</td>
               </tr>
             </table>
           </div>
         </div>
+
+        <!-- Continue Shopping button -->
         <div class="continue-shopping-section">
           <p>
             <span class="fa-solid fa-chevron-left"></span
@@ -136,9 +158,11 @@
       </section>
     </main>
 
+    <!-- Footer Section -->
     <footer>
       <div class="columns">
         <div class="social">
+          <!-- Website Logo -->
           <img src="assets/images/logo.png" alt="logo" />
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident
@@ -146,6 +170,7 @@
             sequi praesentium illum consectetur eaque quibusdam neque debitis
             culpa reiciendis laudantium!
           </p>
+          <!-- Social Media Icons & Links -->
           <div class="social-medias">
             <a href="https://facebook.com" class="fa-brands fa-facebook"></a>
             <a href="https://google.com" class="fa-brands fa-google"></a>
@@ -155,6 +180,8 @@
             <a href="https://instagram.com" class="fa-brands fa-instagram"></a>
           </div>
         </div>
+
+        <!-- Contact Us details -->
         <div class="contact-us">
           <h2>Contact Us</h2>
           <ul>
@@ -176,24 +203,27 @@
             </li>
           </ul>
         </div>
+
+        <!-- Quick Links -->
         <div class="quick-links">
           <h2>Quick Links</h2>
           <ul>
             <li>
-              <a href="">Home</a>
+              <a href="index.html">Home</a>
             </li>
             <li>
-              <a href="">Catalogue</a>
+              <a href="index.html#catalogue">Catalogue</a>
             </li>
             <li>
-              <a href="">Past Orders</a>
+              <a href="account.html">Account</a>
             </li>
             <li>
-              <a href="">Support</a>
+              <a href="account.html#your-orders">Your Orders</a>
             </li>
           </ul>
         </div>
       </div>
+      <!-- Copyright Section -->
       <div class="copyright">
         <p>&#169; Copyright 2023 by Fruity Shop. All Rights Reserved</p>
       </div>
