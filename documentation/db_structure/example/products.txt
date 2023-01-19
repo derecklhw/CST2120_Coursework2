@@ -1,23 +1,19 @@
 {
-    product_id: {
-        type: ObjectId
-    },
-    name: {
-        type: String,
-    },
-    price: {
-        type: Number
-    },
-    stock_available: {
-        type: Number
-    },
-    season: {
-        type: String
-    },
-    category: {
-        type: String
-    },
-    image_link: {
-        type: String
-    },
+    "product_id": "PRO002",
+    "name": "Fresh Apple",
+    "price": 32.00,
+    "stock_available": 10000,
+    "season":"summer",
+    "category": "pome",
+    image_link: "assets/images/fruits/fresh_apple.jpg",
+}
+
+{
+    "product_id": "PRO022",
+    "name": "Orange",
+    "price": 22.00,
+    "stock_available": 8000,
+    "season":"summer",
+    "category": "citrus",
+    image_link: "assets/images/fruits/orange.jpg",
 }

@@ -1,23 +1,15 @@
 {
-    order_id: {
-        type: ObjectId
-    },
-    client_id: {
-        type: ObjectId,
-        required: true
-    },
-    order_product: [{
-        product_id: {
-            type: ObjectId
-        },
-        quantity: {
-            type: Number
-        }
-    }],
-    total_price: {
-        type: Number
-    },
-    date: {
-        type: Date
-    }
+    "order_id": "ORD001"
+    "client_id": "USR003",
+    "order_product": "PRO010", 200,
+    "total_price": 30.00,
+    "date": 22/02/2023
+}
+
+{
+    "order_id": "ORD003"
+    "client_id": "USR006",
+    "order_product": "PRO022", 400,
+    "total_price": 67.00,
+    "date": 01/02/2022
 }

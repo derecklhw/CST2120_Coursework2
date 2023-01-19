@@ -1,26 +1,21 @@
 {
-    User_id:{
-        type: ObjectId
-    },
-    Name:{
-        type: String
-    },
-    SurName:{
-        type: String
-    },
-    Email:{
-        type: String
-    },
-    Password:{
-        type: String
-    },
-    Phone:{
-        type: String
-    },
-    Adress:{
-        type: String
-    },
-    category:{
-        type: String
-    },
+    "User_id": USR002,
+    "Name": "Damien",
+    "SurName": "Maujean",
+    "Email": "DM84534@mdx.ac.uk",
+    "Password": "12345",
+    "Phone": "+230 567 4567",
+    "Address": "Tamarin",
+    "category": "client"
+}
+
+{
+    "User_id": USR023,
+    "Name": "Ronuk",
+    "SurName": "Luchmonee",
+    "Email": "RL334@mdx.ac.uk",
+    "Password": "abcde",
+    "Phone": "+230 545 4567",
+    "Address": "vacoas",
+    "category": "staff"
 }
