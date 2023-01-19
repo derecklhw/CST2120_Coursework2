@@ -32,13 +32,13 @@
       <button id="add">
         <i class="fa-sharp fa-solid fa-plus"></i> Add Product
       </button>
-      <button id="remove">
+      <button id="delete">
         <i class="fa-sharp fa-solid fa-eraser"></i> Remove
       </button>
     </div>
 
-    <div id="dialog">
-      <div>product name</div>
+    <div class="dialog_popup" id="dialog_add">
+      <div></div>
       <input type="text" id="Product_input" />
       <div>price</div>
       <input type="text" id="price_input" />
@@ -47,10 +47,29 @@
       <div>nb_available</div>
       <input type="text" id="nb_available_input" />
       <div class="button" id="button-2">
-        <button id="add_product">add</button>
+        <button class="popup_button" id="add_product">add</button>
       </div>
-      <div class="button" id="button-2">
-        <button id="closeDialog" onclick="$('#dialog').dialog('close');">
+      <div id="button-2">
+        <button class="popup_button" id="closeDialog" onclick="$('#dialog_add').dialog('close');">
+          Cancel
+        </button>
+      </div>
+    </div>
+
+    <div class="dialog_popup" id="dialog_delete">
+      <select id="select_delete_type">
+        <option value="1">Select by</option>
+        <option value="2">Id</option>
+        <option value="3">Name</option>
+      </select>
+      <div>input</div>
+      <input type="text" id="delete_input" />
+      <div></div>
+      <div>
+        <button class="popup_button" id="delete_product">delete</button>
+      </div>
+      <div id="button-2">
+        <button class="popup_button" id="closeDialog" onclick="$('#dialog_delete').dialog('close');">
           Cancel
         </button>
       </div>

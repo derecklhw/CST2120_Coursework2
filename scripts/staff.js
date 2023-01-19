@@ -48,13 +48,22 @@ $(function () {
     // fill table with data on page load
     fillTable(data_product,products_header);
 
-    $("#dialog").dialog({
+    $("#dialog_add").dialog({
+        autoOpen: false,
+    });
+    $("#dialog_delete").dialog({
         autoOpen: false,
     });
 
     $("#add").click(function () {
-        $("#dialog").dialog("open");
-        $("#dialog").draggable();
+        // $("#dialog_add").dialog("option", "height",600)
+        $("#dialog_add").dialog("open");
+        $("#dialog_add").draggable();
+    });
+
+    $("#delete").click(function () {
+        $("#dialog_delete").dialog("open");
+        $("#dialog_delete").draggable();
     });
 
     // listen when button with view_order id is clicked and fill table with orders data

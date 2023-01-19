@@ -13,11 +13,11 @@
   background-color: #c2b3a4;
 }
 
-#dialog {
+.dialog_popup {
   position: absolute;
   top: 0px;
   /* left: 40%; */
-  width: 320px;
+  /* width: 800px; */
   padding: 20px;
   background: #f0f0f0;
   border-radius: 5px;
@@ -25,12 +25,25 @@
   border-top: 5px solid #ff7700;
   margin: 0 auto;
 }
-#dialog button {
+.dialog_popup input{
+  width: 300px;
+  padding: 3px;
+  margin: 5px;
+}
+.dialog_popup select{
+  width: 300px;
+  padding: 3px;
+  margin: 5px;
+}
+.dialog_popup div{
+  margin-top: 5px;
+}
+.popup_button {
   display: inline-block;
   margin: 3px;
   color: #c9640b;
   border: 2px solid #ff7700;
-  width: 50%;
+  width: 40%;
   text-align: center;
   cursor: pointer;
 }
