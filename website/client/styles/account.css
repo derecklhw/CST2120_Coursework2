@@ -151,7 +151,7 @@
 
 /* || Your Order continue shopping button styles */
 
-#your-orders .continue-shopping-section p {
+#your-orders .continue-shopping-section a {
   margin-left: 3.6rem;
   color: #fff;
   font-size: 1rem;
@@ -163,6 +163,6 @@
   text-transform: uppercase;
 }
 
-#your-orders .continue-shopping-section p:hover {
+#your-orders .continue-shopping-section a:hover {
   background-color: #669202;
 }

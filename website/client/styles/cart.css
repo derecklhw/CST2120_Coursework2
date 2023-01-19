@@ -128,7 +128,7 @@
   width: 20%;
 }
 
-#shopping-cart .continue-shopping-section p {
+#shopping-cart .continue-shopping-section a {
   margin-left: 3.6rem;
   color: #fff;
   font-size: 1rem;
@@ -140,6 +140,6 @@
   text-transform: uppercase;
 }
 
-#shopping-cart .continue-shopping-section p:hover {
+#shopping-cart .continue-shopping-section a:hover {
   background-color: #669202;
 }
