@@ -1,5 +1,7 @@
 @import "common.css";
 
+/* || Container general styles */
+
 .container {
   display: flex;
   width: 100%;
@@ -7,6 +9,8 @@
   border: 3px solid rgba(244, 244, 244, 0.75);
   border-radius: 10px;
 }
+
+/* || Left and right container general styles */
 
 .left-container,
 .right-container {
@@ -16,17 +20,23 @@
   align-items: center;
 }
 
+/* || Left container styles */
+
 .left-container {
   float: left;
   width: 30%;
   border-right: 3px solid #dcdad7;
 }
 
+/* || Left container account logo styles */
+
 .left-container .account-logo {
   position: relative;
   top: 35%;
   font-size: 200%;
 }
+
+/* || Left container account name styles */
 
 .left-container .account-name {
   position: relative;
@@ -38,10 +48,14 @@
   font-size: 120%;
 }
 
+/* || Right container styles */
+
 .right-container {
   float: right;
   width: 70%;
 }
+
+/* || Right container header styles */
 
 .right-container h2 {
   position: relative;
@@ -49,11 +63,15 @@
   font-size: 200%;
 }
 
+/* || Right container info container styles */
+
 .right-container .info-container {
   position: relative;
   top: 17%;
   width: 35%;
 }
+
+/* || Right container info > details container styles */
 
 .right-container .info-container .details-container {
   display: flex;
@@ -66,7 +84,7 @@
   color: #515151;
 }
 
-.right-container .info-container .details-container a{
+.right-container .info-container .details-container a {
   cursor: pointer;
   transition: 0.25s;
 }
@@ -75,19 +93,25 @@
   font-size: 126%;
 }
 
-#your-order {
+/* || Your orders styles */
+
+#your-orders {
   width: 100%;
   position: relative;
   padding-bottom: 2rem;
 }
 
-.banner-section img {
+/* || Your orders banner image styles */
+
+#your-orders .section-wrap .banner-section img {
   width: 100%;
   object-fit: cover;
   object-position: bottom;
   display: block;
   padding-bottom: 3%;
 }
+
+/* || Order table styles */
 
 #order-table {
   margin-top: 1rem;
@@ -98,10 +122,14 @@
   color: #6b6b66;
 }
 
+/* || Order table header styles */
+
 #order-table thead td {
   background-color: #dcdad7;
   color: #292c2e;
 }
+
+/* || Order table child rows styles */
 
 #order-table tr:nth-child(even) {
   background-color: #f5f5f5;
@@ -114,10 +142,14 @@
   text-align: center;
 }
 
+/* || Your Order continue shopping container styles */
+
 #your-orders .continue-shopping-section {
   margin-bottom: 5%;
   width: 20%;
 }
+
+/* || Your Order continue shopping button styles */
 
 #your-orders .continue-shopping-section p {
   margin-left: 3.6rem;
@@ -129,4 +161,8 @@
   cursor: pointer;
   transition: 0.25s;
   text-transform: uppercase;
+}
+
+#your-orders .continue-shopping-section p:hover {
+  background-color: #669202;
 }
