@@ -1,4 +1,3 @@
-<!-- basic shop website -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,6 +5,7 @@
     <title>Untitled Document</title>
     <!-- link with cms.css -->
     <link href="styles\cms.css" rel="stylesheet" type="text/css" />
+    <!-- link with fontawesome api -->
     <script
       src="https://kit.fontawesome.com/6792829ccf.js"
       crossorigin="anonymous"
@@ -20,8 +20,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- import staff.js -->
     <script async src="scripts\staff.js" type="text/javascript"></script>
-    <!-- Header woth four button -->
 
+    <!-- Header functionality options -->
     <div id="header">
       <button id="list_products">
         <i class="fa-sharp fa-solid fa-list"></i> List Products
@@ -37,6 +37,7 @@
       </button>
     </div>
 
+    <!-- Add Product dialog pop up -->
     <div class="dialog_popup" id="dialog_add">
       <div>Product name</div>
       <input type="text" id="Product_input" />
@@ -54,12 +55,17 @@
         <button class="popup_button" id="add_product">add</button>
       </div>
       <div id="button-2">
-        <button class="popup_button" id="closeDialog" onclick="$('#dialog_add').dialog('close');">
+        <button
+          class="popup_button"
+          id="closeDialog"
+          onclick="$('#dialog_add').dialog('close');"
+        >
           Cancel
         </button>
       </div>
     </div>
 
+    <!-- Remove Product dialog pop up -->
     <div class="dialog_popup" id="dialog_delete">
       <select id="select_delete_type">
         <option value="1">Select by</option>
@@ -73,14 +79,20 @@
         <button class="popup_button" id="delete_product">delete</button>
       </div>
       <div id="button-2">
-        <button class="popup_button" id="closeDialog" onclick="$('#dialog_delete').dialog('close');">
+        <button
+          class="popup_button"
+          id="closeDialog"
+          onclick="$('#dialog_delete').dialog('close');"
+        >
           Cancel
         </button>
       </div>
     </div>
 
+    <!-- Product Search functionality -->
     <div id="container">
       <div id="box">
+        <!-- input options fields -->
         <div id="up_element">
           <div id="search_1">Product name</div>
           <input type="text" id="field 1" />
@@ -90,7 +102,7 @@
           <input type="text" id="field 3" />
         </div>
         <div id="down_element">
-          <!-- select element -->
+          <!-- dropdown options fields -->
           <select id="select">
             <option value="1">higer price</option>
             <option value="2">More popular</option>
@@ -106,48 +118,3 @@
     </div>
   </body>
 </html>
-
-<!-- <tr>
-            <td>Product</td>
-            <td>Price</td>
-            <td>Description</td>
-            <td>nb_available</td>
-            <td>image_link</td>
-            <td></td>
-            </tr>
-
-            <tr>
-            <td>Product 1</td>
-            <td>10</td>
-            <td>Product 1 description</td>
-            <td>10</td>
-            <td>to be fill</td>
-            <td><button class="edit">edit</button></td>
-            </tr>
-
-            <tr>
-            <td>Product 2</td>
-            <td>20</td>
-            <td>Product 2 description</td>
-            <td>20</td>
-            <td>to be fill</td>
-            <td><button class="edit">edit</button></td>
-            </tr>
-
-            <tr>
-            <td>Product 3</td>
-            <td>30</td>
-            <td>Product 3 description</td>
-            <td>30</td>
-            <td>to be fill</td>
-            <td><button class="edit">edit</button></td>
-            </tr>
-
-            <tr>
-            <td>Product 4</td>
-            <td>40</td>
-            <td>Product 4 description</td>
-            <td>40</td>
-            <td>to be fill</td>
-            <td><button class="edit">edit</button></td>
-            </tr> -->
