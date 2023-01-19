@@ -3,46 +3,47 @@
 .container {
   display: flex;
   width: 100%;
-  background-color: #fff;
+  background-color: rgba(244,244,244, 0.5);
+  border: 3px solid #fff;
+  border-radius: 10px;
+}
+
+.left-container,
+.right-container {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  align-items: center;
 }
 
 .left-container {
   float: left;
   width: 30%;
-  height: 500px;
+  border-right: 3px solid #dcdad7;
+}
+
+.left-container .account-logo{
+  position: relative;
+  top: 35%;
+  font-size: 200%;
+}
+
+.left-container .account-name{
+  position: relative;
+  top:50%;
+}
+
+.left-container .account-name p {
+  font-weight: bold;
+  font-size: 120%;
 }
 
 .right-container {
   float: right;
   width: 70%;
-  height: 500px;
 }
 
-.left-container,
-.right-container {
-  display: grid;
-  place-items: center;
-  border: 3px solid #284f64;
-}
-
-.left-container div,
-.right-container div {
-  margin: 0;
-  margin-bottom: 2px;
-  line-height: 1;
-}
-
-.info-container {
-  position: relative;
-  top: -100px;
-}
-
-#User_name {
-  position: relative;
-  top: -100px;
-}
-
-#your-order{
+#your-order {
   width: 100%;
   position: relative;
   padding-bottom: 2rem;
