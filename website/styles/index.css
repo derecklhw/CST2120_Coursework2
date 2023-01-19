@@ -1,0 +1,225 @@
+@import "common.css";
+
+#recommendation .section-wrap .products {
+  margin-top: 1rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#recommendation .section-wrap .products .fruit {
+  margin: 0.4rem;
+  position: relative;
+  flex-basis: 330px;
+  flex-grow: 1;
+  height: 240px;
+  border-radius: 0.1rem;
+}
+
+#recommendation .section-wrap .products .fruit img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom;
+  display: block;
+}
+
+#recommendation .section-wrap .products .fruit .text {
+  position: absolute;
+  color: #fff;
+  top: 0;
+  left: 0;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  font-weight: bold;
+  text-shadow: 0 0 0.9rem #444;
+}
+
+#recommendation .section-wrap .products .fruit .text h2,
+#recommendation .section-wrap .products .fruit .text p {
+  font-size: 1.8rem;
+}
+
+#recommendation .section-wrap .products .fruit .text span {
+  font-size: 2.8rem;
+}
+
+#catalogue {
+  width: 100%;
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+#catalogue .banner-section img {
+  width: 100%;
+  object-fit: cover;
+  object-position: bottom;
+  display: block;
+  padding-bottom: 3%;
+}
+
+/* #catalogue .banner-section .shop-now {
+  position: absolute;
+  text-decoration: none;
+  display: inline-block;
+  color: #fff;
+  font-size: 13 px;
+  border: 2px solid #669202;
+  padding: 10px 25px;
+  border-radius: 50px;
+  background-color: #669202;
+  transition: 0.5s;
+  top: 300px;
+  left: 13%;
+} */
+
+#catalogue .section-wrap .search-sorting-bar {
+  width: 100%;
+  height: 55px;
+  border: solid 1px #292c2e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2%;
+}
+
+#search-section {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#search-section #search-input {
+  padding: 2%;
+  width: 92%;
+}
+
+#search-section a {
+  color: #343434;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+#sort-section {
+  width: 15%;
+}
+
+#sort-section label {
+  color: #343236;
+}
+
+#sort-section select {
+  padding: 2% 4%;
+  color: #343434;
+  background-color: transparent;
+  border: solid 1px #292c2e;
+}
+
+#catalogue .section-wrap .featured-products {
+  padding-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: auto;
+  justify-content: start;
+  border: 1px solid #292c2e;
+}
+
+#catalogue .section-wrap .featured-products .product-wrap {
+  margin: 0 0.7rem 2rem 0.6rem;
+  position: relative;
+  height: 360px;
+  width: 260px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 0.2rem;
+  box-shadow: 0.6rem 0.6rem 1rem #ddd;
+}
+
+#catalogue .section-wrap .featured-products .product-wrap .product-img {
+  position: relative;
+  width: 100%;
+  height: 55%;
+  border: 2px solid #fff;
+  border-radius: 0.2rem 0.2rem 0.8rem 0.8rem;
+}
+
+#catalogue .section-wrap .featured-products .product-wrap .product-img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+#catalogue .section-wrap .featured-products .product-wrap .product-description {
+  margin-top: 0.4rem;
+  padding: 0.8rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#catalogue
+  .section-wrap
+  .featured-products
+  .product-wrap
+  .product-description
+  .product-name {
+  color: #343236;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+#catalogue
+  .section-wrap
+  .featured-products
+  .product-wrap
+  .product-description
+  .product-price {
+  font-size: 1.2rem;
+  margin-top: 0.6rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+#catalogue
+  .section-wrap
+  .featured-products
+  .product-wrap
+  .product-description
+  .add-to-cart-btn {
+  margin-top: 1.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#catalogue
+  .section-wrap
+  .featured-products
+  .product-wrap
+  .product-description
+  .add-to-cart-btn
+  p {
+  color: #fff;
+  font-size: 1rem;
+  text-align: center;
+  background-color: #669202;
+  text-decoration: none;
+  padding: 0.6rem 0.8rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+#catalogue
+  .section-wrap
+  .featured-products
+  .product-wrap
+  .product-description
+  .add-to-cart-btn
+  p:hover {
+  background-color: #292c2e;
+}
