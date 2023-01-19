@@ -1,11 +1,15 @@
 @import "common.css";
 
-.sub-sections {
+/* || Shopping cart sub section styles */
+
+#shopping-cart .sub-sections {
   width: 100%;
   height: auto;
   display: flex;
   justify-content: space-between;
 }
+
+/* || Cart Section styles */
 
 #cart-section {
   width: 70%;
@@ -15,11 +19,15 @@
   flex-direction: column;
 }
 
+/* || Checkout styles */
+
 #checkout-section {
   width: 25%;
   height: auto;
   background-color: #fff;
 }
+
+/* || Checkout sub sections general styles */
 
 #checkout-section .calculation-section,
 .total-section,
@@ -29,6 +37,8 @@
   padding: 5%;
   border: solid 1px #292c2e;
 }
+
+/* || Checkout sub sections rows styles */
 
 #checkout-section .calculation-section .row,
 #checkout-section .total-section .row {
@@ -42,6 +52,8 @@
 #checkout-section .total-section .row .value {
   color: #669202;
 }
+
+/* || Checkout button styles */
 
 #checkout-section .checkout-btn-section {
   align-items: center;
@@ -62,6 +74,8 @@
 #checkout-section .checkout-btn-section p:hover {
   background-color: #669202;
 }
+
+/* || Cart Product Order styles */
 
 #cart-section .product-order {
   display: flex;
@@ -103,6 +117,12 @@
   cursor: pointer;
 }
 
+#cart-section .product-order .trash-icon p:hover {
+  color: #669202;
+}
+
+/* || Continue Shopping Button styles */
+
 #shopping-cart .continue-shopping-section {
   margin-bottom: 5%;
   width: 20%;
@@ -118,4 +138,8 @@
   cursor: pointer;
   transition: 0.25s;
   text-transform: uppercase;
+}
+
+#shopping-cart .continue-shopping-section p:hover {
+  background-color: #669202;
 }

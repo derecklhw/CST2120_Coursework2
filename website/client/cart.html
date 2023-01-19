@@ -4,42 +4,53 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home Page</title>
+    <title>Fruity Shop - Cart</title>
     <link rel="stylesheet" href="styles/cart.css" />
+    <!-- Link to fontawesome api -->
     <script
       src="https://kit.fontawesome.com/6792829ccf.js"
       crossorigin="anonymous"
     ></script>
   </head>
   <body>
+    <!--  Hero Section -->
     <div class="hero">
-      <img class="background" src="assets/images/background/background.jpg" />
+      <!-- Hero background image -->
+      <img class="background" src="assets/images/background/background1.jpg" />
+      <!-- Navigation bar -->
       <nav>
-        <a href="">
+        <!-- Website logo -->
+        <a href="index.html">
           <img src="assets/images/logo.png" alt="logo" />
         </a>
+        <!-- Navigation links-->
         <ul>
-          <li><a href="">Home</a></li>
-          <li><a href="">Catalog</a></li>
-          <li><a href="">Account</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#catalogue">Catalog</a></li>
+          <li><a href="account.html">Account</a></li>
         </ul>
+        <!-- Basket and login links -->
         <ul>
           <li>
-            <a id="basket-text" href=""
+            <a id="basket-text" href="cart.html"
               ><span class="fa-solid fa-basket-shopping"></span> Basket</a
             >
           </li>
           <li>
-            <a id="login-text" href=""
+            <a id="login-text" href="login.html"
               ><span class="fa-solid fa-user"></span> Login</a
             >
           </li>
         </ul>
       </nav>
+
+      <!-- Shopping Kart Section -->
       <div class="content">
         <h1>Shopping Kart</h1>
         <p>Limited Quantities Only</p>
-        <a href="" class="shop-now">Shop Now</a>
+
+        <!-- Button redirect to catalogue -->
+        <a href="index.html#catalogue" class="shop-now">Shop Now</a>
       </div>
     </div>
     <main>
@@ -50,18 +61,24 @@
           </div>
 
           <div class="sub-sections">
+            <!-- Display the products already in cart -->
             <div id="cart-section">
+              <!-- Order Example-->
               <div class="product-order">
+                <!-- Product Image -->
                 <div class="product-img column">
                   <img
                     src="assets/images/fruits/grape-black.jpg"
                     src="grape-black-img"
                   />
                 </div>
+                <!-- Product Description -->
                 <div class="product-description column">
                   <p class="name">Grape Black</p>
                   <p class="price">$13.22</p>
                 </div>
+
+                <!-- Quantity Number Spinner -->
                 <div class="number-spinner column">
                   <form action="">
                     <label for="quantity"></label>
@@ -75,9 +92,13 @@
                     />
                   </form>
                 </div>
+
+                <!-- Product total order price -->
                 <div class="product-price column">
                   <p class="price">$13.22</p>
                 </div>
+
+                <!-- Remove product in cart button -->
                 <div class="trash-icon column">
                   <p class="fa-solid fa-trash"></p>
                 </div>
@@ -113,33 +134,41 @@
               </div>
             </div>
 
+            <!-- Checkout section -->
             <div id="checkout-section">
+              <!-- Number of items and  shipping sections -->
               <div class="calculation-section">
                 <div class="row">
-                  <p>0 items</p>
-                  <p class="value">$0.00</p>
+                  <p>2 items</p>
+                  <p class="value">$28.73</p>
                 </div>
                 <div class="row">
                   <p>Shipping</p>
                   <p class="value">Free</p>
                 </div>
               </div>
+
+              <!-- Total Price and Taxes Section -->
               <div class="total-section">
                 <div class="row">
                   <p>Total (tax excl.)</p>
-                  <p class="value">$0.00</p>
+                  <p class="value">$28.73</p>
                 </div>
                 <div class="row">
                   <p>Taxes</p>
-                  <p class="value">$0.00</p>
+                  <p class="value">$4.50</p>
                 </div>
               </div>
+
+              <!-- Checkout btn -->
               <div class="checkout-btn-section">
                 <p><span class="icon-checkout-cart"></span>Checkout</p>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- Continue Shopping button -->
         <div class="continue-shopping-section">
           <p>
             <span class="fa-solid fa-chevron-left"></span
@@ -148,9 +177,12 @@
         </div>
       </section>
     </main>
+
+    <!-- Footer Section -->
     <footer>
       <div class="columns">
         <div class="social">
+          <!-- Website Logo -->
           <img src="assets/images/logo.png" alt="logo" />
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident
@@ -158,6 +190,7 @@
             sequi praesentium illum consectetur eaque quibusdam neque debitis
             culpa reiciendis laudantium!
           </p>
+          <!-- Social Media Icons & Links -->
           <div class="social-medias">
             <a href="https://facebook.com" class="fa-brands fa-facebook"></a>
             <a href="https://google.com" class="fa-brands fa-google"></a>
@@ -167,6 +200,8 @@
             <a href="https://instagram.com" class="fa-brands fa-instagram"></a>
           </div>
         </div>
+
+        <!-- Contact Us details -->
         <div class="contact-us">
           <h2>Contact Us</h2>
           <ul>
@@ -188,24 +223,27 @@
             </li>
           </ul>
         </div>
+
+        <!-- Quick Links -->
         <div class="quick-links">
           <h2>Quick Links</h2>
           <ul>
             <li>
-              <a href="">Home</a>
+              <a href="index.html">Home</a>
             </li>
             <li>
-              <a href="">Catalogue</a>
+              <a href="index.html#catalogue">Catalogue</a>
             </li>
             <li>
-              <a href="">Past Orders</a>
+              <a href="account.html">Account</a>
             </li>
             <li>
-              <a href="">Support</a>
+              <a href="account.html#your-orders">Your Orders</a>
             </li>
           </ul>
         </div>
       </div>
+      <!-- Copyright Section -->
       <div class="copyright">
         <p>&#169; Copyright 2023 by Fruity Shop. All Rights Reserved</p>
       </div>
