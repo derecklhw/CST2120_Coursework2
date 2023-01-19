@@ -1,5 +1,7 @@
 @import "common.css";
 
+/* || Registration section styles */
+
 .signup-section {
   width: 360px;
   height: 560px;
@@ -8,6 +10,8 @@
   border-radius: 10px;
 }
 
+/* || Registration header styles */
+
 .signup-section h1 {
   text-align: center;
   padding-top: 15px;
@@ -15,10 +19,14 @@
   padding-bottom: 20px;
 }
 
+/* || Registration form styles */
+
 .signup-section form {
   width: 300px;
   margin-left: 20px;
 }
+
+/* || Registration entry styles */
 
 .signup-section form .entry {
   border-bottom: 1px solid gray;
@@ -40,6 +48,8 @@
   font-size: 16px;
 }
 
+/* || Registration sign up button styles */
+
 .signup-section form input[type="button"] {
   width: 320px;
   height: 35px;
@@ -50,6 +60,9 @@
   font-size: 18px;
   border-radius: 25px;
 }
+
+/* || Registration terms and conditions styles */
+
 .signup-section p {
   text-align: center;
   padding-top: 20px;

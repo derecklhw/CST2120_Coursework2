@@ -4,40 +4,51 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home Page</title>
+    <title>Fruity Shop - Registration Page</title>
     <link rel="stylesheet" href="styles/registration.css" />
+    <!-- Link to fontawesome api -->
     <script
       src="https://kit.fontawesome.com/6792829ccf.js"
       crossorigin="anonymous"
     ></script>
   </head>
   <body>
+    <!--  Hero Section -->
     <div class="hero">
-      <img class="background" src="assets/images/background/background.jpg" />
+      <!-- Hero background image -->
+      <img class="background" src="assets/images/background/background1.jpg" />
+
+      <!-- Navigation bar -->
       <nav>
-        <a href="">
+        <!-- Website logo -->
+        <a href="index.html">
           <img src="assets/images/logo.png" alt="logo" />
         </a>
+        <!-- Navigation links-->
         <ul>
-          <li><a href="">Home</a></li>
-          <li><a href="">Catalog</a></li>
-          <li><a href="">Account</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#catalogue">Catalog</a></li>
+          <li><a href="account.html">Account</a></li>
         </ul>
+        <!-- Basket and login links -->
         <ul>
           <li>
-            <a id="basket-text" href=""
+            <a id="basket-text" href="cart.html"
               ><span class="fa-solid fa-basket-shopping"></span> Basket</a
             >
           </li>
           <li>
-            <a id="login-text" href=""
+            <a id="login-text" href="login.html"
               ><span class="fa-solid fa-user"></span> Login</a
             >
           </li>
         </ul>
       </nav>
+
+      <!-- Sign up section -->
       <div class="signup-section">
         <h1>Sign up</h1>
+        <!-- Sign up form entries -->
         <form>
           <div class="entry">
             <label>First Name</label>
@@ -65,15 +76,19 @@
           By clicking the Sign Up button,you agree to our<br />
           <a href="#">Terms and Condition</a> and <a href="#">Policy Privacy</a>
         </p>
-        <p class="para-2">Already Have An Account? <a href="#">Login here</a></p>
+        <p class="para-2">
+          Already Have An Account? <a href="#">Login here</a>
+        </p>
       </div>
     </div>
 
     <main></main>
 
+    <!-- Footer Section -->
     <footer>
       <div class="columns">
         <div class="social">
+          <!-- Website Logo -->
           <img src="assets/images/logo.png" alt="logo" />
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident
@@ -81,6 +96,7 @@
             sequi praesentium illum consectetur eaque quibusdam neque debitis
             culpa reiciendis laudantium!
           </p>
+          <!-- Social Media Icons & Links -->
           <div class="social-medias">
             <a href="https://facebook.com" class="fa-brands fa-facebook"></a>
             <a href="https://google.com" class="fa-brands fa-google"></a>
@@ -90,6 +106,8 @@
             <a href="https://instagram.com" class="fa-brands fa-instagram"></a>
           </div>
         </div>
+
+        <!-- Contact Us details -->
         <div class="contact-us">
           <h2>Contact Us</h2>
           <ul>
@@ -111,24 +129,27 @@
             </li>
           </ul>
         </div>
+
+        <!-- Quick Links -->
         <div class="quick-links">
           <h2>Quick Links</h2>
           <ul>
             <li>
-              <a href="">Home</a>
+              <a href="index.html">Home</a>
             </li>
             <li>
-              <a href="">Catalogue</a>
+              <a href="index.html#catalogue">Catalogue</a>
             </li>
             <li>
-              <a href="">Past Orders</a>
+              <a href="account.html">Account</a>
             </li>
             <li>
-              <a href="">Support</a>
+              <a href="account.html#your-orders">Your Orders</a>
             </li>
           </ul>
         </div>
       </div>
+      <!-- Copyright Section -->
       <div class="copyright">
         <p>&#169; Copyright 2023 by Fruity Shop. All Rights Reserved</p>
       </div>
