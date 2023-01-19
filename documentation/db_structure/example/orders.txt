@@ -1,0 +1,23 @@
+{
+    order_id: {
+        type: ObjectId
+    },
+    client_id: {
+        type: ObjectId,
+        required: true
+    },
+    order_product: [{
+        product_id: {
+            type: ObjectId
+        },
+        quantity: {
+            type: Number
+        }
+    }],
+    total_price: {
+        type: Number
+    },
+    date: {
+        type: Date
+    }
+}
