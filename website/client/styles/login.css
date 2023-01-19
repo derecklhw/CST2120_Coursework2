@@ -1,5 +1,7 @@
 @import "common.css";
 
+/* || Login section styles */
+
 .hero .login-section {
   padding: 1%;
   position: absolute;
@@ -10,16 +12,23 @@
   background: white;
   border-radius: 10px;
 }
+
+/* || Login section header styles */
+
 .hero .login-section h1 {
   text-align: center;
   padding: 0 0 20px 0;
   border-bottom: 1px solid silver;
 }
 
+/* || Login section form styles */
+
 .hero .login-section form {
   padding: 0 40px;
   box-sizing: border-box;
 }
+
+/* || Login section entries styles */
 
 .hero .login-section form .entry {
   position: relative;
@@ -48,6 +57,8 @@
   transition: 0.5s;
 }
 
+/* || Login section forget password styles */
+
 .hero .login-section form .forget-password {
   margin: -5px 0 20px 5px;
   color: #a6a6a6;
@@ -57,6 +68,8 @@
 .hero .login-section form .forget-password:hover {
   text-decoration: underline;
 }
+
+/* || Login section submit button styles */
 
 .hero .login-section form input[type="submit"] {
   width: 100%;
@@ -75,6 +88,8 @@
   border-color: #669202;
   transition: 0.5s;
 }
+
+/* || Login section sign up styles */
 
 .hero .login-section form .signup_link {
   margin: 30px 0;
