@@ -1,7 +1,9 @@
 @import "common.css";
 
-/* .container {
+.container {
   display: flex;
+  width: 100%;
+  background-color: #fff;
 }
 
 .left-container {
@@ -38,7 +40,21 @@
 #User_name {
   position: relative;
   top: -100px;
-} */
+}
+
+#your-order{
+  width: 100%;
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.banner-section img {
+  width: 100%;
+  object-fit: cover;
+  object-position: bottom;
+  display: block;
+  padding-bottom: 3%;
+}
 
 #order-table {
   margin-top: 1rem;
@@ -65,12 +81,12 @@
   text-align: center;
 }
 
-#account-orders .continue-shopping-section {
+#your-orders .continue-shopping-section {
   margin-bottom: 5%;
   width: 20%;
 }
 
-#account-orders .continue-shopping-section p {
+#your-orders .continue-shopping-section p {
   margin-left: 3.6rem;
   color: #fff;
   font-size: 1rem;
