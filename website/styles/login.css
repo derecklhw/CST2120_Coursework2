@@ -1,0 +1,92 @@
+@import "common.css";
+
+.hero .login-section {
+  padding: 1%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background: white;
+  border-radius: 10px;
+}
+.hero .login-section h1 {
+  text-align: center;
+  padding: 0 0 20px 0;
+  border-bottom: 1px solid silver;
+}
+
+.hero .login-section form {
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.hero .login-section form .entry {
+  position: relative;
+  border-bottom: 2px solid #adadad;
+  margin: 30px 0;
+}
+
+.hero .login-section form .entry input {
+  width: 100%;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 16px;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.hero .login-section form .entry label {
+  position: relative;
+  top: 50%;
+  left: 5px;
+  color: #669202;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.hero .login-section form .forget-password {
+  margin: -5px 0 20px 5px;
+  color: #a6a6a6;
+  cursor: pointer;
+}
+
+.hero .login-section form .forget-password:hover {
+  text-decoration: underline;
+}
+
+.hero .login-section form input[type="submit"] {
+  width: 100%;
+  height: 50px;
+  border: 1px solid;
+  background: #669202;
+  border-radius: 25px;
+  font-size: 18px;
+  color: #e9f4fb;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+}
+
+.hero .login-section form input[type="submit"]:hover {
+  border-color: #669202;
+  transition: 0.5s;
+}
+
+.hero .login-section form .signup_link {
+  margin: 30px 0;
+  text-align: center;
+  font-size: 16px;
+  color: #666666;
+}
+
+.hero .login-section form .signup_link a {
+  color: #2691d9;
+  text-decoration: none;
+}
+.hero .login-section form .signup_link a:hover {
+  text-decoration: underline;
+}

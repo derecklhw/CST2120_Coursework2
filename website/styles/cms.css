@@ -1,0 +1,144 @@
+#event_table tr:nth-child(even) {
+  background-color: #e6e6e6;
+}
+#event_table tr:nth-child(odd) {
+  background-color: #ffcc99;
+}
+#event_table td {
+  padding: 10px;
+  text-align: center;
+}
+#event_table th {
+  padding: 10px; /* Add a padding of 10px to all cells in the table header */
+  background-color: #c2b3a4;
+}
+
+.dialog_popup {
+  position: absolute;
+  top: 0px;
+  /* left: 40%; */
+  /* width: 800px; */
+  padding: 20px;
+  background: #f0f0f0;
+  border-radius: 5px;
+  color: #c9640b;
+  border-top: 5px solid #ff7700;
+  margin: 0 auto;
+}
+.dialog_popup input{
+  width: 300px;
+  padding: 3px;
+  margin: 5px;
+}
+.dialog_popup select{
+  width: 300px;
+  padding: 3px;
+  margin: 5px;
+}
+.dialog_popup div{
+  margin-top: 5px;
+}
+.popup_button {
+  display: inline-block;
+  margin: 3px;
+  color: #c9640b;
+  border: 2px solid #ff7700;
+  width: 40%;
+  text-align: center;
+  cursor: pointer;
+}
+
+#up_element {
+  width: 95%;
+  height: 100%;
+  background-color: #e6e6e6;
+  /* border: 1px solid #c3c3c3; */
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+}
+#up_element div {
+  display: inline-block;
+}
+
+#down_element {
+  width: 95%;
+  height: 100%;
+  background-color: #e6e6e6;
+  /* border: 1px solid #c3c3c3; */
+  border-bottom: 2px solid #c3c3c3;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+#down_element select {
+  margin-right: 150px;
+  padding: 0 1em;
+}
+
+#down_element button {
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* make div of button has vertical menue on the left */
+#header {
+  /* float: left;
+    width: 100px;
+    height: 100px; */
+  /* display: inline-block;
+    width: 15%;
+    height: 100%;
+    position: fixed;
+    outline: 1px solid;
+    background-color: #e6e6e6;
+    border: 1px solid #c3c3c3;
+    padding: 10px; */
+  width: 15%; /* or any other width you want*/
+  height: 100%;
+  position: fixed;
+  outline: 1px solid;
+  background-color: #e6e6e6;
+  border: 1px solid #c3c3c3;
+  /* margin: 10px; */
+  padding: 10px;
+}
+
+#header button {
+  display: block; /* Display the buttons as block elements to stack them vertically */
+  padding: 10px; /* Add padding to the buttons */
+  margin: 3px; /* Add margin to the buttons */
+  /* background-color: #c9640b; Add a background color to the buttons */
+  color: #c9640b; /* Add a text color to the buttons */
+  border: 2px solid #ff7700; /* Add a border to the buttons */
+  /* border-radius: 5px; Add a border radius of 5px */
+  width: 100%; /* Make the buttons take up the full width of the container */
+  text-align: center; /* Center align the text in the buttons */
+  font-size: 18px; /* Increase the font size */
+  cursor: pointer; /* Change the cursor to a pointer when hovering over the buttons */
+  margin-top: 30px;
+}
+
+#container {
+  float: right;
+  width: 80%; /* 85% of the remaining space */
+  height: 100%; /* the same height as the header */
+  background-color: #e6e6e6;
+  border: 1px solid #c3c3c3;
+  /* margin: 10px; */
+  padding: 10px;
+  margin-left: 15%;
+}
+
+/* make table element center */
+#container table {
+  margin-top: 2%;
+}
+
+#event_table {
+  width: 80%;
+  margin-left: 20%;
+  text-align: center;
+}
