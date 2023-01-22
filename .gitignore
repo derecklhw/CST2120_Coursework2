@@ -1,0 +1,5 @@
+# ignore vendor file
+website/cms/vendor
+composer.json
+composer.lock
+
