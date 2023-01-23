@@ -40,7 +40,7 @@
     <!-- Add Product dialog pop up -->
     <div class="dialog_popup" id="dialog_add">
       <div>Product name</div>
-      <input type="text" id="Product_input" />
+      <input type="text" id="Name_input" />
       <div>price</div>
       <input type="text" id="price_input" />
       <div>season</div>
@@ -52,7 +52,7 @@
       <div>image link</div>
       <input type="text" id="image_link_input" />
       <div class="button" id="button-2">
-        <button class="popup_button" id="add_product">add</button>
+        <button class="popup_button" id="add_product" onclick="send_data()">add</button>
       </div>
       <div id="button-2">
         <button

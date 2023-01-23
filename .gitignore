@@ -1,5 +1,6 @@
 # ignore vendor file
 website/cms/vendor
+website/cms/php/vendor
 composer.json
 composer.lock
 
