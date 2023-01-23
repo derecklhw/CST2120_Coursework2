@@ -52,7 +52,7 @@
       <div>image link</div>
       <input type="text" id="image_link_input" />
       <div class="button" id="button-2">
-        <button class="popup_button" id="add_product" onclick="send_data()">add</button>
+        <button class="popup_button" id="add_product" onclick="addProduct()">add</button>
       </div>
       <div id="button-2">
         <button

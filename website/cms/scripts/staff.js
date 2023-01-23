@@ -123,6 +123,35 @@ async function fill_products_table() {
     }
 }
 
+
+async function addProduct() {
+    // Get form data
+    const name = document.getElementById("Name_input").value;
+    const price = document.getElementById("price_input").value;
+    const stock = document.getElementById("season_input").value;
+    const season = document.getElementById("nb_available_input").value;
+    const category = document.getElementById("category_input").value;
+    const image = document.getElementById("image_link_input").value;
+    // Create data object
+    const data = { name, price, stock, season, category, image };
+    console.log(data);
+    try {
+      const response = await fetch("php/send_product.php", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" }
+      });
+      const result = await response.json();
+      console.log(result);
+      $("#dialog_add").dialog("close");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
+
+
 $(function () {
     // fill table with data on page load
     fill_products_table();
