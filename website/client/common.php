@@ -34,7 +34,7 @@ function outputNavbar()
     echo '<!-- Navigation bar -->';
     echo '<nav>';
     echo '<!-- Website logo -->';
-    echo '<a href="index.html">';
+    echo '<a href="index.php">';
     echo '<img src="assets/images/logo.png" alt="logo" />';
     echo '</a>';
     echo '<!-- Navigation links-->';

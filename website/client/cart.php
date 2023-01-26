@@ -114,7 +114,7 @@ outputNavbar();
 
         <!-- Continue Shopping button -->
         <div class="continue-shopping-section">
-            <a href="index.html#catalogue">
+            <a href="index.php#catalogue">
                 <span class="fa-solid fa-chevron-left"></span><span class="icon-continue-shopping"></span> Continue Shopping
             </a>
         </div>

@@ -11,7 +11,7 @@ outputNavbar();
     <p>Limited Quantities Only</p>
 
     <!-- Button redirect to catalogue -->
-    <a href="index.html#catalogue" class="shop-now">Shop Now</a>
+    <a href="index.php#catalogue" class="shop-now">Shop Now</a>
 </div>
 </div>
 <main>

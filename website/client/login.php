@@ -20,7 +20,7 @@ outputNavbar();
         <div class="forget-password">Forgot Password?</div>
         <input type="submit" value="Login" />
         <div class="signup_link">
-            Not a member?<a href="registration.html"> Signup</a>
+            Not a member?<a href="registration.php"> Signup</a>
         </div>
     </form>
 </div>

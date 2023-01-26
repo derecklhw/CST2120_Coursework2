@@ -37,7 +37,7 @@ outputNavbar();
         <a href="#">Terms and Condition</a> and <a href="#">Policy Privacy</a>
     </p>
     <p class="para-2">
-        Already Have An Account? <a href="#">Login here</a>
+        Already Have An Account? <a href="login.php">Login here</a>
     </p>
 </div>
 </div>
