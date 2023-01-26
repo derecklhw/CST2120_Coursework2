@@ -62,7 +62,7 @@ function outputNavbar()
         array("Login", "login-text", "login.php", "fa-user")
     );
 
-    for ($x = 0; $x <= count($right_page_links); $x++) {
+    for ($x = 0; $x < count($right_page_links); $x++) {
         echo '<li>';
         echo '<a id="' . $right_page_links[$x][1] . '" href="' . $right_page_links[$x][2] . '"';
         echo '><span class="fa-solid ' . $right_page_links[$x][3] . '"></span> ' . $right_page_links[$x][0] . '</a>';
@@ -111,14 +111,14 @@ function outputFooter()
     echo '<h2>Contact Us</h2>';
     echo '<ul>';
 
-    $contact_us_infos = array(
-        array("fa-location-dot", "Coastal Road, Flic en Flac"),
-        array("fa-envelope", "sales@mdx.mu"),
-        array("fa-phone", "403 6400"),
-        array("fa-clock", "8:00 - 19:00, Mon - Sat"),
-    );
+    $contact_us_infos = [
+        ["fa-location-dot", "Coastal Road, Flic en Flac"],
+        ["fa-envelope", "sales@mdx.mu"],
+        ["fa-phone", "403 6400"],
+        ["fa-clock", "8:00 - 19:00, Mon - Sat"],
+    ];
 
-    for ($x = 0; $x <= count($contact_us_infos); $x++) {
+    for ($x = 0; $x < count($contact_us_infos); $x++) {
         echo '<li>
                 <i class="fa-solid ' . $contact_us_infos[$x][0] . '"></i>
                 <p> ' . $contact_us_infos[$x][1] . '</p>
