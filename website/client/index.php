@@ -1,6 +1,6 @@
 <?php
 include "common.php";
-outputHead();
+outputHead("Fruity Kart - Home Page", "styles/index.css");
 ?>
 
 <body>
