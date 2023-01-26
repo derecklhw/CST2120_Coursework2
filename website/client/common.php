@@ -18,6 +18,16 @@ function outputHead(string $title, string $css_file)
     echo '</head>';
 }
 
+//output opening tag for body and hero class
+function outputOpeningBodyAndHeroClass(int $background_image)
+{
+    echo '<body>';
+    echo '<!--  Hero Section -->';
+    echo '<div class="hero">';
+    echo '<!-- Hero background image -->';
+    echo '<img class="background" src="assets/images/background/background' . $background_image . '.jpg" />';
+}
+
 //output navigation bar
 function outputNavbar()
 {
