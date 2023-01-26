@@ -124,11 +124,11 @@
       <div id="box">
         <!-- input options fields -->
         <div id="up_element">
-          <div id="search_1">Product name</div>
+          <div id="search_1">rr</div>
           <input type="text" id="field 1" />
-          <div id="search_1">Price</div>
+          <div id="search_2"></div>
           <input type="text" id="field 2" />
-          <div id="search_1">Stock</div>
+          <div id="search_3"></div>
           <input type="text" id="field 3" />
         </div>
         <div id="down_element">
@@ -138,7 +138,7 @@
             <option value="2">More popular</option>
             <option value="3">lower price</option>
           </select>
-          <button id="search">search</button>
+          <button id="search" onclick="searching()">search</button>
         </div>
       </div>
 

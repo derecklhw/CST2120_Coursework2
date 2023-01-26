@@ -25,13 +25,9 @@ var data_order = [
 // function to clear a table of all rows and fill it with new data from array of json objects
 function fillTable(data,headers) {
 
-    console.log(data[0]);
-
-    console.log(data[0]['_id']["$oid"]);
-    console.log(data[0]['Name']);
-    console.log(data[0]['Price']);
-    console.log(data[0]['Stock_Available']);
-    console.log(data[0]['Season']);
+    $("#search_1").text("Product Name");
+    $("#search_2").text("Product ID");
+    $("#search_3").text("stock");
 
 
     $('#event_table').empty();
@@ -55,6 +51,10 @@ function fillTable(data,headers) {
 }
 
 function fillOrderTable(data,headers) {
+
+    $("#search_1").text("Order ID");
+    $("#search_2").text("Client ID");
+    $("#search_3").text("Total price");
 
     $('#event_table').empty();
     var header = $('<tr></tr>');
@@ -174,8 +174,17 @@ async function updateProduct(){
       console.log("result :" +result);
       $("#dialog_edit").dialog("close");
       fill_products_table();
+    
     } catch (error) {
-      console.log(error);
+        if (error instanceof SyntaxError){
+            console.log("Syntax error : " +error);
+        
+            // PROBLEM error with your input in a prompt
+            var error = prompt("Syntax error : " +error);
+            console.log(error);
+        }else {
+            console.log("Unknow error : " +error);
+        }
     }
 }
 
@@ -187,29 +196,54 @@ async function deleteProduct(){
     var input = document.getElementById("delete_input").value;
     console.log(selected_option);
     console.log(input);
+    // if option is 1 or 2, send data to php
 
-    data = {selected_option, input};
-    try {
-        const response = await fetch("php/remove_product.php", {
-          method: "POST",
-          body: JSON.stringify(data),
-          headers: { "Content-Type": "application/json" }
-        });
-        const result = await response.json();
-        console.log("result :" +result);
-        $("#dialog_edit").dialog("close");
-        fill_products_table();
-      } catch (error) {
-        console.log(error);
-      }
 
+
+    if ((selected_option == 2) | (selected_option == 3)){
+        data = {selected_option, input};
+        try {
+            const response = await fetch("php/remove_product.php", {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: { "Content-Type": "application/json" }
+            });
+            const result = await response.json();
+            console.log("result :" +result);
+            $("#dialog_edit").dialog("close");
+            fill_products_table();
+        } catch (error) {
+            console.log(error);
+        }
+    }
 }
+
+
+async function searching(){
+
+    var search_1 = $("#search_1").val();
+    var search_2 = $("#search_2").val();
+    var search_3 = $("#search_3").val();
+    console.log(search_1);
+    if (search_1 == "Product Name"){
+        console.log("in product");
+
+    }else if (search_1 == "Order ID"){
+        console.log("in order");
+    }else{
+        console.log("other");
+    }
+}
+
+
 
 $("#edit").click(function () {
     console.log("edit");
     $("#dialog_edit").dialog("open");
     $("#dialog_edit").draggable();
 });
+
+
 
 $(function () {
     // fill table with data on page load
@@ -241,20 +275,12 @@ $(function () {
     // listen when button with view_order id is clicked and fill table with orders data
     $("#view_orders").click(function () {
         // fillTable(data_order,orders_header);
-        fillOrderTable(data_order,orders_header);
-        $("#search_1").text("Order ID");
-        $("#search_2").text("Client ID");
-        $("#search_3").text("Total price");   
-        
+        fillOrderTable(data_order,orders_header);        
     });
     
     $("#list_products").click(async function () {
         var product_data = await getData();
         fillTable(product_data,products_header);
-        // getData();
-        $("#search_1").text("Product Name");
-        $("#search_2").text("Product ID");
-        $("#search_3").text("stock available");
     });
 
 

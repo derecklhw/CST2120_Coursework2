@@ -30,8 +30,13 @@ $updateOneResult = $collection->updateOne(
     ['$set' => $data_modify]
 );
 
-echo json_encode(["_id" => (string)$updateOneResult->getModifiedCount()]);
+echo $updateOneResult->getModifiedCount();
 
+// if ($updateOneResult->getModifiedCount() > 0) {
+//     echo "Product updated successfully.";
+// } else {
+//     echo "Product not found or no changes were made.";
+// }
 
 
 
