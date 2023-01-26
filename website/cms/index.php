@@ -65,6 +65,36 @@
       </div>
     </div>
 
+    <div class="dialog_popup" id="dialog_edit">
+      <div>Product ID</div>
+      <input type="text" id="Id_input_edit" />
+      <div>Product name</div>
+      <input type="text" id="Name_input_edit" />
+      <div>price</div>
+      <input type="text" id="price_input_edit" />
+      <div>season</div>
+      <input type="text" id="season_input_edit" />
+      <div>nb_available</div>
+      <input type="text" id="nb_available_input_edit" />
+      <div>category</div>
+      <input type="text" id="category_input_edit" />
+      <div>image link</div>
+      <input type="text" id="image_link_input_edit" />
+      <div class="button" id="button-2">
+        <button class="popup_button" id="Save_button" onclick="updateProduct()">Save</button>
+      </div>
+      <div id="button-2">
+        <button
+          class="popup_button"
+          id="closeDialog"
+          onclick="$('#dialog_edit').dialog('close');"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+
+
     <!-- Remove Product dialog pop up -->
     <div class="dialog_popup" id="dialog_delete">
       <select id="select_delete_type">
