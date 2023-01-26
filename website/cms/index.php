@@ -106,7 +106,7 @@
       <input type="text" id="delete_input" />
       <div></div>
       <div>
-        <button class="popup_button" id="delete_product">delete</button>
+        <button class="popup_button" id="delete_product" onclick="deleteProduct()">delete</button>
       </div>
       <div id="button-2">
         <button

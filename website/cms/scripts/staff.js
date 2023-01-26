@@ -177,9 +177,33 @@ async function updateProduct(){
     } catch (error) {
       console.log(error);
     }
-
 }
 
+async function deleteProduct(){
+    console.log("delete product");
+    // get option from select element
+    var select = document.getElementById("select_delete_type");
+    var selected_option = select.value;
+    var input = document.getElementById("delete_input").value;
+    console.log(selected_option);
+    console.log(input);
+
+    data = {selected_option, input};
+    try {
+        const response = await fetch("php/remove_product.php", {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: { "Content-Type": "application/json" }
+        });
+        const result = await response.json();
+        console.log("result :" +result);
+        $("#dialog_edit").dialog("close");
+        fill_products_table();
+      } catch (error) {
+        console.log(error);
+      }
+
+}
 
 $("#edit").click(function () {
     console.log("edit");
