@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '\vendor\autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 $client = new MongoDB\Client;
 $db = $client->ecomerce;
 $collection = $db->products;
