@@ -157,12 +157,12 @@ async function updateProduct(){
     const _id = document.getElementById("Id_input_edit").value;
     const name = document.getElementById("Name_input_edit").value;
     const price = document.getElementById("price_input_edit").value;
-    const stock = document.getElementById("season_input_edit").value;
-    const season = document.getElementById("nb_available_input_edit").value;
+    const stock = document.getElementById("nb_available_input_edit").value;
+    const season = document.getElementById("season_input_edit").value;
     const category = document.getElementById("category_input_edit").value;
     const image = document.getElementById("image_link_input_edit").value;
     // Create data object
-    const data = {_id, name, price, stock, season, category, image };
+    const data = {_id, name, price, season, stock, category, image };
     console.log("update product :" +data);
     try {
       const response = await fetch("php/update_product.php", {
@@ -219,23 +219,58 @@ async function deleteProduct(){
 }
 
 
+
+function sort(method, arr){
+    if (method == 'Ascending_Price'){
+        return arr.sort((a, b) => {
+            return a.Price - b.Price;
+        });
+    }else if (method == 'Descending_price'){
+        return arr.sort((a, b) => {
+            return b.Price - a.Price;
+        });}
+};
+
+
 async function searching(){
 
-    var search_1 = $("#search_1").val();
-    var search_2 = $("#search_2").val();
-    var search_3 = $("#search_3").val();
-    console.log(search_1);
+    // get html value of id search_1
+    var search_1 = document.getElementById("search_1").textContent;
+    // get the input value of field_1
+    var field_1 = document.getElementById("field_1").value;
+    var field_2 = document.getElementById("field_2").value;
+    var field_3 = document.getElementById("field_3").value;
+    var select = document.getElementById("select").value;
+    
+
     if (search_1 == "Product Name"){
         console.log("in product");
+        filter = {};
+        if (field_1 != ""){
+            filter["Name"] = field_1;
+        }
+        if (field_2 != ""){
+            filter["_id"] = field_2;
+        }
+        if (field_3 != ""){
+            filter["Stock_Available"] = Number(field_3);
+        }
+        console.log(filter);
+        const response = await fetch("php/receive_with_filter.php", {
+            method: "POST",
+            body: JSON.stringify(filter),
+            headers: { "Content-Type": "application/json" }
+        });
+        const result = await response.json();
+        fillTable(sort(select,result),products_header);
 
     }else if (search_1 == "Order ID"){
         console.log("in order");
     }else{
         console.log("other");
     }
+    
 }
-
-
 
 $("#edit").click(function () {
     console.log("edit");

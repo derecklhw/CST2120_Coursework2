@@ -72,10 +72,10 @@
       <input type="text" id="Name_input_edit" />
       <div>price</div>
       <input type="text" id="price_input_edit" />
-      <div>season</div>
-      <input type="text" id="season_input_edit" />
       <div>nb_available</div>
       <input type="text" id="nb_available_input_edit" />
+      <div>season</div>
+      <input type="text" id="season_input_edit" />
       <div>category</div>
       <input type="text" id="category_input_edit" />
       <div>image link</div>
@@ -124,19 +124,18 @@
       <div id="box">
         <!-- input options fields -->
         <div id="up_element">
-          <div id="search_1">rr</div>
-          <input type="text" id="field 1" />
+          <div id="search_1"></div>
+          <input type="text" id="field_1" />
           <div id="search_2"></div>
-          <input type="text" id="field 2" />
+          <input type="text" id="field_2" />
           <div id="search_3"></div>
-          <input type="text" id="field 3" />
+          <input type="text" id="field_3" />
         </div>
         <div id="down_element">
           <!-- dropdown options fields -->
           <select id="select">
-            <option value="1">higer price</option>
-            <option value="2">More popular</option>
-            <option value="3">lower price</option>
+            <option value="Ascending_Price">Ascending price</option>
+            <option value="Descending_price">Descending price</option>
           </select>
           <button id="search" onclick="searching()">search</button>
         </div>

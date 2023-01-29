@@ -1,5 +1,5 @@
 <?php   
-require __DIR__ . '/../../vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 header("Content-Type: application/json");
 $data = json_decode(file_get_contents('php://input'), true);
@@ -15,8 +15,8 @@ $image = $data["image"];
 $data_modify = [
     "Name" => $name,
     "Price" => $price,
-    "Stock_Available" => $stock,
     "Season" => $season,
+    "Stock_Available" => $stock,
     "Category" => $category,
     "Image_link" => $image
 ];
