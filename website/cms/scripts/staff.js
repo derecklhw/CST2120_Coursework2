@@ -12,7 +12,7 @@ var data_product = [
     {'Product_Id': "123456",'Product Name': 'Product 4',  'Price': 'Price 4', 'Stock_available': 'Stock 4','image_link':'image_link 4','edit': '<button class="edit"><i class="fa-sharp fa-solid fa-pencil"></i> edit</button>'}];
 
 // generate a orders_header array
-var orders_header = ['Order ID', 'Client ID', 'Description', 'Total price','Date','Delete'];
+var orders_header = ['Order ID', 'Client ID', 'Orders Product', 'Total price','Date','Delete'];
 // generate a array of jason base on orders_header
 var data_order = [
     {'Order ID': 'Order 1', 'Client ID': 'Client 1','Description':[{'product': "product1",'Quantity': 3},{'product': "product5",'Quantity': 1},{'product': "product1",'Quantity': 2},], 'Total price': 'Total price 1','Date': "15/02/2023",'delete': '<button class="delete"><i class="fa-sharp fa-solid fa-eraser"></i> delete</button>'},
@@ -56,6 +56,26 @@ function fillOrderTable(data,headers) {
     $("#search_2").text("Client ID");
     $("#search_3").text("Total price");
 
+    // $('#event_table').empty();
+    // var header = $('<tr></tr>');
+    // for (var i = 0; i < headers.length; i++) {
+    //     header.append('<th>' + headers[i] + '</th>');
+    // }
+    // $('#event_table').append(header);
+    // for (var i = 0; i < data.length; i++) {
+    //     var row = $('<tr></tr>');
+    //     row.append('<td>' + data[i]['Order ID'] + '</td>');
+    //     row.append('<td>' + data[i]['Client ID'] + '</td>');
+    //     var desc = $('<td></td>');
+    //     for (var j = 0; j < data[i]['Description'].length; j++) {
+    //         desc.append(data[i]['Description'][j]['product'] + ' - x' + data[i]['Description'][j]['Quantity'] + '<br>');
+    //     }
+    //     row.append(desc);
+    //     row.append('<td>' + data[i]['Total price'] + '</td>');
+    //     row.append('<td>' + data[i]['Date'] + '</td>');
+    //     row.append('<td>' + data[i]['delete'] + '</td>');
+    //     $('#event_table').append(row);
+    // }
     $('#event_table').empty();
     var header = $('<tr></tr>');
     for (var i = 0; i < headers.length; i++) {
@@ -64,16 +84,16 @@ function fillOrderTable(data,headers) {
     $('#event_table').append(header);
     for (var i = 0; i < data.length; i++) {
         var row = $('<tr></tr>');
-        row.append('<td>' + data[i]['Order ID'] + '</td>');
-        row.append('<td>' + data[i]['Client ID'] + '</td>');
-        var desc = $('<td></td>');
-        for (var j = 0; j < data[i]['Description'].length; j++) {
-            desc.append(data[i]['Description'][j]['product'] + ' - x' + data[i]['Description'][j]['Quantity'] + '<br>');
-        }
-        row.append(desc);
-        row.append('<td>' + data[i]['Total price'] + '</td>');
-        row.append('<td>' + data[i]['Date'] + '</td>');
-        row.append('<td>' + data[i]['delete'] + '</td>');
+        row.append('<td>' + data[i]['_id']["$oid"] + '</td>');
+        row.append('<td>' + data[i]['client_id']["$oid"] + '</td>');
+
+        row.append('<td>' + data[i]['orders_product'] + '</td>');
+        row.append('<td>' + data[i]['total_price'] + '</td>');
+        row.append('<td>' + data[i]['date']["$date"] + '</td>');
+        // row.append('<td>' + data[i]['Season'] + '</td>');
+        // row.append('<td>' + data[i]['Category'] + '</td>');
+        // row.append('<td>' + data[i]['Image_link'] + '</td>');
+        row.append('<td>' + '<button class="delete"><i class="fa-sharp fa-solid fa-eraser"></i> delete</button>' + '</td>');
         $('#event_table').append(row);
     }
 }
@@ -105,9 +125,15 @@ function send_data(){
     console.log(response);
 }
 
-async function getData() {
+async function getData(table) {
+    if (table == "products") {
+        var url = "php/receive_product.php";
+    } else if (table == "orders") {
+        var url = "php/receive_orders.php";
+    }
+
     try {
-        const response = await fetch("php/receive_product.php");
+        const response = await fetch(url);
         const data = await response.json();
         console.log(data);
         // fillTable(data,products_header);
@@ -116,10 +142,20 @@ async function getData() {
         console.log("in get data : "+error)
     }
 }
+
 async function fill_products_table() {
     try {
-        var data = await getData();
+        var data = await getData("products");
         fillTable(data,products_header);
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+async function fill_orders_table() {
+    try {
+        var data = await getData("orders");
+        fillOrderTable(data,orders_header);
     } catch (error) {
         console.log(error)
     }
@@ -309,13 +345,11 @@ $(function () {
 
     // listen when button with view_order id is clicked and fill table with orders data
     $("#view_orders").click(function () {
-        // fillTable(data_order,orders_header);
-        fillOrderTable(data_order,orders_header);        
+        fill_orders_table();
     });
     
     $("#list_products").click(async function () {
-        var product_data = await getData();
-        fillTable(product_data,products_header);
+        fill_products_table();
     });
 
 

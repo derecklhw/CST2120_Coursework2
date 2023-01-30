@@ -1,9 +1,9 @@
 <?php
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 $order_data = [
     [
-        "client_id" => "63d63a484rrr00505adf34d0",
+        "client_id" => new MongoDB\BSON\ObjectId("5f0f711b1e02e30c82396f48"),
         "orders_product" => [
             ["63d63a484af200505adf3ppp", 1],
             ["63345a484af200505adf3ppp", 6]
@@ -12,7 +12,7 @@ $order_data = [
         "date" => date("Y-m-d")
     ],
     [
-        "client_id" => "63d63a484rrr00505adf34d0",
+        "client_id" => new MongoDB\BSON\ObjectId("5f0f711b1e02e30c82396f48"),
         "orders_product" => [
             ["63d63a484af200505adf3ppp", 100],
             ["63345a484af200505adf3ppp", 30]
