@@ -1,6 +1,6 @@
 <?php
 // Path: website\cms\php\send_product.php
-require __DIR__ . '/../vendor/autoload.php';
+require __DIR__ . '/../../vendor/autoload.php';
 header("Content-Type: application/json");
 $data = json_decode(file_get_contents('php://input'), true);
 
