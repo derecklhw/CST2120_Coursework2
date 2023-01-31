@@ -1,6 +1,6 @@
 <?php
 include "common.php";
-outputHead("Fruity Kart - Home Page", "styles/index.css");
+outputHead("Fruity Kart - Home Page", "styles/index.css", "index.js");
 outputOpeningBodyAndHeroClass(1);
 outputNavbar();
 ?>
@@ -99,7 +99,7 @@ outputNavbar();
             </div>
 
             <!-- Featured Product Listing -->
-            <div class="featured-products">
+            <div id="featured-products">
                 <!-- Product Example -->
                 <div class="product-wrap">
                     <div class="product-img">

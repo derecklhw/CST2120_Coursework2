@@ -1,7 +1,7 @@
 <?php
 
 //output header tag
-function outputHead(string $title, string $css_file)
+function outputHead(string $title, string $css_file, string $js_file)
 {
     echo '<!DOCTYPE html>';
     echo '<html lang="en">';
@@ -15,6 +15,10 @@ function outputHead(string $title, string $css_file)
     echo '<script
             src="https://kit.fontawesome.com/6792829ccf.js"
             crossorigin="anonymous"></script>';
+    echo '<!-- import jquery -->';
+    echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>';
+    echo '<!-- import js -->';
+    echo '<script src="scripts/js/' . $js_file . '"></script>';
     echo '</head>';
 }
 

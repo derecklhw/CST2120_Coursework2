@@ -121,7 +121,7 @@
 
 /* || Catalogue featured products section styles */
 
-#catalogue .section-wrap .featured-products {
+#catalogue .section-wrap #featured-products {
   padding-top: 1rem;
   display: flex;
   flex-wrap: wrap;
@@ -133,7 +133,7 @@
 
 /* || Catalogue featured product styles */
 
-#catalogue .section-wrap .featured-products .product-wrap {
+#catalogue .section-wrap #featured-products .product-wrap {
   margin: 0 0.7rem 2rem 0.6rem;
   position: relative;
   height: 360px;
@@ -146,7 +146,7 @@
 
 /* || Catalogue featured product image styles */
 
-#catalogue .section-wrap .featured-products .product-wrap .product-img {
+#catalogue .section-wrap #featured-products .product-wrap .product-img {
   position: relative;
   width: 100%;
   height: 55%;
@@ -154,7 +154,7 @@
   border-radius: 0.2rem 0.2rem 0.8rem 0.8rem;
 }
 
-#catalogue .section-wrap .featured-products .product-wrap .product-img img {
+#catalogue .section-wrap #featured-products .product-wrap .product-img img {
   height: 100%;
   width: 100%;
   object-fit: cover;
@@ -162,7 +162,7 @@
 
 /* || Catalogue featured product description styles */
 
-#catalogue .section-wrap .featured-products .product-wrap .product-description {
+#catalogue .section-wrap #featured-products .product-wrap .product-description {
   margin-top: 0.4rem;
   padding: 0.8rem;
   width: 100%;
@@ -171,7 +171,7 @@
 
 #catalogue
   .section-wrap
-  .featured-products
+  #featured-products
   .product-wrap
   .product-description
   .product-name {
@@ -183,7 +183,7 @@
 
 #catalogue
   .section-wrap
-  .featured-products
+  #featured-products
   .product-wrap
   .product-description
   .product-price {
@@ -197,7 +197,7 @@
 
 #catalogue
   .section-wrap
-  .featured-products
+  #featured-products
   .product-wrap
   .product-description
   .add-to-cart-btn {
@@ -209,7 +209,7 @@
 
 #catalogue
   .section-wrap
-  .featured-products
+  #featured-products
   .product-wrap
   .product-description
   .add-to-cart-btn
@@ -227,7 +227,7 @@
 
 #catalogue
   .section-wrap
-  .featured-products
+  #featured-products
   .product-wrap
   .product-description
   .add-to-cart-btn
