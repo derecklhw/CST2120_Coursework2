@@ -23,7 +23,7 @@ $product_data = [
         "Stock_Available" => 100,
         "Season" => "Summer",
         "Category" => "Fruits",
-        "Image_link" => "assets/images/fruits/grapes.jpg"
+        "Image_link" => "assets/images/fruits/grape.jpg"
     ],
     [
         "Name" => "Fresh Blueberry",
