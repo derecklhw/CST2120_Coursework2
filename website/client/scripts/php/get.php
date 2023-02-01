@@ -37,7 +37,11 @@ switch ($mode) {
                         $data[] = $document;
                     }
                 }
-                buildCatalogue($data);
+                if (!empty($data)) {
+                    buildCatalogue($data);
+                } else {
+                    echo "<p class=\"error-message\">No results found</p>";
+                }
                 break;
         }
         break;
