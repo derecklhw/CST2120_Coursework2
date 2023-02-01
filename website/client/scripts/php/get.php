@@ -4,35 +4,53 @@ include "db.php";
 $mode = filter_input(INPUT_GET, 'mode', FILTER_SANITIZE_STRING);
 
 switch ($mode) {
-    case 'default':
-        $collection = $db->products;
-        $cursor = $collection->find();
+    case 'build_catalogue':
+        $format = filter_input(INPUT_GET, 'format', FILTER_SANITIZE_STRING);
         $data = array();
-        foreach ($cursor as $document) {
-            $data[] = $document;
+        switch ($format) {
+            case 'default':
+                $data = getProductArray($db);
+                buildCatalogue($data);
+                break;
+            case 'descending':
+                $data = getProductArray($db);
+                usort($data, fn ($a, $b) => $a['Name'] <=> $b['Name']);
+                buildCatalogue($data);
+                break;
+            case 'ascending':
+                $data = getProductArray($db);
+                usort($data, fn ($a, $b) => $b['Name'] <=> $a['Name']);
+                buildCatalogue($data);
+                break;
+            case 'search':
+                // > db.products.createIndex({Name:"text"})
+                $search_string = filter_input(INPUT_GET, 'search_parameter', FILTER_SANITIZE_STRING);
+                if ($search_string == "") {
+                    $data = getProductArray($db);
+                } else {
+                    $search_criteria = [
+                        '$text' => ['$search' => $search_string]
+                    ];
+                    $collection = $db->products;
+                    $cursor = $collection->find($search_criteria);
+                    foreach ($cursor as $document) {
+                        $data[] = $document;
+                    }
+                }
+                buildCatalogue($data);
+                break;
         }
-        buildCatalogue($data);
         break;
-    case 'descending':
-        $collection = $db->products;
-        $cursor = $collection->find();
-        $data = array();
-        foreach ($cursor as $document) {
-            $data[] = $document;
-        }
-        usort($data, fn ($a, $b) => $a['Name'] <=> $b['Name']);
-        buildCatalogue($data);
-        break;
-    case 'ascending':
-        $collection = $db->products;
-        $cursor = $collection->find();
-        $data = array();
-        foreach ($cursor as $document) {
-            $data[] = $document;
-        }
-        usort($data, fn ($a, $b) => $b['Name'] <=> $a['Name']);
-        buildCatalogue($data);
-        break;
+}
+
+function getProductArray(object $db)
+{
+    $collection = $db->products;
+    $cursor = $collection->find();
+    foreach ($cursor as $document) {
+        $data[] = $document;
+    }
+    return $data;
 }
 
 function buildCatalogue(array $data)
