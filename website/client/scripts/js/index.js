@@ -9,5 +9,5 @@ $(function () {
     },
   });
 
-  $("#featured-products").load("scripts/php/get.php");
+  $("#featured-products").load("scripts/php/get.php?mode=buildCatalogue");
 });
