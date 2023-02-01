@@ -1,6 +1,14 @@
+let phpFilePath = "scripts/php/";
+
+function buildCatalogue(sortType) {
+  $("#featured-products").load(phpFilePath + "get.php?mode="+sortType);
+}
+
 $(function () {
+  buildCatalogue('default');
+
   $.ajax({
-    url: "scripts/php/db.php",
+    url: phpFilePath + "db.php",
     success: function (response) {
       console.log("Connection to database successfully");
     },
@@ -9,5 +17,8 @@ $(function () {
     },
   });
 
-  $("#featured-products").load("scripts/php/get.php?mode=buildCatalogue");
+  $("#sort-format").change(function () {
+    let sortType = $(this).val();
+    buildCatalogue(sortType);
+  });
 });

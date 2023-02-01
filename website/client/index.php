@@ -92,6 +92,7 @@ outputNavbar();
                 <div id="sort-section">
                     <label for="sort-format">Sort by:</label>
                     <select name="sort-format" id="sort-format">
+                        <option value="default" selected>Default</option>
                         <option value="descending">Name A to Z</option>
                         <option value="ascending">Name Z to A</option>
                     </select>
