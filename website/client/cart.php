@@ -1,6 +1,6 @@
 <?php
 include "common.php";
-outputHead("Fruity Shop - Cart", "styles/cart.css");
+outputHead("Fruity Shop - Cart", "styles/cart.css", "index.js");
 outputOpeningBodyAndHeroClass(1);
 outputNavbar();
 ?>

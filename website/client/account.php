@@ -1,6 +1,6 @@
 <?php
 include "common.php";
-outputHead("Fruity Shop - Account", "styles/account.css");
+outputHead("Fruity Shop - Account", "styles/account.css", "index.js");
 outputOpeningBodyAndHeroClass(1);
 outputNavbar();
 ?>
