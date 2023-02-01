@@ -71,7 +71,7 @@ function buildCatalogue(array $data)
                     <span class="price"><?= $product_details['Price'] ?></span>$/kg
                 </p>
                 <div class="add-to-cart-btn">
-                    <p><span class="icon-cart-plus"></span>Add to cart</p>
+                    <p data-id="<?= $product_details['_id'] ?>"><span class="icon-cart-plus"></span>Add to cart</p>
                 </div>
             </div>
         </div><?php }

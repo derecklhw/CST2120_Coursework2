@@ -41,4 +41,8 @@ $(function () {
     let search_input = $("#search-input").val();
     buildCatalogue("search", search_input);
   });
+
+  $("#featured-products").on("click", ".add-to-cart-btn", function (event) {
+    console.log("hi");
+  });
 });
