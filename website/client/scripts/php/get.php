@@ -4,7 +4,7 @@ include "db.php";
 $mode = filter_input(INPUT_GET, 'mode', FILTER_SANITIZE_STRING);
 
 switch ($mode) {
-    case 'build_catalogue':
+    case 'catalogue':
         $format = filter_input(INPUT_GET, 'format', FILTER_SANITIZE_STRING);
         $data = array();
         switch ($format) {

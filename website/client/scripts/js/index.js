@@ -3,10 +3,16 @@ let phpFilePath = "scripts/php/";
 function buildCatalogue(sortType, search_parameter = "null") {
   $("#featured-products").load(
     phpFilePath +
-      "get.php?mode=build_catalogue&format=" +
+      "get.php?mode=catalogue&format=" +
       sortType +
       "&search_parameter=" +
-      search_parameter
+      search_parameter,
+    function (responseTxt, statusTxt, xhr) {
+      if (statusTxt == "error")
+        $(this).html(
+          "<p class=\"error-message\">Greetings Clients <br>If you receive the following error message “Product information not found” when attempting to launch Fruity Shop. <br>If you encounter this error, you may be able to resolve it by contacting the adminstrator</p>"
+        );
+    }
   );
 }
 
