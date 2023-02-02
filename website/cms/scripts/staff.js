@@ -1,26 +1,26 @@
 var products_header = ["_id","Name","Price","Stock_Available","Season","Category","Image_link",'edit'];
 // generate a array of jason base on products_header
-var data_product = [
-    {'Product_Id': "123456",'Product Name': 'Product 1',  'Price': 'Price 1', 'Stock_available': 'Stock 1','image_link':'image_link 1','edit': '<button class="edit"><i class="fa-sharp fa-solid fa-pencil"></i> edit</button>'},
-    {'Product_Id': "123456",'Product Name': 'Product 2',  'Price': 'Price 2', 'Stock_available': 'Stock 2','image_link':'image_link 2','edit': '<button class="edit"><i class="fa-sharp fa-solid fa-pencil"></i> edit</button>'},
-    {'Product_Id': "123456",'Product Name': 'Product 3',  'Price': 'Price 3', 'Stock_available': 'Stock 3','image_link':'image_link 3','edit': '<button class="edit"><i class="fa-sharp fa-solid fa-pencil"></i> edit</button>'},
-    {'Product_Id': "123456",'Product Name': 'Product 4',  'Price': 'Price 4', 'Stock_available': 'Stock 4','image_link':'image_link 4','edit': '<button class="edit"><i class="fa-sharp fa-solid fa-pencil"></i> edit</button>'},
-    {'Product_Id': "123456",'Product Name': 'Product 2',  'Price': 'Price 2', 'Stock_available': 'Stock 2','image_link':'image_link 2','edit': '<button class="edit"><i class="fa-sharp fa-solid fa-pencil"></i> edit</button>'},
-    {'Product_Id': "123456",'Product Name': 'Product 3',  'Price': 'Price 3', 'Stock_available': 'Stock 3','image_link':'image_link 3','edit': '<button class="edit"><i class="fa-sharp fa-solid fa-pencil"></i> edit</button>'},
-    {'Product_Id': "123456",'Product Name': 'Product 4',  'Price': 'Price 4', 'Stock_available': 'Stock 4','image_link':'image_link 4','edit': '<button class="edit"><i class="fa-sharp fa-solid fa-pencil"></i> edit</button>'},
-    {'Product_Id': "123456",'Product Name': 'Product 2',  'Price': 'Price 2', 'Stock_available': 'Stock 2','image_link':'image_link 2','edit': '<button class="edit"><i class="fa-sharp fa-solid fa-pencil"></i> edit</button>'},
-    {'Product_Id': "123456",'Product Name': 'Product 4',  'Price': 'Price 4', 'Stock_available': 'Stock 4','image_link':'image_link 4','edit': '<button class="edit"><i class="fa-sharp fa-solid fa-pencil"></i> edit</button>'}];
+// var data_product = [
+//     {'Product_Id': "123456",'Product Name': 'Product 1',  'Price': 'Price 1', 'Stock_available': 'Stock 1','image_link':'image_link 1','edit': '<button class="edit"><i class="fa-sharp fa-solid fa-pencil"></i> edit</button>'},
+//     {'Product_Id': "123456",'Product Name': 'Product 2',  'Price': 'Price 2', 'Stock_available': 'Stock 2','image_link':'image_link 2','edit': '<button class="edit"><i class="fa-sharp fa-solid fa-pencil"></i> edit</button>'},
+//     {'Product_Id': "123456",'Product Name': 'Product 3',  'Price': 'Price 3', 'Stock_available': 'Stock 3','image_link':'image_link 3','edit': '<button class="edit"><i class="fa-sharp fa-solid fa-pencil"></i> edit</button>'},
+//     {'Product_Id': "123456",'Product Name': 'Product 4',  'Price': 'Price 4', 'Stock_available': 'Stock 4','image_link':'image_link 4','edit': '<button class="edit"><i class="fa-sharp fa-solid fa-pencil"></i> edit</button>'},
+//     {'Product_Id': "123456",'Product Name': 'Product 2',  'Price': 'Price 2', 'Stock_available': 'Stock 2','image_link':'image_link 2','edit': '<button class="edit"><i class="fa-sharp fa-solid fa-pencil"></i> edit</button>'},
+//     {'Product_Id': "123456",'Product Name': 'Product 3',  'Price': 'Price 3', 'Stock_available': 'Stock 3','image_link':'image_link 3','edit': '<button class="edit"><i class="fa-sharp fa-solid fa-pencil"></i> edit</button>'},
+//     {'Product_Id': "123456",'Product Name': 'Product 4',  'Price': 'Price 4', 'Stock_available': 'Stock 4','image_link':'image_link 4','edit': '<button class="edit"><i class="fa-sharp fa-solid fa-pencil"></i> edit</button>'},
+//     {'Product_Id': "123456",'Product Name': 'Product 2',  'Price': 'Price 2', 'Stock_available': 'Stock 2','image_link':'image_link 2','edit': '<button class="edit"><i class="fa-sharp fa-solid fa-pencil"></i> edit</button>'},
+//     {'Product_Id': "123456",'Product Name': 'Product 4',  'Price': 'Price 4', 'Stock_available': 'Stock 4','image_link':'image_link 4','edit': '<button class="edit"><i class="fa-sharp fa-solid fa-pencil"></i> edit</button>'}];
 
 // generate a orders_header array
-var orders_header = ['Order ID', 'Client ID', 'Orders Product', 'Total price','Date','Delete'];
-// generate a array of jason base on orders_header
-var data_order = [
-    {'Order ID': 'Order 1', 'Client ID': 'Client 1','Description':[{'product': "product1",'Quantity': 3},{'product': "product5",'Quantity': 1},{'product': "product1",'Quantity': 2},], 'Total price': 'Total price 1','Date': "15/02/2023",'delete': '<button class="delete"><i class="fa-sharp fa-solid fa-eraser"></i> delete</button>'},
-    {'Order ID': 'Order 1', 'Client ID': 'Client 1','Description':[{'product': "product1",'Quantity': 3},{'product': "product5",'Quantity': 1},{'product': "product1",'Quantity': 2},], 'Total price': 'Total price 1','Date': "15/02/2023",'delete': '<button class="delete"><i class="fa-sharp fa-solid fa-eraser"></i> delete</button>'},
-    {'Order ID': 'Order 1', 'Client ID': 'Client 1','Description':[{'product': "product1",'Quantity': 3},{'product': "product1",'Quantity': 2},], 'Total price': 'Total price 1','Date': "15/02/2023",'delete': '<button class="delete"><i class="fa-sharp fa-solid fa-eraser"></i> delete</button>'},
-    {'Order ID': 'Order 1', 'Client ID': 'Client 1','Description':[{'product': "product1",'Quantity': 3},{'product': "product5",'Quantity': 1},{'product': "product1",'Quantity': 2},], 'Total price': 'Total price 1','Date': "15/02/2023",'delete': '<button class="delete"><i class="fa-sharp fa-solid fa-eraser"></i> delete</button>'},
-    {'Order ID': 'Order 1', 'Client ID': 'Client 1','Description':[{'product': "product1",'Quantity': 3},{'product': "product5",'Quantity': 1},{'product': "product1",'Quantity': 2},], 'Total price': 'Total price 1','Date': "15/02/2023",'delete': '<button class="delete"><i class="fa-sharp fa-solid fa-eraser"></i> delete</button>'},
-];
+var orders_header = ['Order ID', 'Client ID', 'Orders Product', 'Total price','Address','Date','Delete'];
+// // generate a array of jason base on orders_header
+// var data_order = [
+//     {'Order ID': 'Order 1', 'Client ID': 'Client 1','Description':[{'product': "product1",'Quantity': 3},{'product': "product5",'Quantity': 1},{'product': "product1",'Quantity': 2},], 'Total price': 'Total price 1','Date': "15/02/2023",'delete': '<button class="delete"><i class="fa-sharp fa-solid fa-eraser"></i> delete</button>'},
+//     {'Order ID': 'Order 1', 'Client ID': 'Client 1','Description':[{'product': "product1",'Quantity': 3},{'product': "product5",'Quantity': 1},{'product': "product1",'Quantity': 2},], 'Total price': 'Total price 1','Date': "15/02/2023",'delete': '<button class="delete"><i class="fa-sharp fa-solid fa-eraser"></i> delete</button>'},
+//     {'Order ID': 'Order 1', 'Client ID': 'Client 1','Description':[{'product': "product1",'Quantity': 3},{'product': "product1",'Quantity': 2},], 'Total price': 'Total price 1','Date': "15/02/2023",'delete': '<button class="delete"><i class="fa-sharp fa-solid fa-eraser"></i> delete</button>'},
+//     {'Order ID': 'Order 1', 'Client ID': 'Client 1','Description':[{'product': "product1",'Quantity': 3},{'product': "product5",'Quantity': 1},{'product': "product1",'Quantity': 2},], 'Total price': 'Total price 1','Date': "15/02/2023",'delete': '<button class="delete"><i class="fa-sharp fa-solid fa-eraser"></i> delete</button>'},
+//     {'Order ID': 'Order 1', 'Client ID': 'Client 1','Description':[{'product': "product1",'Quantity': 3},{'product': "product5",'Quantity': 1},{'product': "product1",'Quantity': 2},], 'Total price': 'Total price 1','Date': "15/02/2023",'delete': '<button class="delete"><i class="fa-sharp fa-solid fa-eraser"></i> delete</button>'},
+// ];
 
 // function to clear a table of all rows and fill it with new data from array of json objects
 function fillTable(data,headers) {
@@ -56,26 +56,6 @@ function fillOrderTable(data,headers) {
     $("#search_2").text("Client ID");
     $("#search_3").text("Total price");
 
-    // $('#event_table').empty();
-    // var header = $('<tr></tr>');
-    // for (var i = 0; i < headers.length; i++) {
-    //     header.append('<th>' + headers[i] + '</th>');
-    // }
-    // $('#event_table').append(header);
-    // for (var i = 0; i < data.length; i++) {
-    //     var row = $('<tr></tr>');
-    //     row.append('<td>' + data[i]['Order ID'] + '</td>');
-    //     row.append('<td>' + data[i]['Client ID'] + '</td>');
-    //     var desc = $('<td></td>');
-    //     for (var j = 0; j < data[i]['Description'].length; j++) {
-    //         desc.append(data[i]['Description'][j]['product'] + ' - x' + data[i]['Description'][j]['Quantity'] + '<br>');
-    //     }
-    //     row.append(desc);
-    //     row.append('<td>' + data[i]['Total price'] + '</td>');
-    //     row.append('<td>' + data[i]['Date'] + '</td>');
-    //     row.append('<td>' + data[i]['delete'] + '</td>');
-    //     $('#event_table').append(row);
-    // }
     $('#event_table').empty();
     var header = $('<tr></tr>');
     for (var i = 0; i < headers.length; i++) {
@@ -83,16 +63,20 @@ function fillOrderTable(data,headers) {
     }
     $('#event_table').append(header);
     for (var i = 0; i < data.length; i++) {
+        var date = new Date(data[i]['date']["$date"]["$numberLong"]*1000);
         var row = $('<tr></tr>');
         row.append('<td>' + data[i]['_id']["$oid"] + '</td>');
         row.append('<td>' + data[i]['client_id']["$oid"] + '</td>');
 
-        row.append('<td>' + data[i]['orders_product'] + '</td>');
+        // row.append('<td>' + data[i]['orders_product'] + '</td>');
+        var desc = $('<td></td>')
+        for (var j = 0; j < data[i]['orders_product'].length; j++) {
+            desc.append(data[i]['orders_product'][j][0]["$oid"] + ' x ' + data[i]['orders_product'][j][1] + '<br>');
+        }
+        row.append(desc);
         row.append('<td>' + data[i]['total_price'] + '</td>');
-        row.append('<td>' + data[i]['date']["$date"] + '</td>');
-        // row.append('<td>' + data[i]['Season'] + '</td>');
-        // row.append('<td>' + data[i]['Category'] + '</td>');
-        // row.append('<td>' + data[i]['Image_link'] + '</td>');
+        row.append('<td>' + data[i]['address']+ '</td>');
+        row.append('<td>' + date + '</td>');
         row.append('<td>' + '<button class="delete"><i class="fa-sharp fa-solid fa-eraser"></i> delete</button>' + '</td>');
         $('#event_table').append(row);
     }
