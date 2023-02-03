@@ -1,6 +1,7 @@
+
 <?php
 include "common.php";
-outputHead("Fruity Shop - Registration", "styles/registration.css", "index.js");
+outputHead("Fruity Shop - Registration", "styles/registration.css", "registration.js");
 outputOpeningBodyAndHeroClass(1);
 outputNavbar();
 ?>
