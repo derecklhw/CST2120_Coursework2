@@ -18,11 +18,9 @@ function outputHead(string $title, string $css_file, string $js_file)
     echo '<!-- import jquery -->';
     echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>';
     echo '<!-- import js -->';
-    if ($js_file == "registration.js") {
-        echo '<script defer src="scripts/js/registration.js"></script>';
-    } else {
-        echo '<script src="scripts/js/' . $js_file . '"></script>';
-    }
+    echo '<script src="scripts/js/' . $js_file . '"';
+    echo ($js_file == 'registration.js') ? "defer" : "";
+    echo '></script>';
     echo '</head>';
 }
 
