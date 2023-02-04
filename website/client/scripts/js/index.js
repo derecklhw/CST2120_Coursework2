@@ -1,3 +1,5 @@
+import { addToCart } from "./cart.js";
+
 let phpFilePath = "scripts/php/";
 
 function buildCatalogue(modeType, sortType = "null", search_parameter = "null") {
@@ -50,5 +52,6 @@ $(function () {
   $("#featured-products").on("click", ".add-to-cart-btn", function (event) {
     let id = $(this).data("id");
     console.log(id);
+    addToCart()
   });
 });
