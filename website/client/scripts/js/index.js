@@ -5,7 +5,7 @@ let phpFilePath = "scripts/php/";
 function buildCatalogue(modeType, sortType = "null", search_parameter = "null") {
   $("#featured-products").load(
     phpFilePath +
-      "get.php?build=catalogue" +
+      "build.php?build=catalogue" +
       "&mode=" +
       modeType +
       "&format=" +
@@ -51,7 +51,6 @@ $(function () {
 
   $("#featured-products").on("click", ".add-to-cart-btn", function (event) {
     let id = $(this).data("id");
-    console.log(id);
-    addToCart()
+    addToCart(id)
   });
 });
