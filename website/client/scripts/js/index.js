@@ -1,9 +1,12 @@
 let phpFilePath = "scripts/php/";
 
-function buildCatalogue(sortType, search_parameter = "null") {
+function buildCatalogue(modeType, sortType = "null", search_parameter = "null") {
   $("#featured-products").load(
     phpFilePath +
-      "get.php?mode=catalogue&format=" +
+      "get.php?build=catalogue" +
+      "&mode=" +
+      modeType +
+      "&format=" +
       sortType +
       "&search_parameter=" +
       search_parameter,
@@ -33,16 +36,19 @@ $(function () {
 
   $("#sort-format").change(function () {
     let sortType = $(this).val();
-    buildCatalogue(sortType);
+    $("#search-input").val("");
+    buildCatalogue("sort",sortType);
   });
 
   $("#search-section").on("click", ".fa-magnifying-glass", function (event) {
     event.preventDefault();
     let search_input = $("#search-input").val();
-    buildCatalogue("search", search_input);
+    let sortType = $("#sort-format").val();
+    buildCatalogue("search", sortType, search_input);
   });
 
   $("#featured-products").on("click", ".add-to-cart-btn", function (event) {
-    console.log("hi");
+    let id = $(this).data("id");
+    console.log(id);
   });
 });

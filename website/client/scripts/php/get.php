@@ -1,30 +1,40 @@
 <?php
 include "db.php";
 
-$mode = filter_input(INPUT_GET, 'mode', FILTER_SANITIZE_STRING);
+$build = filter_input(INPUT_GET, 'build', FILTER_SANITIZE_STRING);
 
-switch ($mode) {
+switch ($build) {
     case 'catalogue':
-        $format = filter_input(INPUT_GET, 'format', FILTER_SANITIZE_STRING);
+        $mode = filter_input(INPUT_GET, 'mode', FILTER_SANITIZE_STRING);
         $data = array();
-        switch ($format) {
+        switch ($mode) {
             case 'default':
                 $data = getProductArray($db);
                 buildCatalogue($data);
                 break;
-            case 'descending':
-                $data = getProductArray($db);
-                usort($data, fn ($a, $b) => $a['Name'] <=> $b['Name']);
-                buildCatalogue($data);
-                break;
-            case 'ascending':
-                $data = getProductArray($db);
-                usort($data, fn ($a, $b) => $b['Name'] <=> $a['Name']);
-                buildCatalogue($data);
+            case 'sort':
+                $sortType = filter_input(INPUT_GET, 'format', FILTER_SANITIZE_STRING);
+                switch ($sortType) {
+                    case 'descending':
+                        $data = getProductArray($db);
+                        usort($data, fn ($a, $b) => $a['Name'] <=> $b['Name']);
+                        buildCatalogue($data);
+                        break;
+                    case 'ascending':
+                        $data = getProductArray($db);
+                        usort($data, fn ($a, $b) => $b['Name'] <=> $a['Name']);
+                        buildCatalogue($data);
+                        break;
+                    case 'default':
+                        $data = getProductArray($db);
+                        buildCatalogue($data);
+                        break;
+                }
                 break;
             case 'search':
                 // > db.products.createIndex({Name:"text"})
                 $search_string = filter_input(INPUT_GET, 'search_parameter', FILTER_SANITIZE_STRING);
+                $sortType = filter_input(INPUT_GET, 'format', FILTER_SANITIZE_STRING);
                 if ($search_string == "") {
                     $data = getProductArray($db);
                 } else {
@@ -35,6 +45,16 @@ switch ($mode) {
                     $cursor = $collection->find($search_criteria);
                     foreach ($cursor as $document) {
                         $data[] = $document;
+                    }
+                    switch ($sortType) {
+                        case 'descending':
+                            usort($data, fn ($a, $b) => $a['Name'] <=> $b['Name']);
+                            break;
+                        case 'ascending':
+                            usort($data, fn ($a, $b) => $b['Name'] <=> $a['Name']);
+                            break;
+                        case 'default':
+                            break;
                     }
                 }
                 if (!empty($data)) {
@@ -70,8 +90,8 @@ function buildCatalogue(array $data)
                     <strong>Price:</strong>
                     <span class="price"><?= $product_details['Price'] ?></span>$/kg
                 </p>
-                <div class="add-to-cart-btn">
-                    <p data-id="<?= $product_details['_id'] ?>"><span class="icon-cart-plus"></span>Add to cart</p>
+                <div class="add-to-cart-btn" data-id="<?= $product_details['_id'] ?>">
+                    <p><span class="icon-cart-plus"></span>Add to cart</p>
                 </div>
             </div>
         </div><?php }
