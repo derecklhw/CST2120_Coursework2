@@ -8,7 +8,7 @@ switch ($build) {
         $mode = filter_input(INPUT_POST, 'mode', FILTER_SANITIZE_STRING);
         $sortType = filter_input(INPUT_POST, 'format', FILTER_SANITIZE_STRING);
         $search_string = filter_input(INPUT_POST, 'search_parameter', FILTER_SANITIZE_STRING);
-        
+
         $cart = json_decode($_POST['cart'], true);
         $filteredCart = array();
         foreach ($cart as $unfilteredItem) {
@@ -99,12 +99,16 @@ function buildCatalogue(array $data, array $cart)
                     <span class="price"><?= $product_details['Price'] ?></span>$/kg
                 </p>
                 <?php
+                $found = null;
                 foreach ($cart as $cartItem) {
+                    if ($product_details['_id'] == $cartItem['id']) {
+                        echo '<div class="remove-to-cart-btn" data-id="' . $product_details['_id'] . '">';
+                        echo '  <p><span class="icon-cart-plus"></span>Remove to cart</p></div>';
+                        $found = true;
+                        break;
+                    }
                 }
-                if ($product_details['_id'] == $cartItem['id']) {
-                    echo '<div class="remove-to-cart-btn" data-id="' . $product_details['_id'] . '">';
-                    echo '  <p><span class="icon-cart-minus"></span>Remove to cart</p></div>';
-                } else {
+                if (!isset($found)) {
                     echo '<div class="add-to-cart-btn" data-id="' . $product_details['_id'] . '">';
                     echo '  <p><span class="icon-cart-plus"></span>Add to cart</p></div>';
                 }
