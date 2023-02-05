@@ -154,7 +154,7 @@ function buildCart(array $cart)
                     </div>
 
                     <!-- Quantity Number Spinner -->
-                    <div class="number-spinner column">
+                    <div class="number-spinner column" data-id="<?= $cartItem['id'] ?>">
                         <form action="">
                             <label for="quantity"></label>
                             <input type="number" id="quantity" name="quantity" min="0" max="5" placeholder="<?= $cartItem['quantity'] ?>" />

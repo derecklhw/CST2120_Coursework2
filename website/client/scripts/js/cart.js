@@ -73,6 +73,20 @@ $(function () {
     removeToCart(id);
     loadCart();
   });
+
+  $(".sub-sections").on("click", ".number-spinner", function (event) {
+    event.preventDefault();
+    let quantity = $("#quantity").val();
+    let id = $(this).data("id");
+    let cart = getCart();
+    for (let i = 0; i < cart.length; i++) {
+      if (cart[i].id === id) {
+        cart[i].quantity = quantity;
+      }
+    }
+    sessionStorage.cart = JSON.stringify(cart);
+    loadCart();
+  });
 });
 
 export { getCart, loadCart, addToCart, removeToCart };
