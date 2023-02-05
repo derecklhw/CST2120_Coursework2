@@ -9,11 +9,17 @@ switch ($build) {
         $sortType = filter_input(INPUT_POST, 'format', FILTER_SANITIZE_STRING);
         $search_string = filter_input(INPUT_POST, 'search_parameter', FILTER_SANITIZE_STRING);
 
-        $cart = json_decode($_POST['cart'], true);
-        $filteredCart = array();
-        foreach ($cart as $unfilteredItem) {
+        $unfilteredCart = json_decode($_POST['cart'], true);
+        $filteredCart = [];
+        foreach ($unfilteredCart as $item) {
             $filteredCart[] = [
-                'id' => $unfilteredItem['id'],
+                'id' => filter_var($item['id'], FILTER_SANITIZE_STRING),
+                'name' => filter_var($item['name'], FILTER_SANITIZE_STRING),
+                'price' => filter_var($item['price'], FILTER_SANITIZE_NUMBER_INT),
+                'season' => filter_var($item['season'], FILTER_SANITIZE_STRING),
+                'category' => filter_var($item['category'], FILTER_SANITIZE_STRING),
+                'image_link' => filter_var($item['image_link'], FILTER_SANITIZE_URL),
+                'quantity' => filter_var($item['quantity'], FILTER_SANITIZE_NUMBER_INT),
             ];
         }
 
@@ -21,23 +27,23 @@ switch ($build) {
         switch ($mode) {
             case 'default':
                 $data = getProductArray($db);
-                buildCatalogue($data, $cart);
+                buildCatalogue($data, $filteredCart);
                 break;
             case 'sort':
                 switch ($sortType) {
                     case 'descending':
                         $data = getProductArray($db);
                         usort($data, fn ($a, $b) => $a['Name'] <=> $b['Name']);
-                        buildCatalogue($data, $cart);
+                        buildCatalogue($data, $filteredCart);
                         break;
                     case 'ascending':
                         $data = getProductArray($db);
                         usort($data, fn ($a, $b) => $b['Name'] <=> $a['Name']);
-                        buildCatalogue($data, $cart);
+                        buildCatalogue($data, $filteredCart);
                         break;
                     case 'default':
                         $data = getProductArray($db);
-                        buildCatalogue($data, $cart);
+                        buildCatalogue($data, $filteredCart);
                         break;
                 }
                 break;
@@ -66,7 +72,7 @@ switch ($build) {
                     }
                 }
                 if (!empty($data)) {
-                    buildCatalogue($data, $cart);
+                    buildCatalogue($data, $filteredCart);
                 } else {
                     echo "<p class=\"error-message\">No results found</p>";
                 }
