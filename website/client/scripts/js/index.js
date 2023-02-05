@@ -2,25 +2,48 @@ import { addToCart } from "./cart.js";
 
 let phpFilePath = "scripts/php/";
 
-function buildCatalogue(modeType, sortType = "null", search_parameter = "null") {
-  $("#featured-products").load(
-    phpFilePath +
-      "build.php?build=catalogue" +
-      "&mode=" +
-      modeType +
-      "&format=" +
-      sortType +
-      "&search_parameter=" +
-      search_parameter,
-    function (responseTxt, statusTxt, xhr) {
+function buildCatalogue(
+  modeType,
+  sortType = "null",
+  search_parameter = "null"
+) {
+  // $("#featured-products").load(
+  //   phpFilePath + "build.php",
+  //   {
+  //     build: "catalogue",
+  //     mode: modeType,
+  //     format: sortType,
+  //     search_parameter: search_parameter,
+  //   },
+  //   function (responseTxt, statusTxt, xhr) {
+  //     if (statusTxt == "error") {
+  //       $(".fa-magnifying-glass").attr({ "pointer-events": "none" });
+  //       $(this).html(
+  //         '<p class="error-message">Greetings Clients <br>If you receive the following error message “Product information not found” when attempting to launch Fruity Shop. <br>If you encounter this error, you may be able to resolve it by contacting the adminstrator</p>'
+  //       );
+  //     }
+  //   }
+  // );
+  $.ajax({
+    url: phpFilePath + "build.php",
+    data: {
+      build: "catalogue",
+      mode: modeType,
+      format: sortType,
+      search_parameter: search_parameter,
+    },
+    success: function (responseTxt, statusTxt, xhr) {
+      $("#featured-products").html(responseTxt);
+    },
+    error: function (responseTxt, statusTxt, xhr) {
       if (statusTxt == "error") {
         $(".fa-magnifying-glass").attr({ "pointer-events": "none" });
         $(this).html(
           '<p class="error-message">Greetings Clients <br>If you receive the following error message “Product information not found” when attempting to launch Fruity Shop. <br>If you encounter this error, you may be able to resolve it by contacting the adminstrator</p>'
         );
       }
-    }
-  );
+    },
+  });
 }
 
 $(function () {
@@ -39,7 +62,7 @@ $(function () {
   $("#sort-format").change(function () {
     let sortType = $(this).val();
     $("#search-input").val("");
-    buildCatalogue("sort",sortType);
+    buildCatalogue("sort", sortType);
   });
 
   $("#search-section").on("click", ".fa-magnifying-glass", function (event) {
@@ -51,6 +74,6 @@ $(function () {
 
   $("#featured-products").on("click", ".add-to-cart-btn", function (event) {
     let id = $(this).data("id");
-    addToCart(id)
+    addToCart(id);
   });
 });
