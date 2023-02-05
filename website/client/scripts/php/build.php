@@ -2,12 +2,12 @@
 include "db.php";
 
 $build = filter_input(INPUT_GET, 'build', FILTER_SANITIZE_STRING);
-$mode = filter_input(INPUT_GET, 'mode', FILTER_SANITIZE_STRING);
-$sortType = filter_input(INPUT_GET, 'format', FILTER_SANITIZE_STRING);
-$search_string = filter_input(INPUT_GET, 'search_parameter', FILTER_SANITIZE_STRING);
 
 switch ($build) {
     case 'catalogue':
+        $mode = filter_input(INPUT_GET, 'mode', FILTER_SANITIZE_STRING);
+        $sortType = filter_input(INPUT_GET, 'format', FILTER_SANITIZE_STRING);
+        $search_string = filter_input(INPUT_GET, 'search_parameter', FILTER_SANITIZE_STRING);
         $data = array();
         switch ($mode) {
             case 'default':

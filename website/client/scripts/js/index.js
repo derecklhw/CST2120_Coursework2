@@ -7,23 +7,6 @@ function buildCatalogue(
   sortType = "null",
   search_parameter = "null"
 ) {
-  // $("#featured-products").load(
-  //   phpFilePath + "build.php",
-  //   {
-  //     build: "catalogue",
-  //     mode: modeType,
-  //     format: sortType,
-  //     search_parameter: search_parameter,
-  //   },
-  //   function (responseTxt, statusTxt, xhr) {
-  //     if (statusTxt == "error") {
-  //       $(".fa-magnifying-glass").attr({ "pointer-events": "none" });
-  //       $(this).html(
-  //         '<p class="error-message">Greetings Clients <br>If you receive the following error message “Product information not found” when attempting to launch Fruity Shop. <br>If you encounter this error, you may be able to resolve it by contacting the adminstrator</p>'
-  //       );
-  //     }
-  //   }
-  // );
   $.ajax({
     url: phpFilePath + "build.php",
     data: {
