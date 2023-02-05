@@ -1,4 +1,4 @@
-import { getCart, addToCart } from "./cart.js";
+import { getCart, addToCart, removeToCart } from "./cart.js";
 
 let phpFilePath = "scripts/php/";
 
@@ -61,5 +61,14 @@ $(function () {
   $("#featured-products").on("click", ".add-to-cart-btn", function (event) {
     let id = $(this).data("id");
     addToCart(id);
+    $(this).attr("class", "remove-to-cart-btn");
+    $(this).html("Remove from cart");
+  });
+
+  $("#featured-products").on("click", ".remove-to-cart-btn", function (event) {
+    let id = $(this).data("id");
+    removeToCart(id);
+    $(this).attr("class", "add-to-cart-btn");
+    $(this).html("Add to cart");
   });
 });

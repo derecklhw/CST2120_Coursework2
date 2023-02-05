@@ -34,6 +34,14 @@ function addToCart(id) {
   });
 }
 
-function removeToCart() {}
+function removeToCart(id) {
+  let cart = getCart();
+  for (let i = 0; i < cart.length; i++) {
+    if (cart[i].id === id) {
+      cart.splice(i, 1);
+    }
+  }
+  sessionStorage.cart = JSON.stringify(cart);
+}
 
-export { getCart, addToCart };
+export { getCart, addToCart, removeToCart };
