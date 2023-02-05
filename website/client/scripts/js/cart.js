@@ -22,7 +22,11 @@ function loadCart() {
     success: function (responseTxt, statusTxt, xhr) {
       $(".sub-sections").html(responseTxt);
     },
-    error: function (responseTxt, statusTxt, xhr) {},
+    error: function (responseTxt, statusTxt, xhr) {
+      if (statusTxt == "error") {
+        console.log("Error: " + xhr.status + ": " + xhr.statusText);
+      }
+    },
   });
 }
 
@@ -62,6 +66,13 @@ function removeToCart(id) {
 
 $(function () {
   loadCart();
+
+  $(".sub-sections").on("click", ".fa-trash", function (event) {
+    event.preventDefault();
+    let id = $(this).data("id");
+    removeToCart(id);
+    loadCart();
+  });
 });
 
 export { getCart, loadCart, addToCart, removeToCart };

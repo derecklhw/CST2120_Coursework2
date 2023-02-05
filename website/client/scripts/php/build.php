@@ -168,7 +168,7 @@ function buildCart(array $cart)
 
                     <!-- Remove product in cart button -->
                     <div class="trash-icon column">
-                        <p class="fa-solid fa-trash"></p>
+                        <p class="fa-solid fa-trash" data-id="<?= $cartItem['id'] ?>"></p>
                     </div>
                 </div>
         <?php

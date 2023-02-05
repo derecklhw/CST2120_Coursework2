@@ -59,6 +59,7 @@ $(function () {
   });
 
   $("#featured-products").on("click", ".add-to-cart-btn", function (event) {
+    event.preventDefault();
     let id = $(this).data("id");
     addToCart(id);
     $(this).attr("class", "remove-to-cart-btn");
@@ -66,6 +67,7 @@ $(function () {
   });
 
   $("#featured-products").on("click", ".remove-to-cart-btn", function (event) {
+    event.preventDefault();
     let id = $(this).data("id");
     removeToCart(id);
     $(this).attr("class", "add-to-cart-btn");
