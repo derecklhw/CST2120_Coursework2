@@ -2,26 +2,25 @@
 include "db.php";
 
 $build = filter_input(INPUT_POST, 'build', FILTER_SANITIZE_STRING);
+$unfilteredCart = json_decode($_POST['cart'], true);
+$filteredCart = [];
+foreach ($unfilteredCart as $item) {
+    $filteredCart[] = [
+        'id' => filter_var($item['id'], FILTER_SANITIZE_STRING),
+        'name' => filter_var($item['name'], FILTER_SANITIZE_STRING),
+        'price' => filter_var($item['price'], FILTER_SANITIZE_NUMBER_INT),
+        'season' => filter_var($item['season'], FILTER_SANITIZE_STRING),
+        'category' => filter_var($item['category'], FILTER_SANITIZE_STRING),
+        'image_link' => filter_var($item['image_link'], FILTER_SANITIZE_URL),
+        'quantity' => filter_var($item['quantity'], FILTER_SANITIZE_NUMBER_INT),
+    ];
+}
 
 switch ($build) {
     case 'catalogue':
         $mode = filter_input(INPUT_POST, 'mode', FILTER_SANITIZE_STRING);
         $sortType = filter_input(INPUT_POST, 'format', FILTER_SANITIZE_STRING);
         $search_string = filter_input(INPUT_POST, 'search_parameter', FILTER_SANITIZE_STRING);
-
-        $unfilteredCart = json_decode($_POST['cart'], true);
-        $filteredCart = [];
-        foreach ($unfilteredCart as $item) {
-            $filteredCart[] = [
-                'id' => filter_var($item['id'], FILTER_SANITIZE_STRING),
-                'name' => filter_var($item['name'], FILTER_SANITIZE_STRING),
-                'price' => filter_var($item['price'], FILTER_SANITIZE_NUMBER_INT),
-                'season' => filter_var($item['season'], FILTER_SANITIZE_STRING),
-                'category' => filter_var($item['category'], FILTER_SANITIZE_STRING),
-                'image_link' => filter_var($item['image_link'], FILTER_SANITIZE_URL),
-                'quantity' => filter_var($item['quantity'], FILTER_SANITIZE_NUMBER_INT),
-            ];
-        }
 
         $data = array();
         switch ($mode) {
@@ -79,6 +78,9 @@ switch ($build) {
                 break;
         }
         break;
+    case 'cart':
+        buildCart($filteredCart);
+        break;
 }
 
 function getProductArray(object $db)
@@ -120,6 +122,91 @@ function buildCatalogue(array $data, array $cart)
                 }
                 ?>
             </div>
-        </div><?php }
+        </div>
+    <?php }
+}
+
+function buildCart(array $cart)
+{
+    ?>
+    <div id="cart-section">
+        <!-- Checkout section -->
+        <?php
+        if (empty($cart)) {
+            $total = 0;
+            $count = 0;
+        } else {
+            $total = 0;
+            $count = 0;
+            foreach ($cart as $cartItem) {
+                $count += $cartItem['quantity'];
+                $total += $cartItem['price'] * $cartItem['quantity'];
+        ?>
+                <div class="product-order">
+                    <!-- Product Image -->
+                    <div class="product-img column">
+                        <img src="<?= $cartItem['image_link'] ?>" src="<?= $cartItem['image_link'] ?>" />
+                    </div>
+                    <!-- Product Description -->
+                    <div class="product-description column">
+                        <p class="name"><?= $cartItem['name'] ?></p>
+                        <p class="price">$<?= $cartItem['price'] ?></p>
+                    </div>
+
+                    <!-- Quantity Number Spinner -->
+                    <div class="number-spinner column">
+                        <form action="">
+                            <label for="quantity"></label>
+                            <input type="number" id="quantity" name="quantity" min="0" max="5" placeholder="<?= $cartItem['quantity'] ?>" />
+                        </form>
+                    </div>
+
+                    <!-- Product total order price -->
+                    <div class="product-price column">
+                        <p class="price">$<?= $cartItem['quantity'] * $cartItem['price'] ?></p>
+                    </div>
+
+                    <!-- Remove product in cart button -->
+                    <div class="trash-icon column">
+                        <p class="fa-solid fa-trash"></p>
+                    </div>
+                </div>
+        <?php
+            }
         }
-                ?>
+
+        ?>
+    </div>
+    <div id="checkout-section">
+        <!-- Number of items and  shipping sections -->
+        <div class="calculation-section">
+            <div class="row">
+                <p><?= $count ?> items</p>
+                <p class="value">$<?= $total ?></p>
+            </div>
+            <div class="row">
+                <p>Shipping</p>
+                <p class="value">Free</p>
+            </div>
+        </div>
+
+        <!-- Total Price and Taxes Section -->
+        <div class="total-section">
+            <div class="row">
+                <p>Total (tax excl.)</p>
+                <p class="value">$<?= $total ?></p>
+            </div>
+            <div class="row">
+                <p>Taxes</p>
+                <p class="value">$<?= $total * 0.15 ?></p>
+            </div>
+        </div>
+
+        <!-- Checkout btn -->
+        <div class="checkout-btn-section">
+            <p><span class="icon-checkout-cart <?= (empty($cart)) ? "disable" : "" ?>"></span>Checkout</p>
+        </div>
+    </div>
+<?php
+}
+?>

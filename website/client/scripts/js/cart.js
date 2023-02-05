@@ -1,3 +1,5 @@
+let phpFilePath = "scripts/php/";
+
 function getCart() {
   let cart;
   if (sessionStorage.cart === undefined || sessionStorage.cart === "") {
@@ -8,7 +10,21 @@ function getCart() {
   return cart;
 }
 
-function loadCart() {}
+function loadCart() {
+  let cart = getCart();
+  $.ajax({
+    url: phpFilePath + "build.php",
+    type: "POST",
+    data: {
+      build: "cart",
+      cart: JSON.stringify(cart),
+    },
+    success: function (responseTxt, statusTxt, xhr) {
+      $(".sub-sections").html(responseTxt);
+    },
+    error: function (responseTxt, statusTxt, xhr) {},
+  });
+}
 
 function addToCart(id) {
   let cart = getCart();
@@ -44,4 +60,8 @@ function removeToCart(id) {
   sessionStorage.cart = JSON.stringify(cart);
 }
 
-export { getCart, addToCart, removeToCart };
+$(function () {
+  loadCart();
+});
+
+export { getCart, loadCart, addToCart, removeToCart };
