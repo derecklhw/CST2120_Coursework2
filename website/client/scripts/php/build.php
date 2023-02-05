@@ -1,34 +1,43 @@
 <?php
 include "db.php";
 
-$build = filter_input(INPUT_GET, 'build', FILTER_SANITIZE_STRING);
+$build = filter_input(INPUT_POST, 'build', FILTER_SANITIZE_STRING);
 
 switch ($build) {
     case 'catalogue':
-        $mode = filter_input(INPUT_GET, 'mode', FILTER_SANITIZE_STRING);
-        $sortType = filter_input(INPUT_GET, 'format', FILTER_SANITIZE_STRING);
-        $search_string = filter_input(INPUT_GET, 'search_parameter', FILTER_SANITIZE_STRING);
+        $mode = filter_input(INPUT_POST, 'mode', FILTER_SANITIZE_STRING);
+        $sortType = filter_input(INPUT_POST, 'format', FILTER_SANITIZE_STRING);
+        $search_string = filter_input(INPUT_POST, 'search_parameter', FILTER_SANITIZE_STRING);
+        
+        $cart = json_decode($_POST['cart'], true);
+        $filteredCart = array();
+        foreach ($cart as $unfilteredItem) {
+            $filteredCart[] = [
+                'id' => $unfilteredItem['id'],
+            ];
+        }
+
         $data = array();
         switch ($mode) {
             case 'default':
                 $data = getProductArray($db);
-                buildCatalogue($data);
+                buildCatalogue($data, $cart);
                 break;
             case 'sort':
                 switch ($sortType) {
                     case 'descending':
                         $data = getProductArray($db);
                         usort($data, fn ($a, $b) => $a['Name'] <=> $b['Name']);
-                        buildCatalogue($data);
+                        buildCatalogue($data, $cart);
                         break;
                     case 'ascending':
                         $data = getProductArray($db);
                         usort($data, fn ($a, $b) => $b['Name'] <=> $a['Name']);
-                        buildCatalogue($data);
+                        buildCatalogue($data, $cart);
                         break;
                     case 'default':
                         $data = getProductArray($db);
-                        buildCatalogue($data);
+                        buildCatalogue($data, $cart);
                         break;
                 }
                 break;
@@ -57,7 +66,7 @@ switch ($build) {
                     }
                 }
                 if (!empty($data)) {
-                    buildCatalogue($data);
+                    buildCatalogue($data, $cart);
                 } else {
                     echo "<p class=\"error-message\">No results found</p>";
                 }
@@ -76,7 +85,7 @@ function getProductArray(object $db)
     return $data;
 }
 
-function buildCatalogue(array $data)
+function buildCatalogue(array $data, array $cart)
 {
     foreach ($data as $product_details) { ?>
         <div class="product-wrap">
@@ -89,9 +98,17 @@ function buildCatalogue(array $data)
                     <strong>Price:</strong>
                     <span class="price"><?= $product_details['Price'] ?></span>$/kg
                 </p>
-                <div class="add-to-cart-btn" data-id="<?= $product_details['_id'] ?>">
-                    <p><span class="icon-cart-plus"></span>Add to cart</p>
-                </div>
+                <?php
+                foreach ($cart as $cartItem) {
+                }
+                if ($product_details['_id'] == $cartItem['id']) {
+                    echo '<div class="remove-to-cart-btn" data-id="' . $product_details['_id'] . '">';
+                    echo '  <p><span class="icon-cart-minus"></span>Remove to cart</p></div>';
+                } else {
+                    echo '<div class="add-to-cart-btn" data-id="' . $product_details['_id'] . '">';
+                    echo '  <p><span class="icon-cart-plus"></span>Add to cart</p></div>';
+                }
+                ?>
             </div>
         </div><?php }
         }

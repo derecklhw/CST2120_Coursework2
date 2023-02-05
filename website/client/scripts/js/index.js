@@ -1,4 +1,4 @@
-import { addToCart } from "./cart.js";
+import { getCart, addToCart } from "./cart.js";
 
 let phpFilePath = "scripts/php/";
 
@@ -7,13 +7,16 @@ function buildCatalogue(
   sortType = "null",
   search_parameter = "null"
 ) {
+  let cart = getCart();
   $.ajax({
     url: phpFilePath + "build.php",
+    type: "POST",
     data: {
       build: "catalogue",
       mode: modeType,
       format: sortType,
       search_parameter: search_parameter,
+      cart: JSON.stringify(cart),
     },
     success: function (responseTxt, statusTxt, xhr) {
       $("#featured-products").html(responseTxt);

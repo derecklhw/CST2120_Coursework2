@@ -200,7 +200,7 @@
   #featured-products
   .product-wrap
   .product-description
-  .add-to-cart-btn {
+  .add-to-cart-btn, .remove-to-cart-btn  {
   margin-top: 1.4rem;
   display: flex;
   justify-content: center;
@@ -212,8 +212,8 @@
   #featured-products
   .product-wrap
   .product-description
-  .add-to-cart-btn
-  p {
+  .add-to-cart-btn, .remove-to-cart-btn
+   {
   color: #fff;
   font-size: 1rem;
   text-align: center;
@@ -230,8 +230,16 @@
   #featured-products
   .product-wrap
   .product-description
-  .add-to-cart-btn
-  p:hover {
+  .remove-to-cart-btn {
+    background-color: #ed5e69;
+  }
+
+#catalogue
+  .section-wrap
+  #featured-products
+  .product-wrap
+  .product-description
+  .add-to-cart-btn:hover, .remove-to-cart-btn:hover {
   background-color: #292c2e;
 }
 

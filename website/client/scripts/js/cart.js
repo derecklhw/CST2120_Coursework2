@@ -36,4 +36,4 @@ function addToCart(id) {
 
 function removeToCart() {}
 
-export { addToCart };
+export { getCart, addToCart };
