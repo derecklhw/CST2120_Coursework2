@@ -64,6 +64,16 @@ function removeToCart(id) {
   sessionStorage.cart = JSON.stringify(cart);
 }
 
+function updateCartProductQty(id, quantity) {
+  let cart = getCart();
+  for (let i = 0; i < cart.length; i++) {
+    if (cart[i].id === id) {
+      cart[i].quantity = quantity;
+    }
+  }
+  sessionStorage.cart = JSON.stringify(cart);
+}
+
 $(function () {
   loadCart();
 
@@ -74,17 +84,34 @@ $(function () {
     loadCart();
   });
 
-  $(".sub-sections").on("click", ".number-spinner", function (event) {
+  $(".sub-sections").on("change", ".number-spinner", function (event) {
     event.preventDefault();
     let quantity = $("#quantity").val();
     let id = $(this).data("id");
-    let cart = getCart();
-    for (let i = 0; i < cart.length; i++) {
-      if (cart[i].id === id) {
-        cart[i].quantity = quantity;
-      }
+    let availableStock;
+
+    $.ajax({
+      url: "scripts/php/get.php",
+      data: {
+        productId: id,
+      },
+      success: function (responseTxt) {
+        availableStock = responseTxt;
+      },
+    });
+
+    // if (quantity == 0) {
+    //   removeToCart(id);
+    // } else if (quantity == availableStock) {
+    //   console.log("hi");
+    // } else {
+    //   updateCartProductQty(id, quantity);
+    // }
+    if (quantity == 0) {
+      removeToCart(id);
+    } else {
+      updateCartProductQty(id, quantity);
     }
-    sessionStorage.cart = JSON.stringify(cart);
     loadCart();
   });
 });

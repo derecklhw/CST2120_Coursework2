@@ -1,5 +1,6 @@
 <?php
 include "db.php";
+include "get.php";
 
 $build = filter_input(INPUT_POST, 'build', FILTER_SANITIZE_STRING);
 $unfilteredCart = json_decode($_POST['cart'], true);
@@ -79,7 +80,7 @@ switch ($build) {
         }
         break;
     case 'cart':
-        buildCart($filteredCart);
+        buildCart($filteredCart, $db);
         break;
 }
 
@@ -126,7 +127,7 @@ function buildCatalogue(array $data, array $cart)
     <?php }
 }
 
-function buildCart(array $cart)
+function buildCart(array $cart, object $db)
 {
     ?>
     <div id="cart-section">
@@ -157,7 +158,7 @@ function buildCart(array $cart)
                     <div class="number-spinner column" data-id="<?= $cartItem['id'] ?>">
                         <form action="">
                             <label for="quantity"></label>
-                            <input type="number" id="quantity" name="quantity" min="0" max="5" placeholder="<?= $cartItem['quantity'] ?>" />
+                            <input type="number" id="quantity" name="quantity" min="0" max="<?= getProductStockAvailable($db, $cartItem['id']) ?>" value="<?= $cartItem['quantity'] ?>" />
                         </form>
                     </div>
 
