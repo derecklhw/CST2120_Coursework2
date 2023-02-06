@@ -88,25 +88,7 @@ $(function () {
     event.preventDefault();
     let quantity = $("#quantity").val();
     let id = $(this).data("id");
-    let availableStock;
 
-    $.ajax({
-      url: "scripts/php/get.php",
-      data: {
-        productId: id,
-      },
-      success: function (responseTxt) {
-        availableStock = responseTxt;
-      },
-    });
-
-    // if (quantity == 0) {
-    //   removeToCart(id);
-    // } else if (quantity == availableStock) {
-    //   console.log("hi");
-    // } else {
-    //   updateCartProductQty(id, quantity);
-    // }
     if (quantity == 0) {
       removeToCart(id);
     } else {

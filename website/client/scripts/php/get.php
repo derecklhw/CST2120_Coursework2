@@ -13,10 +13,6 @@ switch ($info) {
         $cursor = $collection->findOne($findCriteria);
         echo json_encode($cursor);
         break;
-    case 'getProductStockAvailable':
-        $productId = filter_input(INPUT_GET, 'productId', FILTER_SANITIZE_STRING);
-        getProductStockAvailable($db, $productId);
-        break;
 }
 
 function getProductStockAvailable(object $db, string $id)
