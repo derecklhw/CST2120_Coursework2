@@ -74,6 +74,27 @@ function updateCartProductQty(id, quantity) {
   sessionStorage.cart = JSON.stringify(cart);
 }
 
+function recordOrder() {
+  let cart = getCart();
+  $.ajax({
+    url: phpFilePath + "post.php",
+    type: "POST",
+    data: {
+      post: "recordOrder",
+      userId: "63e297f8e654ae516c04c3f2",
+      cart: JSON.stringify(cart),
+    },
+    success: function (responseTxt, statusTxt, xhr) {
+      // sessionStorage.cart = "";
+    },
+    error: function (responseTxt, statusTxt, xhr) {
+      if (statusTxt == "error") {
+        console.log("Error: " + xhr.status + ": " + xhr.statusText);
+      }
+    },
+  });
+}
+
 $(function () {
   loadCart();
 
@@ -107,19 +128,20 @@ $(function () {
     draggable: false,
     modal: true,
     buttons: {
-      Yes: function () {
+      Confirm: function () {
         $(this).dialog("close");
+        recordOrder();
         $("#approved-confirmation-dialog").dialog("open");
       },
-      No: function () {
+      Cancel: function () {
         $(this).dialog("close");
       },
     },
     show: {
-      duration: 500,
+      duration: 800,
     },
     hide: {
-      duration: 500,
+      duration: 800,
     },
   });
 
@@ -142,8 +164,33 @@ $(function () {
     },
   });
 
+  $("#empty-cart-dialog").dialog({
+    autoOpen: false,
+    resizable: false,
+    draggable: false,
+    modal: true,
+    buttons: {
+      Continue: function () {
+        $(this).dialog("close");
+        window.location.href = "index.php#catalogue";
+      },
+    },
+    show: {
+      duration: 800,
+    },
+    hide: {
+      duration: 800,
+    },
+  });
+
   $(".cart-btn-section").on("click", "p", function () {
-    $("#confirmation-dialog").dialog("open");
+    let cart = getCart();
+    if (cart.length === 0) {
+      $("#empty-cart-dialog").dialog("open");
+      return;
+    } else {
+      $("#confirmation-dialog").dialog("open");
+    }
   });
 });
 
