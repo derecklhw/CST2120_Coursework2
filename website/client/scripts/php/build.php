@@ -155,10 +155,9 @@ function buildCart(array $cart, object $db)
                     </div>
 
                     <!-- Quantity Number Spinner -->
-                    <div class="number-spinner column" data-id="<?= $cartItem['id'] ?>">
-                        <form action="">
-                            <label for="quantity"></label>
-                            <input type="number" id="quantity" name="quantity" min="0" max="<?= getProductStockAvailable($db, $cartItem['id']) ?>" value="<?= $cartItem['quantity'] ?>" />
+                    <div class="number-spinner column">
+                        <form action="" onsubmit="return false;">
+                            <input id="quantity" type="number" name="quantity" min="0" max="<?= getProductStockAvailable($db, $cartItem['id']) ?>" value="<?= $cartItem['quantity'] ?>" data-id="<?= $cartItem['id'] ?>" />
                         </form>
                     </div>
 

@@ -84,18 +84,22 @@ $(function () {
     loadCart();
   });
 
-  $(".sub-sections").on("change", ".number-spinner", function (event) {
-    event.preventDefault();
-    let quantity = $("#quantity").val();
-    let id = $(this).data("id");
+  $(".sub-sections").on(
+    "change",
+    ".number-spinner form input",
+    function (event) {
+      event.preventDefault();
+      let quantity = $(this).val();
+      let id = $(this).data("id");
 
-    if (quantity == 0) {
-      removeToCart(id);
-    } else {
-      updateCartProductQty(id, quantity);
+      if (quantity == 0) {
+        removeToCart(id);
+      } else {
+        updateCartProductQty(id, quantity);
+      }
+      loadCart();
     }
-    loadCart();
-  });
+  );
 });
 
 export { getCart, loadCart, addToCart, removeToCart };
