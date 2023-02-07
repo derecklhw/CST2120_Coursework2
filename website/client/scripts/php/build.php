@@ -202,10 +202,42 @@ function buildCart(array $cart, object $db)
             </div>
         </div>
 
+        <div id="dialog" title="Confirmation">
+            <p>Please confirm items in your cart before checkout?</p>
+        </div>
+
         <!-- Checkout btn -->
-        <div class="checkout-btn-section">
+        <div id="checkout-btn-section">
             <p><span class="icon-checkout-cart <?= (empty($cart)) ? "disable" : "" ?>"></span>Checkout</p>
         </div>
+
+        <script>
+            $(".sub-sections").on("click", "#checkout-btn-section", function() {
+                $("#dialog").dialog("open");
+            });
+
+            $("#dialog").dialog({
+                autoOpen: false,
+                resizable: false,
+                draggable: false,
+                modal: true,
+                buttons: {
+                    "Yes": function() {
+                        $(this).dialog("close");
+                        window.location.href = "index.php#catalogue";
+                    },
+                    "No": function() {
+                        $(this).dialog("close");
+                    },
+                },
+                show: {
+                    duration: 500,
+                },
+                hide: {
+                    duration: 500,
+                },
+            });
+        </script>
     </div>
 <?php
 }

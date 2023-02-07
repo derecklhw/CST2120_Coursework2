@@ -31,7 +31,7 @@
 
 #checkout-section .calculation-section,
 .total-section,
-.checkout-btn-section {
+#checkout-btn-section {
   display: flex;
   flex-direction: column;
   padding: 5%;
@@ -55,11 +55,11 @@
 
 /* || Checkout button styles */
 
-#checkout-section .checkout-btn-section {
+#checkout-btn-section {
   align-items: center;
 }
 
-#checkout-section .checkout-btn-section p {
+#checkout-btn-section p {
   color: #fff;
   font-size: 1rem;
   text-align: center;
@@ -71,7 +71,7 @@
   text-transform: uppercase;
 }
 
-#checkout-section .checkout-btn-section p:hover {
+#checkout-btn-section p:hover {
   background-color: #669202;
 }
 

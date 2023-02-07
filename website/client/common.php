@@ -11,12 +11,14 @@ function outputHead(string $title, string $css_file, string $js_file)
     echo '<meta name="viewport" content="width=device-width, initial-scale=1.0" />';
     echo '<title>' . $title . '</title>';
     echo '<link rel="stylesheet" href="' . $css_file . '" />';
+    echo '<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">';
     echo '<!-- Link to fontawesome api -->';
     echo '<script
             src="https://kit.fontawesome.com/6792829ccf.js"
             crossorigin="anonymous"></script>';
     echo '<!-- import jquery -->';
     echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>';
+    echo '<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>';
     echo '<!-- import js -->';
     echo '<script src="scripts/js/' . $js_file . '"';
     // update index.js to a module
