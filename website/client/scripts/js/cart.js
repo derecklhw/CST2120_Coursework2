@@ -101,7 +101,48 @@ $(function () {
     }
   );
 
-  $(".sub-sections").on("click", "#checkout-btn-section", function () {
+  $("#confirmation-dialog").dialog({
+    autoOpen: false,
+    resizable: false,
+    draggable: false,
+    modal: true,
+    buttons: {
+      Yes: function () {
+        $(this).dialog("close");
+        $("#approved-confirmation-dialog").dialog("open");
+      },
+      No: function () {
+        $(this).dialog("close");
+      },
+    },
+    show: {
+      duration: 500,
+    },
+    hide: {
+      duration: 500,
+    },
+  });
+
+  $("#approved-confirmation-dialog").dialog({
+    autoOpen: false,
+    resizable: false,
+    draggable: false,
+    modal: true,
+    buttons: {
+      Continue: function () {
+        $(this).dialog("close");
+        window.location.href = "index.php#catalogue";
+      },
+    },
+    show: {
+      duration: 800,
+    },
+    hide: {
+      duration: 800,
+    },
+  });
+
+  $(".cart-btn-section").on("click", "p",  function () {
     $("#confirmation-dialog").dialog("open");
   });
 });

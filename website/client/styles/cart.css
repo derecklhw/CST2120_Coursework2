@@ -123,13 +123,15 @@
 
 /* || Continue Shopping Button styles */
 
-#shopping-cart .continue-shopping-section {
+#shopping-cart .cart-btn-section {
   margin-bottom: 5%;
-  width: 20%;
+  display: flex;
+  justify-content: space-between;
 }
 
-#shopping-cart .continue-shopping-section a {
-  margin-left: 3.6rem;
+#shopping-cart .cart-btn-section a,
+#shopping-cart .cart-btn-section p {
+  margin: 0 3.6rem;
   color: #fff;
   font-size: 1rem;
   background-color: #292c2e;
@@ -140,9 +142,12 @@
   text-transform: uppercase;
 }
 
-#shopping-cart .continue-shopping-section a:hover {
+#shopping-cart .cart-btn-section a:hover,
+#shopping-cart .cart-btn-section p:hover {
   background-color: #669202;
 }
+
+/* || Error message styles */
 
 .error-message {
   margin: 3% 1%;

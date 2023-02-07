@@ -25,11 +25,24 @@ outputNavbar();
             </div>
         </div>
 
-        <!-- Continue Shopping button -->
-        <div class="continue-shopping-section">
+        <!-- Cart button section -->
+        <div class="cart-btn-section">
             <a href="index.php#catalogue">
-                <span class="fa-solid fa-chevron-left"></span><span class="icon-continue-shopping"></span> Continue Shopping
+                <span class="fa-solid fa-chevron-left icon-continue-shopping"></span> Continue Shopping
             </a>
+            <p><span class="icon-checkout-cart"></span>Checkout</p>
+        </div>
+
+        <div class="dialog-section">
+            <div id="confirmation-dialog" title="Confirmation">
+                <p>Confirm items in your cart?</p>
+            </div>
+
+            <div id="approved-confirmation-dialog" title="Confirmation">
+                <h3>Thank you for your order.</h3>
+                <br>
+                <p>Your order has been successfully processed.</p>
+            </div>
         </div>
     </section>
 </main>
