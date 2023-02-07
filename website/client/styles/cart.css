@@ -143,3 +143,7 @@
 #shopping-cart .continue-shopping-section a:hover {
   background-color: #669202;
 }
+
+.error-message {
+  margin: 3% 1%;
+}

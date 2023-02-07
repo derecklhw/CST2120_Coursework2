@@ -100,6 +100,10 @@ $(function () {
       loadCart();
     }
   );
+
+  $(".sub-sections").on("click", "#checkout-btn-section", function () {
+    $("#confirmation-dialog").dialog("open");
+  });
 });
 
 export { getCart, loadCart, addToCart, removeToCart };

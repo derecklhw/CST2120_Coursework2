@@ -136,6 +136,7 @@ function buildCart(array $cart, object $db)
         if (empty($cart)) {
             $total = 0;
             $count = 0;
+            echo "<p class=\"error-message\">Your Shopping Cart is empty.</p>";
         } else {
             $total = 0;
             $count = 0;
@@ -202,8 +203,14 @@ function buildCart(array $cart, object $db)
             </div>
         </div>
 
-        <div id="dialog" title="Confirmation">
-            <p>Please confirm items in your cart before checkout?</p>
+        <div id="confirmation-dialog" title="Confirmation">
+            <p>Confirm items in your cart?</p>
+        </div>
+
+        <div id="approved-confirmation-dialog" title="Confirmation">
+            <h3>Thank you for your order.</h3>
+            <br>
+            <p>Your order has been successfully processed.</p>
         </div>
 
         <!-- Checkout btn -->
@@ -211,12 +218,9 @@ function buildCart(array $cart, object $db)
             <p><span class="icon-checkout-cart <?= (empty($cart)) ? "disable" : "" ?>"></span>Checkout</p>
         </div>
 
+        <!-- Create the jQuery UI dialog widget and set its options -->
         <script>
-            $(".sub-sections").on("click", "#checkout-btn-section", function() {
-                $("#dialog").dialog("open");
-            });
-
-            $("#dialog").dialog({
+            $("#confirmation-dialog").dialog({
                 autoOpen: false,
                 resizable: false,
                 draggable: false,
@@ -224,7 +228,7 @@ function buildCart(array $cart, object $db)
                 buttons: {
                     "Yes": function() {
                         $(this).dialog("close");
-                        window.location.href = "index.php#catalogue";
+                        $("#approved-confirmation-dialog").dialog("open");
                     },
                     "No": function() {
                         $(this).dialog("close");
@@ -235,6 +239,25 @@ function buildCart(array $cart, object $db)
                 },
                 hide: {
                     duration: 500,
+                },
+            });
+
+            $("#approved-confirmation-dialog").dialog({
+                autoOpen: false,
+                resizable: false,
+                draggable: false,
+                modal: true,
+                buttons: {
+                    "Continue": function() {
+                        $(this).dialog("close");
+                        window.location.href = "index.php#catalogue";
+                    },
+                },
+                show: {
+                    duration: 800,
+                },
+                hide: {
+                    duration: 800,
                 },
             });
         </script>
