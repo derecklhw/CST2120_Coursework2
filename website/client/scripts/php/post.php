@@ -19,24 +19,46 @@ switch ($post) {
                 'quantity' => filter_var($item['quantity'], FILTER_SANITIZE_NUMBER_INT),
             );
         }
+        $total = 0;
+        foreach ($unfilteredCart as $item) {
+            $total += $item['price'] * $item['quantity'];
+        }
+
+        $address = getCustomerAddress($db, $userId);
         $order_data = [
             "client_id" => new MongoDB\BSON\ObjectId($userId),
             "orders_product" => $filteredCart,
-            "total_price" => 12000,
-            "address" => "Tamarin",
+            "total_price" => $total * 1.15,
+            "address" => $address,
             "date" => new MongoDB\BSON\UTCDateTime(time() * 1000)
         ];
+
         $collection = $db->orders;
         $Result = $collection->insertOne($order_data);
         if ($Result->getInsertedCount() > 0) {
             echo "Data Inserted";
-            // print each id of inserted document
-            // foreach ($Result->getInsertedIds() as $id) {
-            //     echo $id;
-            // }
-            var_dump($Result->getInsertedIds);
+            updateProductDb($db, $filteredCart);
         } else {
             echo "Data Not Inserted";
         }
         break;
+}
+
+function getCustomerAddress(object $db, string $customerId)
+{
+    $collection = $db->users;
+    $cursor = $collection->findOne(['_id' => new MongoDB\BSON\ObjectId($customerId)]);
+    return $cursor['Address'];
+}
+
+function updateProductDb(object $db, array $cart) {
+    $collection = $db->products;
+    foreach ($cart as $item) {
+        $cursor = $collection->findOne(['_id' => new MongoDB\BSON\ObjectId($item['id'])]);
+        $newQuantity = $cursor['Stock_Available'] - $item['quantity'];
+        $collection->updateOne(
+            ['_id' => new MongoDB\BSON\ObjectId($item['id'])],
+            ['$set' => ['Stock_Available' => $newQuantity]]
+        );
+    }
 }
