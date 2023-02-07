@@ -142,7 +142,7 @@ $(function () {
     },
   });
 
-  $(".cart-btn-section").on("click", "p",  function () {
+  $(".cart-btn-section").on("click", "p", function () {
     $("#confirmation-dialog").dialog("open");
   });
 });

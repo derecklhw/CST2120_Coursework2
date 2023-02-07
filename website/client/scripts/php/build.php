@@ -202,65 +202,6 @@ function buildCart(array $cart, object $db)
                 <p class="value">$<?= $total * 0.15 ?></p>
             </div>
         </div>
-
-        <!-- <div id="confirmation-dialog" title="Confirmation">
-            <p>Confirm items in your cart?</p>
-        </div>
-
-        <div id="approved-confirmation-dialog" title="Confirmation">
-            <h3>Thank you for your order.</h3>
-            <br>
-            <p>Your order has been successfully processed.</p>
-        </div> -->
-
-        <!-- Checkout btn -->
-        <!-- <div id="checkout-btn-section">
-            <p><span class="icon-checkout-cart <?= (empty($cart)) ? "disable" : "" ?>"></span>Checkout</p>
-        </div> -->
-
-        <!-- Create the jQuery UI dialog widget and set its options -->
-        <script>
-            // $("#confirmation-dialog").dialog({
-            //     autoOpen: false,
-            //     resizable: false,
-            //     draggable: false,
-            //     modal: true,
-            //     buttons: {
-            //         "Yes": function() {
-            //             $(this).dialog("close");
-            //             $("#approved-confirmation-dialog").dialog("open");
-            //         },
-            //         "No": function() {
-            //             $(this).dialog("close");
-            //         },
-            //     },
-            //     show: {
-            //         duration: 500,
-            //     },
-            //     hide: {
-            //         duration: 500,
-            //     },
-            // });
-
-            // $("#approved-confirmation-dialog").dialog({
-            //     autoOpen: false,
-            //     resizable: false,
-            //     draggable: false,
-            //     modal: true,
-            //     buttons: {
-            //         "Continue": function() {
-            //             $(this).dialog("close");
-            //             window.location.href = "index.php#catalogue";
-            //         },
-            //     },
-            //     show: {
-            //         duration: 800,
-            //     },
-            //     hide: {
-            //         duration: 800,
-            //     },
-            // });
-        </script>
     </div>
 <?php
 }
