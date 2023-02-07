@@ -33,16 +33,28 @@ outputNavbar();
             <p><span class="icon-checkout-cart"></span>Checkout</p>
         </div>
 
+        <!-- Dialog section -->
         <div class="dialog-section">
-            <div id="confirmation-dialog" title="Confirmation">
-                <p>Confirm items in your cart?</p>
+            <div id="confirmation-dialog" title="Checkout">
+                <h3>Order Summary</h3>
+                <br>
+                <p>Confirm order?</p>
             </div>
 
             <div id="approved-confirmation-dialog" title="Confirmation">
                 <h3>Thank you for your order.</h3>
                 <br>
                 <p>Your order has been successfully processed.</p>
+                <br>
+                <p>You can view your order history by going to the <a class="my-accout-link" href="account.php">my account</a> page.</p>
             </div>
+
+            <div id="empty-cart-dialog" title="Warning">
+                <h3>Your shopping cart is empty</h3>
+                <br>
+                <p>Continue to add fruits in cart.</p>
+            </div>
+
         </div>
     </section>
 </main>

@@ -121,7 +121,7 @@
   color: #669202;
 }
 
-/* || Continue Shopping Button styles */
+/* || Continue Shopping and Checkout Button styles */
 
 #shopping-cart .cart-btn-section {
   margin-bottom: 5%;
@@ -145,6 +145,12 @@
 #shopping-cart .cart-btn-section a:hover,
 #shopping-cart .cart-btn-section p:hover {
   background-color: #669202;
+}
+
+/* || Dialog styles */
+
+#approved-confirmation-dialog a{
+  color: #36c;
 }
 
 /* || Error message styles */
