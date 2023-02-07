@@ -85,7 +85,8 @@ function recordOrder() {
       cart: JSON.stringify(cart),
     },
     success: function (responseTxt, statusTxt, xhr) {
-      sessionStorage.cart = "";
+      sessionStorage.removeItem("cart");
+
     },
     error: function (responseTxt, statusTxt, xhr) {
       if (statusTxt == "error") {
