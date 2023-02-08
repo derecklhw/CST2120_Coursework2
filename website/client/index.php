@@ -16,7 +16,7 @@ outputNavbar();
 </div>
 <main>
     <!-- Recommendation Section -->
-    <section id="recommendation" name="recommendation">
+    <section id="recommendation-section" name="recommendation">
         <div class="section-wrap">
             <div class="sub-section-title">
                 <p>Recommendation</p>
@@ -24,45 +24,7 @@ outputNavbar();
             </div>
 
             <!-- Recommendation List -->
-            <div class="products">
-                <!-- Product Example -->
-                <div class="fruit">
-                    <img src="assets/images/fruits/apple.jpg" alt="apple" />
-                    <div class="text">
-                        <h2>Apple</h2>
-                        <span>260kg+</span>
-                        <p>Sales</p>
-                    </div>
-                </div>
-
-                <div class="fruit">
-                    <img src="assets/images/fruits/mango.jpg" alt="apple" />
-
-                    <div class="text">
-                        <h2>Mango</h2>
-                        <span>180kg+</span>
-                        <p>Sales</p>
-                    </div>
-                </div>
-
-                <div class="fruit">
-                    <img src="assets/images/fruits/peach.jpg" alt="apple" />
-                    <div class="text">
-                        <h2>Peach</h2>
-                        <span>220kg+</span>
-                        <p>Sales</p>
-                    </div>
-                </div>
-
-                <div class="fruit">
-                    <img src="assets/images/fruits/strawberry.jpg" alt="apple" />
-                    <div class="text">
-                        <h2>Strawberry</h2>
-                        <span>260kg+</span>
-                        <p>Sales</p>
-                    </div>
-                </div>
-            </div>
+            <div id="recommendation-list"></div>
         </div>
     </section>
 

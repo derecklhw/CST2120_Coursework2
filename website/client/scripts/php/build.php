@@ -83,6 +83,28 @@ switch ($build) {
         buildCart($filteredCart, $db);
         break;
     case 'recommendation':
+        $unfiltered_search_array = json_decode($_POST['search'], true);
+        $filtered_search_array = [];
+        foreach ($unfiltered_search_array as $item) {
+            $filtered_search_array[] = filter_var($item, FILTER_SANITIZE_STRING);
+        }
+
+        $data = getProductArray($db);
+        if (empty($filtered_search_array) && empty($filteredCart)) {
+            for ($x = 0; $x <= 3; $x++) { ?>
+                <!-- Product Example -->
+                <div class="fruit">
+                    <img src="<?= $data[$x]["Image_link"] ?>" alt="<?= $data[$x]["Image_link"] ?>" />
+                    <div class="text">
+                        <h2><?= $data[$x]["Name"] ?></h2>
+                        <span>260kg+</span>
+                        <p>Sales</p>
+                    </div>
+                </div>
+        <?php }
+        } else {
+            var_dump($filtered_search_array);
+        }
         break;
 }
 

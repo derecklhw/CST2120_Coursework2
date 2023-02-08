@@ -4,6 +4,20 @@ let phpFilePath = "scripts/php/";
 
 function buildRecommendation() {
   let cart = getCart();
+  let search = getSearch();
+
+  $.ajax({
+    url: phpFilePath + "build.php",
+    type: "POST",
+    data: {
+      build: "recommendation",
+      cart: JSON.stringify(cart),
+      search: JSON.stringify(search),
+    },
+    success: function (responseTxt, statusTxt, xhr) {
+      $("#recommendation-list").html(responseTxt);
+    },
+  });
 }
 
 function buildCatalogue(
@@ -24,6 +38,11 @@ function buildCatalogue(
     },
     success: function (responseTxt, statusTxt, xhr) {
       $("#featured-products").html(responseTxt);
+      if (search_parameter != "null") {
+        let search = getSearch();
+        search.push(search_parameter);
+        sessionStorage.search = JSON.stringify(search);
+      }
     },
     error: function (responseTxt, statusTxt, xhr) {
       if (statusTxt == "error") {
@@ -47,7 +66,18 @@ function search_and_sort_functionality(event) {
   }
 }
 
+function getSearch() {
+  let search;
+  if (sessionStorage.search === undefined || sessionStorage.search === "") {
+    search = [];
+  } else {
+    search = JSON.parse(sessionStorage.search);
+  }
+  return search;
+}
+
 $(function () {
+  buildRecommendation();
   buildCatalogue("default");
 
   $.ajax({
