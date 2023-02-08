@@ -82,6 +82,8 @@ switch ($build) {
     case 'cart':
         buildCart($filteredCart, $db);
         break;
+    case 'recommendation':
+        break;
 }
 
 function buildCatalogue(array $data, array $cart)

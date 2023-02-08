@@ -2,6 +2,10 @@ import { getCart, addToCart, removeToCart } from "./cart.js";
 
 let phpFilePath = "scripts/php/";
 
+function buildRecommendation() {
+  let cart = getCart();
+}
+
 function buildCatalogue(
   modeType,
   sortType = "null",
@@ -32,6 +36,17 @@ function buildCatalogue(
   });
 }
 
+function search_and_sort_functionality(event) {
+  event.preventDefault();
+  let sortType = $("#sort-format").val();
+  let search_input = $("#search-input").val();
+  if (search_input == "") {
+    buildCatalogue("sort", sortType);
+  } else {
+    buildCatalogue("search", sortType, search_input);
+  }
+}
+
 $(function () {
   buildCatalogue("default");
 
@@ -45,17 +60,12 @@ $(function () {
     },
   });
 
-  $("#sort-format").change(function () {
-    let sortType = $(this).val();
-    $("#search-input").val("");
-    buildCatalogue("sort", sortType);
+  $("#sort-format").change(function (event) {
+    search_and_sort_functionality(event);
   });
 
   $("#search-section").on("click", ".fa-magnifying-glass", function (event) {
-    event.preventDefault();
-    let search_input = $("#search-input").val();
-    let sortType = $("#sort-format").val();
-    buildCatalogue("search", sortType, search_input);
+    search_and_sort_functionality(event);
   });
 
   $("#featured-products").on("click", ".add-to-cart-btn", function (event) {
