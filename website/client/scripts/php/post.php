@@ -51,7 +51,8 @@ function getCustomerAddress(object $db, string $customerId)
     return $cursor['Address'];
 }
 
-function updateProductDb(object $db, array $cart) {
+function updateProductDb(object $db, array $cart)
+{
     $collection = $db->products;
     foreach ($cart as $item) {
         $cursor = $collection->findOne(['_id' => new MongoDB\BSON\ObjectId($item['id'])]);

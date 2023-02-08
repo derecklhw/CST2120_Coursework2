@@ -21,3 +21,13 @@ function getProductStockAvailable(object $db, string $id)
     $cursor = $collection->findOne(['_id' => new MongoDB\BSON\ObjectId($id)]);
     echo $cursor['Stock_Available'];
 }
+
+function getProductArray(object $db)
+{
+    $collection = $db->products;
+    $cursor = $collection->find();
+    foreach ($cursor as $document) {
+        $data[] = $document;
+    }
+    return $data;
+}

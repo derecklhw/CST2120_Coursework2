@@ -86,7 +86,6 @@ function recordOrder() {
     },
     success: function (responseTxt, statusTxt, xhr) {
       sessionStorage.removeItem("cart");
-
     },
     error: function (responseTxt, statusTxt, xhr) {
       if (statusTxt == "error") {

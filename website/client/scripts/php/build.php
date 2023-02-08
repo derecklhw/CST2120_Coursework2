@@ -84,16 +84,6 @@ switch ($build) {
         break;
 }
 
-function getProductArray(object $db)
-{
-    $collection = $db->products;
-    $cursor = $collection->find();
-    foreach ($cursor as $document) {
-        $data[] = $document;
-    }
-    return $data;
-}
-
 function buildCatalogue(array $data, array $cart)
 {
     foreach ($data as $product_details) { ?>
