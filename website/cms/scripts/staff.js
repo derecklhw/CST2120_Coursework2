@@ -22,6 +22,8 @@ var orders_header = ['Order ID', 'Client ID', 'Orders Product', 'Total price','A
 //     {'Order ID': 'Order 1', 'Client ID': 'Client 1','Description':[{'product': "product1",'Quantity': 3},{'product': "product5",'Quantity': 1},{'product': "product1",'Quantity': 2},], 'Total price': 'Total price 1','Date': "15/02/2023",'delete': '<button class="delete"><i class="fa-sharp fa-solid fa-eraser"></i> delete</button>'},
 // ];
 
+var fruit_category = ['Citrus', 'Stone fruit', 'Tropical and exotic', 'Berries', 'Melons'];
+
 // function to clear a table of all rows and fill it with new data from array of json objects
 function fillTable(data,headers) {
 
@@ -63,7 +65,9 @@ function fillOrderTable(data,headers) {
     }
     $('#event_table').append(header);
     for (var i = 0; i < data.length; i++) {
+
         var date = new Date(data[i]['date']["$date"]["$numberLong"]*1000);
+        
         var row = $('<tr></tr>');
         row.append('<td>' + data[i]['_id']["$oid"] + '</td>');
         row.append('<td>' + data[i]['client_id']["$oid"] + '</td>');
@@ -71,13 +75,13 @@ function fillOrderTable(data,headers) {
         // row.append('<td>' + data[i]['orders_product'] + '</td>');
         var desc = $('<td></td>')
         for (var j = 0; j < data[i]['orders_product'].length; j++) {
-            desc.append(data[i]['orders_product'][j][0]["$oid"] + ' x ' + data[i]['orders_product'][j][1] + '<br>');
+            desc.append(data[i]['orders_product'][j]['name'] + ' x ' + data[i]['orders_product'][j]['quantity'] + '<br>');
         }
         row.append(desc);
         row.append('<td>' + data[i]['total_price'] + '</td>');
         row.append('<td>' + data[i]['address']+ '</td>');
         row.append('<td>' + date + '</td>');
-        row.append('<td>' + '<button class="delete"><i class="fa-sharp fa-solid fa-eraser"></i> delete</button>' + '</td>');
+        row.append('<td>' + '<button class="delete" id="delete_order"><i class="fa-sharp fa-solid fa-eraser"></i> delete</button>' + '</td>');
         $('#event_table').append(row);
     }
 }
@@ -152,7 +156,7 @@ async function addProduct() {
     const price = document.getElementById("price_input").value;
     const stock = document.getElementById("season_input").value;
     const season = document.getElementById("nb_available_input").value;
-    const category = document.getElementById("category_input").value;
+    const category = document.getElementById("select_category").value;
     const image = document.getElementById("image_link_input").value;
     // Create data object
     const data = { name, price, stock, season, category, image };
@@ -166,6 +170,7 @@ async function addProduct() {
       const result = await response.json();
       console.log(result);
       $("#dialog_add").dialog("close");
+      fill_products_table();
     } catch (error) {
       console.log(error);
     }
@@ -176,13 +181,13 @@ async function updateProduct(){
     // Get form data
     const _id = document.getElementById("Id_input_edit").value;
     const name = document.getElementById("Name_input_edit").value;
-    const price = document.getElementById("price_input_edit").value;
-    const stock = document.getElementById("nb_available_input_edit").value;
+    const price =  Number(document.getElementById("price_input_edit").value);
+    const stock = Number(document.getElementById("nb_available_input_edit").value);
     const season = document.getElementById("season_input_edit").value;
-    const category = document.getElementById("category_input_edit").value;
+    const category = document.getElementById("select_category_edit").value;
     const image = document.getElementById("image_link_input_edit").value;
     // Create data object
-    const data = {_id, name, price, season, stock, category, image };
+    const data = {_id, name,  price, season, stock, category, image };
     console.log("update product :" +data);
     try {
       const response = await fetch("php/update_product.php", {
@@ -238,6 +243,26 @@ async function deleteProduct(){
     }
 }
 
+async function deleteOrder(){
+    var order_id = $("#delete_id_order").text();
+
+    console.log("delete order : " +order_id);
+    data = {order_id};
+    console.log(data);
+    try {
+        const response = await fetch("php/remove_order.php", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" }
+        });
+        const result = await response.json();
+        console.log("result :" +result);
+        $("#dialog_delete_order").dialog("close");
+        fill_orders_table();
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 
 function sort(method, arr){
@@ -282,15 +307,19 @@ async function searching(){
             headers: { "Content-Type": "application/json" }
         });
         const result = await response.json();
+        console.log(result);
         fillTable(sort(select,result),products_header);
 
     }else if (search_1 == "Order ID"){
         console.log("in order");
     }else{
         console.log("other");
-    }
-    
+    } 
 }
+
+// function edit_select(element_array){
+//     var select = 
+// }
 
 $("#edit").click(function () {
     console.log("edit");
@@ -313,6 +342,9 @@ $(function () {
     $("#dialog_edit").dialog({
         autoOpen: false,
     });
+    $("#dialog_delete_order").dialog({
+        autoOpen: false,
+    });
 
     $("#add").click(function () {
         // $("#dialog_add").dialog("option", "height",600)
@@ -320,10 +352,18 @@ $(function () {
         $("#dialog_add").draggable();
     });
 
-    $("#delete").click(function () {
+    $("#delete_product").click(function () {
+        $('#select_delete_type').empty();
+        $('#select_delete_type').append($('<option>').val(1).text('Select by'));//.id("delete_select_0"
+        $('#select_delete_type').append($('<option>').val(2).text('ID'));//.id("delete_select_1")
+        $('#select_delete_type').append($('<option>').val(3).text('Name'));//.id("delete_select_2")
+
+        // $("#delete_select_1").text("ID");
+        // $("#delete_select_2").text("Name");
         $("#dialog_delete").dialog("open");
         $("#dialog_delete").draggable();
     });
+
 
 
 
@@ -338,6 +378,23 @@ $(function () {
 
 
 
+    $(document).on("click", "#delete_order", function() {
+        var row = $(this).closest("tr");
+        var id = row.find("td:eq(0)").text();
+        var name = row.find("td:eq(1)").text();
+        var products = row.find("td:eq(2)").text();
+        var price = row.find("td:eq(3)").text();
+
+        //put the id in a paragraph with id delete_id_order
+        $("#delete_id_order").text(id);
+        $("#delete_product_order").text(products);
+        $("#delete_price_order").text(price);
+
+        $("#dialog_delete_order").dialog("open");
+        $("#dialog_delete_order").draggable();
+
+    });
+
     $(document).on("click", "#edit", function() {
         var row = $(this).closest("tr");
         var id = row.find("td:eq(0)").text();
@@ -347,19 +404,20 @@ $(function () {
         var season = row.find("td:eq(4)").text();
         var category = row.find("td:eq(5)").text();
         var image = row.find("td:eq(6)").text();
-
-        
-        console.log(id);
-        console.log(name);
-        console.log(price);
-    
     
         $("#Id_input_edit").val(id);
         $("#Name_input_edit").val(name);
         $("#price_input_edit").val(price);
         $("#season_input_edit").val(season);
         $("#nb_available_input_edit").val(stock);
-        $("#category_input_edit").val(category);
+        if (fruit_category.includes(category)){
+            console.log("fruit");
+            $("#select_category_edit").val(category).change();
+        }
+        else{
+            console.log("other");
+            $("#select_category_edit").val("Select category").change();
+        }
         $("#image_link_input_edit").val(image);
 
         $("#dialog_edit").dialog("open");
