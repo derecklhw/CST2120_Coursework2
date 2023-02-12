@@ -1,4 +1,4 @@
-import { getCart, addToCart, removeToCart } from "./cart.js";
+import { getCart, addToCart, removeToCart } from "./cart_functionality.js";
 
 let phpFilePath = "scripts/php/";
 
@@ -47,7 +47,7 @@ function buildCatalogue(
     error: function (responseTxt, statusTxt, xhr) {
       if (statusTxt == "error") {
         $(".fa-magnifying-glass").attr({ "pointer-events": "none" });
-        $(this).html(
+        $("#featured-products").html(
           '<p class="error-message">Greetings Clients <br>If you receive the following error message “Product information not found” when attempting to launch Fruity Shop. <br>If you encounter this error, you may be able to resolve it by contacting the adminstrator</p>'
         );
       }

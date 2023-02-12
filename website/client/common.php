@@ -21,9 +21,8 @@ function outputHead(string $title, string $css_file, string $js_file)
     echo '<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>';
     echo '<!-- import js -->';
     echo '<script src="scripts/js/' . $js_file . '"';
-    // update index.js to a module
+    // update to a module
     echo ($js_file == 'index.js' || $js_file == "cart.js") ? 'type="module"' : "";
-    echo ($js_file == 'registration.js') ? "defer" : "";
     echo '></script>';
     echo '</head>';
 }
