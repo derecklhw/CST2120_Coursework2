@@ -30,7 +30,7 @@
     <button id="add">
       <i class="fa-sharp fa-solid fa-plus"></i> Add Product
     </button>
-    <button id="delete">
+    <button id="delete_product">
       <i class="fa-sharp fa-solid fa-eraser"></i> Remove Product
     </button>
   </div>
@@ -46,7 +46,16 @@
     <div>nb_available</div>
     <input type="text" id="nb_available_input" />
     <div>category</div>
-    <input type="text" id="category_input" />
+    <!-- <input type="text" id="category_input" /> -->
+    <select id="select_category">
+      <option value="Select category">Select category</option>
+      <option value="Apple and pears">Apple and pears</option>
+      <option value="Citrus">Citrus</option>
+      <option value="Stone fruit">Stone fruit</option>
+      <option value="Tropical and exotic">Tropical and exotic</option>
+      <option value="Berries">Berries</option>
+      <option value="melon">melon</option>
+    </select>
     <div>image link</div>
     <input type="text" id="image_link_input" />
     <div class="button" id="button-2">
@@ -71,7 +80,15 @@
     <div>season</div>
     <input type="text" id="season_input_edit" />
     <div>category</div>
-    <input type="text" id="category_input_edit" />
+    <select id="select_category_edit">
+      <option value="Select category">Select category</option>
+      <option value="Apple and pears">Apple and pears</option>
+      <option value="Citrus">Citrus</option>
+      <option value="Stone fruit">Stone fruit</option>
+      <option value="Tropical and exotic">Tropical and exotic</option>
+      <option value="Berries">Berries</option>
+      <option value="Melon">Melon</option>
+    </select>
     <div>image link</div>
     <input type="text" id="image_link_input_edit" />
     <div class="button" id="button-2">
@@ -82,15 +99,25 @@
         Cancel
       </button>
     </div>
-  </div>
+  </div> 
+
+  <!-- <div class="dialog_popup" >
+    <h3>Delete order.</h3>
+    <br>
+    <p id='delete_id_order'></p>
+    <br>
+    <div id="button-2">
+      <button class="popup_button" id="closeDialog" onclick="$('#dialog_edit').dialog('close');">
+        Cancel
+      </button>
+    </div>
+  </div> -->
 
 
   <!-- Remove Product dialog pop up -->
   <div class="dialog_popup" id="dialog_delete">
     <select id="select_delete_type">
       <option value="1">Select by</option>
-      <option value="2">Id</option>
-      <option value="3">Name</option>
     </select>
     <div>input</div>
     <input type="text" id="delete_input" />

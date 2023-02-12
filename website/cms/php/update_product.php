@@ -14,9 +14,9 @@ $image = $data["image"];
 
 $data_modify = [
     "Name" => $name,
-    "Price" => $price,
+    "Price" => (int) $price,
     "Season" => $season,
-    "Stock_Available" => $stock,
+    "Stock_Available" => (int) $stock,
     "Category" => $category,
     "Image_link" => $image
 ];
