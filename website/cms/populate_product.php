@@ -6,7 +6,7 @@ $product_data = [
         "Price" => 160,
         "Stock_Available" => 100,
         "Season" => "Summer",
-        "Category" => "Fruits",
+        "Category" => "apples and pears",
         "Image_link" => "assets/images/fruits/apple.jpg"
     ],
     [
@@ -14,7 +14,7 @@ $product_data = [
         "Price" => 150,
         "Stock_Available" => 100,
         "Season" => "Summer",
-        "Category" => "Fruits",
+        "Category" => "citrus",
         "Image_link" => "assets/images/fruits/orange.jpg"
     ],
     [
@@ -22,7 +22,7 @@ $product_data = [
         "Price" => 200,
         "Stock_Available" => 100,
         "Season" => "Summer",
-        "Category" => "Fruits",
+        "Category" => "berries",
         "Image_link" => "assets/images/fruits/grape.jpg"
     ],
     [
@@ -30,7 +30,7 @@ $product_data = [
         "Price" => 200,
         "Stock_Available" => 100,
         "Season" => "Summer",
-        "Category" => "Fruits",
+        "Category" => "berries",
         "Image_link" => "assets/images/fruits/blueberry.jpg"
     ],
     [
@@ -38,7 +38,7 @@ $product_data = [
         "Price" => 200,
         "Stock_Available" => 100,
         "Season" => "Summer",
-        "Category" => "Fruits",
+        "Category" => "berries",
         "Image_link" => "assets/images/fruits/cherry.jpg"
     ],
     [
@@ -46,7 +46,7 @@ $product_data = [
         "Price" => 200,
         "Stock_Available" => 100,
         "Season" => "Summer",
-        "Category" => "Fruits",
+        "Category" => "stone fruit",
         "Image_link" => "assets/images/fruits/date.jpg"
     ],
     [
@@ -54,7 +54,7 @@ $product_data = [
         "Price" => 200,
         "Stock_Available" => 100,
         "Season" => "Summer",
-        "Category" => "Fruits",
+        "Category" => "tropical and exotic",
         "Image_link" => "assets/images/fruits/kiwi.jpg"
     ],
     [
@@ -62,7 +62,7 @@ $product_data = [
         "Price" => 200,
         "Stock_Available" => 100,
         "Season" => "Summer",
-        "Category" => "Fruits",
+        "Category" => "citrus",
         "Image_link" => "assets/images/fruits/lemon.jpg"
     ],
     [
@@ -70,7 +70,7 @@ $product_data = [
         "Price" => 200,
         "Stock_Available" => 100,
         "Season" => "Summer",
-        "Category" => "Fruits",
+        "Category" => "citrus",
         "Image_link" => "assets/images/fruits/local-orange.jpg"
     ],
     [
@@ -78,7 +78,7 @@ $product_data = [
         "Price" => 200,
         "Stock_Available" => 100,
         "Season" => "Summer",
-        "Category" => "Fruits",
+        "Category" => "tropical and exotic",
         "Image_link" => "assets/images/fruits/mango.jpg"
     ],
     [
@@ -86,7 +86,7 @@ $product_data = [
         "Price" => 200,
         "Stock_Available" => 100,
         "Season" => "Summer",
-        "Category" => "Fruits",
+        "Category" => "citrus",
         "Image_link" => "assets/images/fruits/orange-green.jpg"
     ],
     [
@@ -94,7 +94,7 @@ $product_data = [
         "Price" => 200,
         "Stock_Available" => 100,
         "Season" => "Summer",
-        "Category" => "Fruits",
+        "Category" => "stone fruit",
         "Image_link" => "assets/images/fruits/peach.jpg"
     ],
     [
@@ -102,7 +102,7 @@ $product_data = [
         "Price" => 200,
         "Stock_Available" => 100,
         "Season" => "Summer",
-        "Category" => "Fruits",
+        "Category" => "tropical and exotic",
         "Image_link" => "assets/images/fruits/pineapple.jpg"
     ],
     [
@@ -110,7 +110,7 @@ $product_data = [
         "Price" => 200,
         "Stock_Available" => 100,
         "Season" => "Summer",
-        "Category" => "Fruits",
+        "Category" => "berries",
         "Image_link" => "assets/images/fruits/strawberry.jpg"
     ],
     [
@@ -118,7 +118,7 @@ $product_data = [
         "Price" => 200,
         "Stock_Available" => 100,
         "Season" => "Summer",
-        "Category" => "Fruits",
+        "Category" => "melons",
         "Image_link" => "assets/images/fruits/watermelon.jpg"
     ],
     [
@@ -126,7 +126,7 @@ $product_data = [
         "Price" => 200,
         "Stock_Available" => 100,
         "Season" => "Summer",
-        "Category" => "Fruits",
+        "Category" => "tropical and exotic",
         "Image_link" => "assets/images/fruits/pomegranate.jpg"
     ],
     [
@@ -134,7 +134,7 @@ $product_data = [
         "Price" => 200,
         "Stock_Available" => 100,
         "Season" => "Summer",
-        "Category" => "Fruits",
+        "Category" => "stone fruit",
         "Image_link" => "assets/images/fruits/pulm.jpg"
     ]
 ];
