@@ -89,11 +89,36 @@ switch ($build) {
             $filtered_search_array[] = filter_var($item, FILTER_SANITIZE_STRING);
         }
 
+        $cart_category = [
+            "apples and pears" => 0,
+            "citrus" => 0,
+            "stone fruit" => 0,
+            "berries" => 0,
+            "melons" => 0,
+            "tropical and exotic" => 0
+        ];
+
         if (empty($filtered_search_array) && empty($filteredCart)) {
             $data = getProductArray(($db));
             chooseNumberOfItemsForRecommendation($data);
         } elseif ($filtered_search_array && empty($filteredCart)) {
-            echo "search";
+            $higher_occurence_word = "";
+            $higher_occurence_count = 0;
+            foreach ($filtered_search_array as $search_item) {
+                $occurence = count(array_keys($filtered_search_array, $search_item));
+                if ($occurence > $higher_occurence_count) {
+                    $higher_occurence_word = $search_item;
+                }
+            }
+            $search_criteria = [
+                '$text' => ['$search' => $higher_occurence_word]
+            ];
+            $collection = $db->products;
+            $cursor = $collection->find($search_criteria);
+            foreach ($cursor as $document) {
+                $data[] = $document;
+            }
+            chooseNumberOfItemsForRecommendation($data);
         } elseif (empty($filtered_search_array) && $filteredCart)
             echo "cart";
         else {
