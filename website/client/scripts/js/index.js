@@ -43,6 +43,7 @@ function buildCatalogue(
       search_parameter: search_parameter,
       cart: JSON.stringify(cart),
     },
+    async: false,
     success: function (responseTxt, statusTxt, xhr) {
       $("#featured-products").html(responseTxt);
       if (search_parameter != "null") {
@@ -103,6 +104,7 @@ $(function () {
 
   $("#search-section").on("click", ".fa-magnifying-glass", function (event) {
     search_and_sort_functionality(event);
+    buildRecommendation();
   });
 
   $("#featured-products").on("click", ".add-to-cart-btn", function (event) {
@@ -111,6 +113,7 @@ $(function () {
     addToCart(id);
     $(this).attr("class", "remove-to-cart-btn");
     $(this).html("Remove from cart");
+    buildRecommendation();
   });
 
   $("#featured-products").on("click", ".remove-to-cart-btn", function (event) {
@@ -119,5 +122,6 @@ $(function () {
     removeToCart(id);
     $(this).attr("class", "add-to-cart-btn");
     $(this).html("Add to cart");
+    buildRecommendation();
   });
 });

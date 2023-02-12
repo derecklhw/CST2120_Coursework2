@@ -119,10 +119,21 @@ switch ($build) {
                 $data[] = $document;
             }
             chooseNumberOfItemsForRecommendation($data);
-        } elseif (empty($filtered_search_array) && $filteredCart)
-            echo "cart";
-        else {
-            echo "cart priority";
+        } else {
+            foreach ($filteredCart as $cartItem) {
+                $cart_category[$cartItem['category']]++;
+            };
+            $max = max($cart_category);
+            $max_category = array_search($max, $cart_category);
+            $search_criteria = [
+                'Category' => $max_category
+            ];
+            $collection = $db->products;
+            $cursor = $collection->find($search_criteria);
+            foreach ($cursor as $document) {
+                $data[] = $document;
+            }
+            chooseNumberOfItemsForRecommendation($data);
         }
         break;
 }

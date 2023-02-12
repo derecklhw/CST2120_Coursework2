@@ -35,6 +35,7 @@ function addToCart(id) {
   $.ajax({
     url: "scripts/php/get.php",
     data: { info: "getProductDetails", productId: id },
+    async: false,
     success: function (responseTxt) {
       let productObj = JSON.parse(responseTxt);
       cart.push({
@@ -86,6 +87,7 @@ function recordOrder() {
     },
     success: function (responseTxt, statusTxt, xhr) {
       sessionStorage.removeItem("cart");
+      sessionStorage.removeItem("search");
     },
     error: function (responseTxt, statusTxt, xhr) {
       if (statusTxt == "error") {
