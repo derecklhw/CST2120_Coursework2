@@ -101,17 +101,24 @@
     </div>
   </div> 
 
-  <!-- <div class="dialog_popup" >
+  <div class="dialog_popup" id="dialog_delete_order" >
     <h3>Delete order.</h3>
-    <br>
+    <h4>Order Id : </h4>
     <p id='delete_id_order'></p>
-    <br>
+    <h4>product : </h4>
+    <p id='delete_product_order'></p>
+    <h4>total price : </h4>
+    <p id='delete_price_order'></p>
+    
+    <div>
+      <button class="popup_button" id="delete_order" onclick="deleteOrder()">delete</button>
+    </div>
     <div id="button-2">
-      <button class="popup_button" id="closeDialog" onclick="$('#dialog_edit').dialog('close');">
+      <button class="popup_button" id="closeDialog" onclick="$('#dialog_delete_order').dialog('close');">
         Cancel
       </button>
     </div>
-  </div> -->
+  </div>
 
 
   <!-- Remove Product dialog pop up -->

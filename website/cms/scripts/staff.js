@@ -243,6 +243,26 @@ async function deleteProduct(){
     }
 }
 
+async function deleteOrder(){
+    var order_id = $("#delete_id_order").text();
+
+    console.log("delete order : " +order_id);
+    data = {order_id};
+    console.log(data);
+    try {
+        const response = await fetch("php/remove_order.php", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" }
+        });
+        const result = await response.json();
+        console.log("result :" +result);
+        $("#dialog_delete_order").dialog("close");
+        fill_orders_table();
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 
 function sort(method, arr){
@@ -322,6 +342,9 @@ $(function () {
     $("#dialog_edit").dialog({
         autoOpen: false,
     });
+    $("#dialog_delete_order").dialog({
+        autoOpen: false,
+    });
 
     $("#add").click(function () {
         // $("#dialog_add").dialog("option", "height",600)
@@ -359,23 +382,17 @@ $(function () {
         var row = $(this).closest("tr");
         var id = row.find("td:eq(0)").text();
         var name = row.find("td:eq(1)").text();
-        var price = row.find("td:eq(2)").text();
-        var stock = row.find("td:eq(3)").text();
+        var products = row.find("td:eq(2)").text();
+        var price = row.find("td:eq(3)").text();
 
-        console.log(id);
-        console.log(name);
-        console.log(price);
-        console.log(stock);
+        //put the id in a paragraph with id delete_id_order
+        $("#delete_id_order").text(id);
+        $("#delete_product_order").text(products);
+        $("#delete_price_order").text(price);
 
-    // // $("#delete_order").click(function () {
-    //     console.log("delete order");
-    //     $('#select_delete_type').empty();
-    //     $('#select_delete_type').append($('<option>').val(1).text('Select by'));//.id("delete_select_0"
-    //     $('#select_delete_type').append($('<option>').val(2).text('ID'));//.id("delete_select_1")
-    //     $('#select_delete_type').append($('<option>').val(3).text('Name'));//.id("delete_select_2")
+        $("#dialog_delete_order").dialog("open");
+        $("#dialog_delete_order").draggable();
 
-    //     $("#dialog_delete").dialog("open");
-    //     $("#dialog_delete").draggable();
     });
 
     $(document).on("click", "#edit", function() {
@@ -387,12 +404,6 @@ $(function () {
         var season = row.find("td:eq(4)").text();
         var category = row.find("td:eq(5)").text();
         var image = row.find("td:eq(6)").text();
-
-        
-        console.log(id);
-        console.log(name);
-        console.log(price);
-    
     
         $("#Id_input_edit").val(id);
         $("#Name_input_edit").val(name);
