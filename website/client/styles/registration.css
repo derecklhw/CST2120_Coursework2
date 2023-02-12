@@ -3,77 +3,75 @@
 /* || Registration section styles */
 
 .signup-section {
-  width: 360px;
-  height: 560px;
-  margin: auto;
-  background-color: white;
-  border-radius: 10px;
+  width: 500px;
+  height: 65%;
+  margin: 20vh auto 0 auto;
+  padding: 20px;
+  background-color: rgb(245, 245, 245);
+  border-radius: 4px;
+  font-size: 16px;
 }
 
 /* || Registration header styles */
 
 .signup-section h1 {
+  color: #0f2027;
   text-align: center;
-  padding-top: 15px;
-  border-bottom: 1px solid silver;
-  padding-bottom: 20px;
 }
 
-/* || Registration form styles */
-
-.signup-section form {
-  width: 300px;
-  margin-left: 20px;
-}
-
-/* || Registration entry styles */
-
-.signup-section form .entry {
-  border-bottom: 1px solid gray;
-}
-
-.signup-section form .entry label {
-  display: flex;
-  margin-top: 20px;
-  font-size: 18px;
-  color: #669202;
-}
-
-.signup-section form .entry input {
+/* || Registration Button styles */
+.signup-section #form button {
+  padding: 10px;
+  margin-top: 10px;
   width: 100%;
-  padding: 7px;
-  border: none;
-  border-radius: 6px;
-  outline: none;
-  font-size: 16px;
-}
-
-/* || Registration sign up button styles */
-
-.signup-section form input[type="button"] {
-  width: 320px;
-  height: 35px;
-  margin-top: 20px;
-  border: none;
-  background-color: #669202;
   color: white;
-  font-size: 18px;
-  border-radius: 25px;
+  background-color: #669202;
+  border: none;
+  border-radius: 4px;
 }
 
-/* || Registration terms and conditions styles */
+/* || Registration User input styles */
 
-.signup-section p {
-  text-align: center;
-  padding-top: 20px;
-  font-size: 15px;
+.signup-section #form .input-control {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
 }
-.signup-section .para-2 {
-  text-align: center;
-  color: black;
-  font-size: 15px;
-  margin: -10px 0;
+
+.signup-section #form .input-control input {
+  border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  display: block;
+  padding: 10px;
+  width: 100%;
 }
-.signup-section .para-2 a {
-  color: #2691d9;
+
+.signup-section #form .input-control input:focus {
+  outline: 1;
+}
+
+/* || Registration User input success styles */
+
+.signup-section #form .input-control.success input {
+  border-color: #09c372;
+}
+
+/* || Registration User input failure styles */
+
+.signup-section #form .signup-section #form .input-control.error input {
+  border-color: #ff3860;
+}
+
+.input-control .error {
+  color: #ff3860;
+  font-size: 10px;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+/* || Login styles */
+
+.signup-section .login-link {
+  text-align: center;
+  margin-top: 10px;
 }
