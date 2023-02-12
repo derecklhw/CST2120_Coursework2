@@ -90,20 +90,12 @@ switch ($build) {
         }
 
         $data = getProductArray($db);
-        if (empty($filtered_search_array) && empty($filteredCart)) {
-            for ($x = 0; $x <= 3; $x++) { ?>
-                <!-- Product Example -->
-                <div class="fruit">
-                    <img src="<?= $data[$x]["Image_link"] ?>" alt="<?= $data[$x]["Image_link"] ?>" />
-                    <div class="text">
-                        <h2><?= $data[$x]["Name"] ?></h2>
-                        <span>260kg+</span>
-                        <p>Sales</p>
-                    </div>
-                </div>
-        <?php }
-        } else {
-            var_dump($filtered_search_array);
+        if (count($data)) {
+            if (count($data) <= 4) {
+                buildRecommendation($data, count($data)-1);
+            } else {
+                buildRecommendation($data, 3);
+            }
         }
         break;
 }
@@ -217,6 +209,25 @@ function buildCart(array $cart, object $db)
             </div>
         </div>
     </div>
-<?php
+    <?php
+}
+
+function buildRecommendation(array $data, int $count)
+{
+    if (empty($filtered_search_array) && empty($filteredCart)) {
+        for ($x = 0; $x <= $count; $x++) { ?>
+            <!-- Product Example -->
+            <div class="fruit">
+                <img src="<?= $data[$x]["Image_link"] ?>" alt="<?= $data[$x]["Image_link"] ?>" />
+                <div class="text">
+                    <h2><?= $data[$x]["Name"] ?></h2>
+                    <span>260kg+</span>
+                    <p>Sales</p>
+                </div>
+            </div>
+<?php }
+    } else {
+        var_dump($data);
+    }
 }
 ?>

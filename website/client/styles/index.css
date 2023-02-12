@@ -250,6 +250,8 @@
   background-color: #292c2e;
 }
 
-#featured-products .error-message {
+/* || Error message styles */
+#featured-products .error-message,
+#recommendation-list .error-message {
   margin: 3% 5%;
 }
