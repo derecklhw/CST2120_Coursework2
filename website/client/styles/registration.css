@@ -4,7 +4,7 @@
 
 .signup-section {
   width: 500px;
-  height: 65%;
+  height: 70%;
   margin: 20vh auto 0 auto;
   padding: 20px;
   background-color: rgb(245, 245, 245);
@@ -28,6 +28,13 @@
   background-color: #669202;
   border: none;
   border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid;
+}
+
+.signup-section #form button:hover {
+  border-color: #669202;
+  transition: 0.5s;
 }
 
 /* || Registration User input styles */
@@ -47,7 +54,8 @@
 }
 
 .signup-section #form .input-control input:focus {
-  outline: 1;
+  outline: solid;
+  outline-color: #669202;
 }
 
 /* || Registration User input success styles */
@@ -69,7 +77,7 @@
   margin-top: 5px;
 }
 
-/* || Login styles */
+/* || Login link styles */
 
 .signup-section .login-link {
   text-align: center;
