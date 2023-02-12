@@ -117,7 +117,11 @@ const recordUser = () => {
       password: passwordValue,
     },
     success: function (responseTxt, statusTxt, xhr) {
-      $("#success-dialog").dialog("open");
+      if (responseTxt == "Data Inserted") {
+        $("#success-dialog").dialog("open");
+      } else if (responseTxt == "Email already exists") {
+        $("#existing-email-dialog").dialog("open");
+      }
     },
     error: function (responseTxt, statusTxt, xhr) {
       if (statusTxt == "error") {
@@ -191,6 +195,23 @@ $(function () {
     },
   });
   $("#error-dialog").dialog({
+    autoOpen: false,
+    resizable: false,
+    draggable: false,
+    modal: true,
+    buttons: {
+      Confirm: function () {
+        $(this).dialog("close");
+      },
+    },
+    show: {
+      duration: 800,
+    },
+    hide: {
+      duration: 800,
+    },
+  });
+  $("#existing-email-dialog").dialog({
     autoOpen: false,
     resizable: false,
     draggable: false,

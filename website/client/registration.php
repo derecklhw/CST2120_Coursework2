@@ -53,6 +53,9 @@ outputNavbar();
         <div id="error-dialog" title="Registration Error">
             <p>Registration failed!</p>
         </div>
+        <div id="existing-email-dialog" title="Registration Error">
+            <p>Database error: Multiple customers have same email address</p>
+        </div>
     </div>
 </div>
 
