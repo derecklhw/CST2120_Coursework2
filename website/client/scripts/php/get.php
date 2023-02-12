@@ -31,3 +31,13 @@ function getProductArray(object $db)
     }
     return $data;
 }
+
+function getProductArrayWithSearchCriteria(object $db, array $search_criteria)
+{
+    $collection = $db->products;
+    $cursor = $collection->find($search_criteria);
+    foreach ($cursor as $document) {
+        $data[] = $document;
+    }
+    return $data;
+}

@@ -55,11 +55,7 @@ switch ($build) {
                     $search_criteria = [
                         '$text' => ['$search' => $search_string]
                     ];
-                    $collection = $db->products;
-                    $cursor = $collection->find($search_criteria);
-                    foreach ($cursor as $document) {
-                        $data[] = $document;
-                    }
+                    $data = getProductArrayWithSearchCriteria($db, $search_criteria);
                     switch ($sortType) {
                         case 'descending':
                             usort($data, fn ($a, $b) => $a['Name'] <=> $b['Name']);
@@ -113,11 +109,7 @@ switch ($build) {
             $search_criteria = [
                 '$text' => ['$search' => $higher_occurence_word]
             ];
-            $collection = $db->products;
-            $cursor = $collection->find($search_criteria);
-            foreach ($cursor as $document) {
-                $data[] = $document;
-            }
+            $data = getProductArrayWithSearchCriteria($db, $search_criteria);
             chooseNumberOfItemsForRecommendation($data);
         } else {
             foreach ($filteredCart as $cartItem) {
@@ -128,11 +120,7 @@ switch ($build) {
             $search_criteria = [
                 'Category' => $max_category
             ];
-            $collection = $db->products;
-            $cursor = $collection->find($search_criteria);
-            foreach ($cursor as $document) {
-                $data[] = $document;
-            }
+            $data = getProductArrayWithSearchCriteria($db, $search_criteria);
             chooseNumberOfItemsForRecommendation($data);
         }
         break;
