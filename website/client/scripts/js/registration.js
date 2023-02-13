@@ -110,7 +110,7 @@ const recordUser = () => {
     url: phpFilePath + "post.php",
     type: "POST",
     data: {
-      post: "recordUser",
+      info: "recordUser",
       firstName: firstNameValue,
       lastName: lastNameValue,
       email: emailValue,

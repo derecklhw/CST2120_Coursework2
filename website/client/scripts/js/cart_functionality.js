@@ -81,7 +81,7 @@ function recordOrder() {
     url: phpFilePath + "post.php",
     type: "POST",
     data: {
-      post: "recordOrder",
+      info: "recordOrder",
       userId: "63e297f8e654ae516c04c3f2",
       cart: JSON.stringify(cart),
     },

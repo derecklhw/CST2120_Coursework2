@@ -1,9 +1,9 @@
 <?php
 include 'db.php';
 
-$post = isset($_POST['post']) ? filter_var($_POST['post'], FILTER_SANITIZE_STRING) : '';
+$info = isset($_POST['info']) ? filter_var($_POST['info'], FILTER_SANITIZE_STRING) : '';
 
-switch ($post) {
+switch ($info) {
     case ("recordOrder"):
         $userId = isset($_POST['userId']) ? filter_var($_POST['userId'], FILTER_SANITIZE_STRING) : '';
         $unfilteredCart = isset($_POST['cart']) ? json_decode($_POST['cart'], true) : array();
@@ -76,6 +76,28 @@ switch ($post) {
             echo "Email already exists";
         }
 
+        break;
+    case ("login"):
+        $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
+        $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
+
+        $findExistingEmail = [
+            'Email' => $email
+        ];
+
+        $collection = $db->users;
+        $resultArray = $collection->find($findExistingEmail)->toArray();
+        if (count($resultArray) == 0) {
+            echo "Email does not exist";
+        } else if (count($resultArray) > 1) {
+            echo "Email already exists";
+        } else {
+            if ($resultArray[0]['Password'] == $password) {
+                echo "Login Successful";
+            } else {
+                echo "Incorrect Password";
+            }
+        }
         break;
 }
 

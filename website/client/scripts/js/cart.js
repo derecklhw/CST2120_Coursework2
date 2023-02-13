@@ -1,4 +1,10 @@
-import { getCart, loadCart, removeToCart, updateCartProductQty, recordOrder } from "./cart_functionality.js";
+import {
+  getCart,
+  loadCart,
+  removeToCart,
+  updateCartProductQty,
+  recordOrder,
+} from "./cart_functionality.js";
 
 $(function () {
   loadCart();

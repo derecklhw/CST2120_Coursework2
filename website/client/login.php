@@ -8,17 +8,17 @@ outputNavbar();
 <div class="login-section">
     <h1>Login</h1>
     <!-- Login form fields-->
-    <form method="">
+    <form id="form" action="">
         <div class="entry">
-            <label>Email</label>
-            <input type="email" required />
+            <label for="email">Email</label>
+            <input id="email" type="email" required />
         </div>
         <div class="entry">
-            <label>Password</label>
-            <input type="password" required />
+            <label for="password">Password</label>
+            <input id="password" type="password" required />
         </div>
         <div class="forget-password">Forgot Password?</div>
-        <input type="submit" value="Login" />
+        <input id="submit-btn" value="Login" />
         <div class="signup_link">
             Not a member?<a href="registration.php"> Signup</a>
         </div>
