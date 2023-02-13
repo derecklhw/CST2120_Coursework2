@@ -1,5 +1,4 @@
 <?php
-
 //output header tag
 function outputHead(string $title, string $css_file, string $js_file)
 {
@@ -24,6 +23,7 @@ function outputHead(string $title, string $css_file, string $js_file)
     // update to a module
     echo ($js_file == 'index.js' || $js_file == "cart.js") ? 'type="module"' : "";
     echo '></script>';
+    echo '<script src="scripts/js/logout.js"></script>';
     echo '</head>';
 }
 
@@ -40,6 +40,11 @@ function outputOpeningBodyAndHeroClass(int $background_image)
 //output navigation bar
 function outputNavbar()
 {
+    session_start();
+    $loggedIn = false;
+    if (isset($_SESSION['loggedIn'])) {
+        $loggedIn = true;
+    }
     echo '<!-- Navigation bar -->';
     echo '<nav>';
     echo '<!-- Website logo -->';
@@ -68,12 +73,19 @@ function outputNavbar()
 
     $right_page_links = array(
         array("Basket", "basket-text", "cart.php", "fa-basket-shopping"),
-        array("Login", "login-text", "login.php", "fa-user")
+        array("Login", "login-text", "login.php", "fa-user"),
+        array("Logout", "login-text", "logout.php", "fa-user")
     );
 
-    for ($x = 0; $x < count($right_page_links); $x++) {
+    for ($x = 0; $x < count($right_page_links) - 1; $x++) {
+        if ($loggedIn && $x == 1) {
+            $x = 2;
+        };
         echo '<li>';
-        echo '<a id="' . $right_page_links[$x][1] . '" href="' . $right_page_links[$x][2] . '"';
+        echo '<a id="' . $right_page_links[$x][1] . '"';
+        echo ($loggedIn) ? "" : 'href=' . $right_page_links[$x][2];;
+        echo ($loggedIn) ? 'onclick="loggedOut()"' : "";
+
         echo '><span class="fa-solid ' . $right_page_links[$x][3] . '"></span> ' . $right_page_links[$x][0] . '</a>';
         echo '</li>';
     }

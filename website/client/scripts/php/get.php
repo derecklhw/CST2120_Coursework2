@@ -13,6 +13,12 @@ switch ($info) {
         $cursor = $collection->findOne($findCriteria);
         echo json_encode($cursor);
         break;
+    case 'logout':
+        session_start();
+        session_unset();
+        session_destroy();
+        echo "Logged Out";
+        break;
 }
 
 function getProductStockAvailable(object $db, string $id)
