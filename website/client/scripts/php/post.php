@@ -48,23 +48,34 @@ switch ($post) {
         $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
         $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
 
-        $user_details = [
-            'Name' => $firstName,
-            'Surname' => $lastName,
-            'Email' => $email,
-            'Password' => $password,
-            'Phone' => '',
-            'Address' => '',
-            'Category' => 'customer'
+        $findExistingEmail = [
+            'Email' => $email
         ];
 
         $collection = $db->users;
-        $Result = $collection->insertOne($user_details);
-        if ($Result->getInsertedCount() > 0) {
-            echo "Data Inserted";
-        } else {
-            echo "Data Not Inserted";
+        $resultArray = $collection->find($findExistingEmail)->toArray();
+
+        if (count($resultArray) == 0) {
+            $user_details = [
+                'Name' => $firstName,
+                'Surname' => $lastName,
+                'Email' => $email,
+                'Password' => $password,
+                'Phone' => '',
+                'Address' => '',
+                'Category' => 'customer'
+            ];
+
+            $Result = $collection->insertOne($user_details);
+            if ($Result->getInsertedCount() > 0) {
+                echo "Data Inserted";
+            } else {
+                echo "Data Not Inserted";
+            }
+        } else if (count($resultArray) > 1) {
+            echo "Email already exists";
         }
+
         break;
 }
 
