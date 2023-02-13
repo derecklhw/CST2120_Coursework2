@@ -83,9 +83,7 @@ function outputNavbar()
         };
         echo '<li>';
         echo '<a id="' . $right_page_links[$x][1] . '"';
-        echo ($loggedIn) ? "" : 'href=' . $right_page_links[$x][2];;
-        echo ($loggedIn) ? 'onclick="loggedOut()"' : "";
-
+        echo ($loggedIn && $x == 2) ? 'onclick="loggedOut()"' : 'href=' . $right_page_links[$x][2];;
         echo '><span class="fa-solid ' . $right_page_links[$x][3] . '"></span> ' . $right_page_links[$x][0] . '</a>';
         echo '</li>';
     }

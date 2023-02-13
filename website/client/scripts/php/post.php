@@ -6,7 +6,8 @@ $info = isset($_POST['info']) ? filter_var($_POST['info'], FILTER_SANITIZE_STRIN
 
 switch ($info) {
     case ("recordOrder"):
-        $userId = isset($_POST['userId']) ? filter_var($_POST['userId'], FILTER_SANITIZE_STRING) : '';
+        // $userId = isset($_POST['userId']) ? filter_var($_POST['userId'], FILTER_SANITIZE_STRING) : '';
+        $userId = $_SESSION['loggedIn'];
         $unfilteredCart = isset($_POST['cart']) ? json_decode($_POST['cart'], true) : array();
         $filteredCart = array();
         foreach ($unfilteredCart as $item) {

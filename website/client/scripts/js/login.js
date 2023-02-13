@@ -21,8 +21,8 @@ $(function () {
           responseTxt == "Email does not exist"
         ) {
           $("#error-dialog").dialog("open");
-          let email = $("#email").val("");
-          let password = $("#password").val("");
+          $("#email").val("");
+          $("#password").val("");
         }
       },
     });

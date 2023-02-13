@@ -82,7 +82,7 @@ function recordOrder() {
     type: "POST",
     data: {
       info: "recordOrder",
-      userId: "63e297f8e654ae516c04c3f2",
+      // userId: "63e297f8e654ae516c04c3f2",
       cart: JSON.stringify(cart),
     },
     success: function (responseTxt, statusTxt, xhr) {
