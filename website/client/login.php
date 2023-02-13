@@ -24,6 +24,14 @@ outputNavbar();
         </div>
     </form>
 </div>
+<div class="dialog-section">
+        <div id="success-dialog" title="Login Success">
+            <p>Login successful!</p>
+        </div>
+        <div id="error-dialog" title="Login Error">
+            <p>Incorrect email or password!</p>
+        </div>
+    </div>
 </div>
 <?php
 outputFooter();

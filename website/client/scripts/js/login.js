@@ -14,8 +14,53 @@ $(function () {
       type: "POST",
       data: data,
       success: function (responseTxt) {
-        console.log(responseTxt);
+        if (responseTxt == "Login Successful") {
+          window.location.href = "index.php";
+        } else if (
+          responseTxt == "Incorrect Password" ||
+          responseTxt == "Email does not exist"
+        ) {
+          $("#error-dialog").dialog("open");
+          let email = $("#email").val("");
+          let password = $("#password").val("");
+        }
       },
     });
+    return
+  });
+  $("#success-dialog").dialog({
+    autoOpen: false,
+    resizable: false,
+    draggable: false,
+    modal: true,
+    buttons: {
+      Confirm: function () {
+        $(this).dialog("close");
+        window.location.href = "login.php";
+      },
+    },
+    show: {
+      duration: 800,
+    },
+    hide: {
+      duration: 800,
+    },
+  });
+  $("#error-dialog").dialog({
+    autoOpen: false,
+    resizable: false,
+    draggable: false,
+    modal: true,
+    buttons: {
+      Confirm: function () {
+        $(this).dialog("close");
+      },
+    },
+    show: {
+      duration: 800,
+    },
+    hide: {
+      duration: 800,
+    },
   });
 });

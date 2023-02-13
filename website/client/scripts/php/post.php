@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'db.php';
 
 $info = isset($_POST['info']) ? filter_var($_POST['info'], FILTER_SANITIZE_STRING) : '';
@@ -89,11 +90,10 @@ switch ($info) {
         $resultArray = $collection->find($findExistingEmail)->toArray();
         if (count($resultArray) == 0) {
             echo "Email does not exist";
-        } else if (count($resultArray) > 1) {
-            echo "Email already exists";
         } else {
             if ($resultArray[0]['Password'] == $password) {
                 echo "Login Successful";
+                $_SESSION['loggedIn'] = $resultArray[0]["_id"];
             } else {
                 echo "Incorrect Password";
             }

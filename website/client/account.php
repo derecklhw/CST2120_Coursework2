@@ -1,4 +1,11 @@
 <?php
+session_start();
+if (!isset($_SESSION['loggedIn'])) {
+    header("Location: login.php");
+    exit();
+}
+?>
+<?php
 include "common.php";
 outputHead("Fruity Shop - Account", "styles/account.css", "index.js");
 outputOpeningBodyAndHeroClass(1);
