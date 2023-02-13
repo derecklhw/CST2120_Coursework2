@@ -7,12 +7,22 @@ $data = json_decode(file_get_contents('php://input'), true);
 $filter = array();
 
 foreach($data as $key => $value) {
-    $filter[$key] = $value;
+    if($key == "table"){
+        $table = $value;
+    }else if(($key == "_id") || ($key == "client_id")){
+        $filter[$key] = new MongoDB\BSON\ObjectId($value);
+    }else{
+        $filter[$key] = $value;
+    }
 }
 
 $client = new MongoDB\Client;
 $db = $client->ecomerce;
-$collection = $db->products;
+if ($table == "products") {
+    $collection = $db->products;
+} else if ($table == "orders") {
+    $collection = $db->orders;
+}
 $cursor = $collection->find($filter);
 $received_data = array();
 foreach ($cursor as $document) {

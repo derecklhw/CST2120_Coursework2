@@ -265,14 +265,14 @@ async function deleteOrder(){
 }
 
 
-function sort(method, arr){
+function sort(method, arr, header){
     if (method == 'Ascending_Price'){
         return arr.sort((a, b) => {
-            return a.Price - b.Price;
+            return a[header] - b[header];
         });
     }else if (method == 'Descending_price'){
         return arr.sort((a, b) => {
-            return b.Price - a.Price;
+            return b[header] - a[header];
         });}
 };
 
@@ -287,10 +287,10 @@ async function searching(){
     var field_3 = document.getElementById("field_3").value;
     var select = document.getElementById("select").value;
     
-
+    filter = {};
     if (search_1 == "Product Name"){
         console.log("in product");
-        filter = {};
+        filter["table"] = "products";
         if (field_1 != ""){
             filter["Name"] = field_1;
         }
@@ -300,21 +300,36 @@ async function searching(){
         if (field_3 != ""){
             filter["Stock_Available"] = Number(field_3);
         }
-        console.log(filter);
-        const response = await fetch("php/receive_with_filter.php", {
-            method: "POST",
-            body: JSON.stringify(filter),
-            headers: { "Content-Type": "application/json" }
-        });
-        const result = await response.json();
-        console.log(result);
-        fillTable(sort(select,result),products_header);
+        
 
     }else if (search_1 == "Order ID"){
         console.log("in order");
+        filter["table"] = "orders";
+        if (field_1 != ""){
+            filter["_id"] = field_1;
+        }
+        if (field_2 != ""){
+            filter["client_id"] = field_2;
+        }
+        if (field_3 != ""){
+            filter["total_price"] = Number(field_3);
+        }
     }else{
         console.log("other");
     } 
+    console.log(filter);
+    const response = await fetch("php/receive_with_filter.php", {
+        method: "POST",
+        body: JSON.stringify(filter),
+        headers: { "Content-Type": "application/json" }
+    });
+    const result = await response.json();
+    console.log(result);
+    if (search_1 == "Product Name"){
+        fillTable(sort(select,result,"Price"),products_header);
+    }else if (search_1 == "Order ID"){
+        fillOrderTable(sort(select,result,"total_price"),orders_header);
+    }
 }
 
 // function edit_select(element_array){
