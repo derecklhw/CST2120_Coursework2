@@ -42,6 +42,30 @@ switch ($post) {
             echo "Data Not Inserted";
         }
         break;
+    case ("recordUser"):
+        $firstName = filter_var($_POST['firstName'], FILTER_SANITIZE_STRING);
+        $lastName = filter_var($_POST['lastName'], FILTER_SANITIZE_STRING);
+        $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
+        $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
+
+        $user_details = [
+            'Name' => $firstName,
+            'Surname' => $lastName,
+            'Email' => $email,
+            'Password' => $password,
+            'Phone' => '',
+            'Address' => '',
+            'Category' => 'customer'
+        ];
+
+        $collection = $db->users;
+        $Result = $collection->insertOne($user_details);
+        if ($Result->getInsertedCount() > 0) {
+            echo "Data Inserted";
+        } else {
+            echo "Data Not Inserted";
+        }
+        break;
 }
 
 function getCustomerAddress(object $db, string $customerId)
