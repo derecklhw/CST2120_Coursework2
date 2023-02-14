@@ -15,7 +15,7 @@ $(function () {
           data: data,
           success: function (responseTxt) {
             if (responseTxt == "Login Successful") {
-              window.location.href = "index.php";
+              window.location.href = "cms.php";
             } else if (
               responseTxt == "Incorrect Password" ||
               responseTxt == "Email does not exist"
