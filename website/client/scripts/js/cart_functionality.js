@@ -1,5 +1,7 @@
+// php file path
 let phpFilePath = "scripts/php/";
 
+// get cart from session storage
 function getCart() {
   let cart;
   if (sessionStorage.cart === undefined || sessionStorage.cart === "") {
@@ -10,6 +12,7 @@ function getCart() {
   return cart;
 }
 
+// load cart to html
 function loadCart() {
   let cart = getCart();
   $.ajax({
@@ -30,6 +33,7 @@ function loadCart() {
   });
 }
 
+// add item to cart
 function addToCart(id) {
   let cart = getCart();
   $.ajax({
@@ -37,6 +41,7 @@ function addToCart(id) {
     data: { info: "getProductDetails", productId: id },
     async: false,
     success: function (responseTxt) {
+      // add item details to session storage
       let productObj = JSON.parse(responseTxt);
       cart.push({
         id: id,
@@ -55,6 +60,7 @@ function addToCart(id) {
   });
 }
 
+// remove items from cart
 function removeToCart(id) {
   let cart = getCart();
   for (let i = 0; i < cart.length; i++) {
@@ -65,6 +71,7 @@ function removeToCart(id) {
   sessionStorage.cart = JSON.stringify(cart);
 }
 
+// update quantity of items in cart
 function updateCartProductQty(id, quantity) {
   let cart = getCart();
   for (let i = 0; i < cart.length; i++) {
@@ -75,6 +82,7 @@ function updateCartProductQty(id, quantity) {
   sessionStorage.cart = JSON.stringify(cart);
 }
 
+// record order
 function recordOrder() {
   let cart = getCart();
   $.ajax({
@@ -86,7 +94,9 @@ function recordOrder() {
       cart: JSON.stringify(cart),
     },
     success: function (responseTxt, statusTxt, xhr) {
+      // clear cart in session storage
       sessionStorage.removeItem("cart");
+      // clear search in session storage
       sessionStorage.removeItem("search");
     },
     error: function (responseTxt, statusTxt, xhr) {

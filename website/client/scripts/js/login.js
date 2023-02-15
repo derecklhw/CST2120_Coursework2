@@ -15,7 +15,7 @@ $(function () {
       data: data,
       success: function (responseTxt) {
         if (responseTxt == "Login Successful") {
-          window.location.href = "index.php";
+          $("#success-dialog").dialog("open");
         } else if (
           responseTxt == "Incorrect Password" ||
           responseTxt == "Email does not exist"
@@ -36,7 +36,7 @@ $(function () {
     buttons: {
       Confirm: function () {
         $(this).dialog("close");
-        window.location.href = "login.php";
+        window.location.href = "index.php";
       },
     },
     show: {
