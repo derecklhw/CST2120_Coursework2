@@ -92,3 +92,14 @@ body {
   transition: 0.5s;
 }
 
+#success-dialog, #error-dialog, #error-dialog-unauthorized {
+
+  position: absolute;
+  top: 0px;
+  padding: 20px;
+  background: #f0f0f0;
+  border-radius: 5px;
+  color: #18191a;
+  border-top: 5px solid #292c2e;
+  margin: 0 auto;
+}

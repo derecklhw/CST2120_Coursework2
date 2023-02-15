@@ -11,21 +11,8 @@
     <title>CMS - Login</title>
   </head>
   <body>
-    <!-- <div class="login-section">
-      <h1>Login</h1>
-      <form method="">
-        <div class="entry">
-          <label>Email</label>
-          <input type="email" required />
-        </div>
-        <div class="entry">
-          <label>Password</label>
-          <input type="password" required />
-        </div>
-        <div class="forget-password">Forgot Password?</div>
-        <input type="submit" value="Login" />
-      </form>
-    </div> -->
+
+  <div>
     <div class="login-section">
       <h1>Login</h1>
       <!-- Login form fields-->
@@ -47,9 +34,11 @@
           </div>
           <div id="error-dialog" title="Login Error">
               <p>Incorrect email or password!</p>
+              <button class="popup_button" id="closeDialog" onclick="$('#error-dialog').dialog('close');">Close</button>
           </div>
           <div id="error-dialog-unauthorized" title="unauthorized">
               <p>Incorrect email or password!</p>
+              <button class="popup_button" id="closeDialog" onclick="$('#error-dialog-unauthorized').dialog('close');">Close</button>
           </div>
       </div>
   </div>
