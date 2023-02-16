@@ -93,15 +93,17 @@ async function fetch_and_fill_order_table() {
 
 // function to send new product data to the database
 function send_data(){
+    // Get the data from the input fields
     var name = document.getElementById("Name_input").value;
     var price = document.getElementById("price_input").value;
     var season = document.getElementById("season_input").value;
     var nb_available = document.getElementById("nb_available_input").value;
     var category = document.getElementById("category_input").value;
     var image_link = document.getElementById("image_link_input").value;
+    // Create a json object with the data
     var data = { name: name, price: price, season: season, nb_available: nb_available, category: category, image_link: image_link };
 
-  
+    // Send the data to the database
     fetch("php/send_product.php", {
       method: "POST",
       body: JSON.stringify(data),
@@ -116,13 +118,16 @@ function send_data(){
     console.log(response);
 }
 
+// function to send new order data to the database
 async function getData(table) {
+    // Select path to the correct php file
     if (table == "products") {
         var url = "php/receive_product.php";
     } else if (table == "orders") {
         var url = "php/receive_orders.php";
     }
 
+    // Fetch the data from the database
     try {
         const response = await fetch(url);
         const data = await response.json();
@@ -138,12 +143,14 @@ async function addProduct() {
     // Get form data
     const name = document.getElementById("Name_input").value;
     const price = document.getElementById("price_input").value;
-    const stock = document.getElementById("season_input").value;
-    const season = document.getElementById("nb_available_input").value;
+    const stock = document.getElementById("nb_available_input").value;
+    const season = document.getElementById("season_input").value;
     const category = document.getElementById("select_category").value;
     const image = document.getElementById("image_link_input").value;
     // Create data object
     const data = { name, price, stock, season, category, image };
+    // Send data to server
+    console.log(data);
     try {
       const response = await fetch("php/send_product.php", {
         method: "POST",
@@ -177,7 +184,7 @@ async function updateProduct(){
       });
       const result = await response.json();
       $("#dialog_edit").dialog("close");
-      fill_products_table();
+      fetch_and_fill_product_table();
     
     } catch (error) {
         if (error instanceof SyntaxError){
@@ -207,7 +214,7 @@ async function deleteProduct(){
             headers: { "Content-Type": "application/json" }
             });
             const result = await response.json();
-            $("#dialog_edit").dialog("close");
+            $("#dialog_delete").dialog("close");
             fetch_and_fill_product_table();
         } catch (error) {
             console.log(error);
@@ -287,6 +294,7 @@ async function searching(){
     }else{
         console.log("other");
     } 
+    console.log(filter);
     const response = await fetch("php/receive_with_filter.php", {
         method: "POST",
         body: JSON.stringify(filter),

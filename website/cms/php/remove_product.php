@@ -5,7 +5,8 @@ header("Content-Type: application/json");
 $data = json_decode(file_get_contents('php://input'), true);
 
 $selected_option = $data["selected_option"];
-$input = $data["input"];
+
+$input = filter_var($data["input"], FILTER_SANITIZE_STRING);
 
 $client = new MongoDB\Client;
 $db = $client->ecomerce;
