@@ -37,7 +37,7 @@
               <button class="popup_button" id="closeDialog" onclick="$('#error-dialog').dialog('close');">Close</button>
           </div>
           <div id="error-dialog-unauthorized" title="unauthorized">
-              <p>Incorrect email or password!</p>
+              <p>unauthorized User!</p>
               <button class="popup_button" id="closeDialog" onclick="$('#error-dialog-unauthorized').dialog('close');">Close</button>
           </div>
       </div>
