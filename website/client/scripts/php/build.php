@@ -124,6 +124,12 @@ switch ($build) {
             chooseNumberOfItemsForRecommendation($data);
         }
         break;
+    case 'pastOrderTable':
+        session_start();
+        $customerId = $_SESSION['loggedIn'];
+        $data = getPastOrders($db, $customerId);
+        buildPastOrderTable($data);
+        break;
 }
 
 function buildCatalogue(array $data, array $cart)
@@ -261,6 +267,37 @@ function buildRecommendation(array $data, int $count)
                 <p>Sales</p>
             </div>
         </div>
-<?php }
+    <?php }
+}
+
+function buildPastOrderTable(array $data)
+{
+    ?>
+    <thead>
+        <td>Order Id</td>
+        <td>Order Date</td>
+        <td>Description</td>
+        <td>Total Price</td>
+        <td>Delivering Address</td>
+    </thead>
+    <?php
+    foreach ($data as $order) { ?>
+        <tr>
+            <td><?= $order["_id"] ?></td>
+            <td><?php
+                $date = new DateTime($order["order_date"]);
+                echo $date->format('d-m-Y');
+                ?></td>
+            <td><?php
+                foreach ($order["orders_product"] as $item) {
+                    echo $item["name"] . " x " . $item["quantity"] . "<br>";
+                }
+                ?>
+            </td>
+            <td><?= $order["total_price"] ?></td>
+            <td><?= $order["address"] ?></td>
+        </tr>
+<?php
+    }
 }
 ?>

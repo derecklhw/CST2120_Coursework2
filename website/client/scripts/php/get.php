@@ -47,3 +47,13 @@ function getProductArrayWithSearchCriteria(object $db, array $search_criteria)
     }
     return $data;
 }
+
+function getPastOrders(object $db, string $customerId)
+{
+    $collection = $db->orders;
+    $cursor = $collection->find(['client_id' => new MongoDB\BSON\ObjectId($customerId)]);
+    foreach ($cursor as $document) {
+        $data[] = $document;
+    }
+    return $data;
+}

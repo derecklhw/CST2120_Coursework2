@@ -7,7 +7,7 @@ if (!isset($_SESSION['loggedIn'])) {
 ?>
 <?php
 include "common.php";
-outputHead("Fruity Shop - Account", "styles/account.css", "index.js");
+outputHead("Fruity Shop - Account", "styles/account.css", "account.js");
 outputOpeningBodyAndHeroClass(1);
 outputNavbar();
 ?>
@@ -72,7 +72,7 @@ outputNavbar();
             <!-- Your Orders' Table -->
             <div class="table-container">
                 <table id="order-table">
-                    <thead>
+                    <!-- <thead>
                         <td>Order Id</td>
                         <td>Order Date</td>
                         <td>Description</td>
@@ -110,7 +110,7 @@ outputNavbar();
                         <td>Order 4 description</td>
                         <td>40.00</td>
                         <td>Tamarin</td>
-                    </tr>
+                    </tr> -->
                 </table>
             </div>
         </div>
