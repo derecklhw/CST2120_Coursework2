@@ -176,12 +176,14 @@ async function updateProduct(){
     const image = document.getElementById("image_link_input_edit").value;
     // Create data object
     const data = {_id, name,  price, season, stock, category, image };
+    // Send data to server
     try {
       const response = await fetch("php/update_product.php", {
         method: "POST",
         body: JSON.stringify(data),
         headers: { "Content-Type": "application/json" }
       });
+      // wait for the response
       const result = await response.json();
       $("#dialog_edit").dialog("close");
       fetch_and_fill_product_table();
@@ -189,8 +191,7 @@ async function updateProduct(){
     } catch (error) {
         if (error instanceof SyntaxError){
             console.log("Syntax error : " +error);
-        
-            // PROBLEM error with your input in a prompt
+
             var error = prompt("Syntax error : " +error);
             console.log(error);
         }else {
@@ -199,12 +200,14 @@ async function updateProduct(){
     }
 }
 
+// function to delete a product from the database
 async function deleteProduct(){
-    // get option from select element
+    // get option from select element and input value
     var select = document.getElementById("select_delete_type");
     var selected_option = select.value;
     var input = document.getElementById("delete_input").value;
 
+    // check if the select option is is enter and not default
     if ((selected_option == 2) | (selected_option == 3)){
         data = {selected_option, input};
         try {
@@ -222,11 +225,13 @@ async function deleteProduct(){
     }
 }
 
+// function to delete an order from the database
 async function deleteOrder(){
+    // get id from delete product dialog
     var order_id = $("#delete_id_order").text();
-
-    console.log("delete order : " +order_id);
+    // create data object
     data = {order_id};
+    // send data to server
     try {
         const response = await fetch("php/remove_order.php", {
         method: "POST",
@@ -241,7 +246,7 @@ async function deleteOrder(){
     }
 }
 
-
+// function to sort dictionary
 function sort(method, arr, header){
     if (method == 'Ascending_Price'){
         return arr.sort((a, b) => {
@@ -253,20 +258,20 @@ function sort(method, arr, header){
         });}
 };
 
-
+// async function to fetch data with filter
 async function searching(){
 
-    // get html value of id search_1
+
     var search_1 = document.getElementById("search_1").textContent;
-    // get the input value of field_1
     var field_1 = document.getElementById("field_1").value;
     var field_2 = document.getElementById("field_2").value;
     var field_3 = document.getElementById("field_3").value;
     var select = document.getElementById("select").value;
     
     filter = {};
+    // If searching a product
     if (search_1 == "Product Name"){
-        console.log("in product");
+        // fill filter object
         filter["table"] = "products";
         if (field_1 != ""){
             filter["Name"] = field_1;
@@ -278,9 +283,9 @@ async function searching(){
             filter["Stock_Available"] = Number(field_3);
         }
         
-
+    // If searching a Order
     }else if (search_1 == "Order ID"){
-        console.log("in order");
+        // fill filter object
         filter["table"] = "orders";
         if (field_1 != ""){
             filter["_id"] = field_1;
@@ -291,16 +296,19 @@ async function searching(){
         if (field_3 != ""){
             filter["total_price"] = Number(field_3);
         }
-    }else{
+    }
+    else{
         console.log("other");
     } 
-    console.log(filter);
+
+    // send filter to server
     const response = await fetch("php/receive_with_filter.php", {
         method: "POST",
         body: JSON.stringify(filter),
         headers: { "Content-Type": "application/json" }
     });
     const result = await response.json();
+    // fill table corresponding with filtered result 
     if (search_1 == "Product Name"){
         fillProductTable(sort(select,result,"Price"),products_header);
     }else if (search_1 == "Order ID"){
@@ -308,7 +316,7 @@ async function searching(){
     }
 }
 
-
+// Function to open the edit dialog
 $("#edit").click(function () {
     $("#dialog_edit").dialog("open");
     $("#dialog_edit").draggable();
@@ -317,9 +325,10 @@ $("#edit").click(function () {
 
 
 $(function () {
-    // fill table with data on page load
+    // fetch and fill table with data on page load
     fetch_and_fill_product_table();
 
+    // Set up add dialog
     $("#dialog_add").dialog({
         autoOpen: false,
         show: {
@@ -329,6 +338,7 @@ $(function () {
           duration: 150,
         },
     });
+    // Set up delete dialog
     $("#dialog_delete").dialog({
         autoOpen: false,
         show: {
@@ -338,6 +348,7 @@ $(function () {
           duration: 150,
         },
     });
+    // Set up edit dialog
     $("#dialog_edit").dialog({
         autoOpen: false,
         show: {
@@ -347,6 +358,7 @@ $(function () {
           duration: 150,
         },
     });
+    // Set up delete order dialog
     $("#dialog_delete_order").dialog({
         autoOpen: false,
         show: {
@@ -358,13 +370,13 @@ $(function () {
     });
 
 
-
+    // listen when button with add id is clicked and open add dialog
     $("#add").click(function () {
-        // $("#dialog_add").dialog("option", "height",600)
         $("#dialog_add").dialog("open");
         $("#dialog_add").draggable();
     });
 
+    // listen when button with delete id is clicked and open delete dialog
     $("#delete_product").click(function () {
         $('#select_delete_type').empty();
         $('#select_delete_type').append($('<option>').val(1).text('Select by'));//.id("delete_select_0"
@@ -375,38 +387,40 @@ $(function () {
         $("#dialog_delete").draggable();
     });
 
-
-
-
-    // listen when button with view_order id is clicked and fill table with orders data
+    // listen when button with view_order id is clicked and fetch and fill table with orders data
     $("#view_orders").click(function () {
         fetch_and_fill_order_table();
     });
     
+    // listen when button with list_products id is clicked and fetch and fill table with products data
     $("#list_products").click(async function () {
         fetch_and_fill_product_table();
     });
 
 
-
+    // listen when button with delete_order id is clicked
     $(document).on("click", "#delete_order", function() {
+        // get data from row
         var row = $(this).closest("tr");
         var id = row.find("td:eq(0)").text();
         var name = row.find("td:eq(1)").text();
         var products = row.find("td:eq(2)").text();
         var price = row.find("td:eq(3)").text();
 
-        //put the id in a paragraph with id delete_id_order
+        // fill dialog with data
         $("#delete_id_order").text(id);
         $("#delete_product_order").text(products);
         $("#delete_price_order").text(price);
 
+        // open dialog
         $("#dialog_delete_order").dialog("open");
         $("#dialog_delete_order").draggable();
 
     });
 
+    // listen when button with edit id is clicked
     $(document).on("click", "#edit", function() {
+        // get data from row
         var row = $(this).closest("tr");
         var id = row.find("td:eq(0)").text();
         var name = row.find("td:eq(1)").text();
@@ -416,11 +430,13 @@ $(function () {
         var category = row.find("td:eq(5)").text();
         var image = row.find("td:eq(6)").text();
     
+        // fill dialog with data
         $("#Id_input_edit").val(id);
         $("#Name_input_edit").val(name);
         $("#price_input_edit").val(price);
         $("#season_input_edit").val(season);
         $("#nb_available_input_edit").val(stock);
+        // Set the select value to the category
         if (fruit_category.includes(category)){
             $("#select_category_edit").val(category).change();
         }
@@ -429,6 +445,7 @@ $(function () {
         }
         $("#image_link_input_edit").val(image);
 
+        // open dialog
         $("#dialog_edit").dialog("open");
         $("#dialog_edit").draggable();
 
