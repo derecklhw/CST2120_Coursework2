@@ -1,4 +1,4 @@
-function buildAccountName(){
+function buildAccountName() {
   $.ajax({
     url: phpFilePath + "get.php",
     type: "GET",
@@ -11,7 +11,7 @@ function buildAccountName(){
   });
 }
 
-function buildUserDetails(){
+function buildUserDetails() {
   $.ajax({
     url: phpFilePath + "build.php",
     type: "POST",
@@ -41,4 +41,39 @@ $(function () {
   buildAccountName();
   buildUserDetails();
   buildPastOrderTable();
+
+  $("#edit-account-btn").on("click", function () {
+    $.ajax({
+      url: phpFilePath + "build.php",
+      type: "POST",
+      data: {
+        build: "editAccount",
+      },
+      success: function (responseTxt, statusTxt, xhr) {
+        $("#edit-account-dialog").html(responseTxt);
+      }
+    })
+    $("#edit-account-dialog").dialog("open");
+  });
+
+  $("#edit-account-dialog").dialog({
+    autoOpen: false,
+    resizable: false,
+    draggable: false,
+    modal: true,
+    buttons: {
+      Confirm: function () {
+        $(this).dialog("close");
+      },
+      Cancel: function () {
+        $(this).dialog("close");
+      },
+    },
+    show: {
+      duration: 800,
+    },
+    hide: {
+      duration: 800,
+    },
+  });
 });

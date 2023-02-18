@@ -135,6 +135,10 @@ switch ($build) {
         $data = getUserDetails($db, $customerId);
         buildUserDetails($data);
         break;
+    case "editAccount":
+        $data = getUserDetails($db, $customerId);
+        buildEditAccount($data);
+        break;
 }
 
 function buildCatalogue(array $data, array $cart)
@@ -314,6 +318,22 @@ function buildUserDetails(object $data)
     <p>Email: <?= $data['Email'] ?></p>
     <p>Phone: <?= $data['Phone'] ?></p>
     <p>Address: <?= $data['Address'] ?></p>
+<?php
+}
+
+function buildEditAccount(object $data)
+{
+?>
+    <div>Surname</div>
+    <input type="text" id="surname_input" placeholder="<?= $data['Surname'] ?>" />
+    <div>Name</div>
+    <input type="text" id="name_input" placeholder="<?= $data['Name'] ?>" />
+    <div>Email</div>
+    <input type="text" id="email_input" placeholder="<?= $data['Email'] ?>" />
+    <div>Phone</div>
+    <input type="text" id="phone_input" placeholder="<?= $data['Phone'] ?>" />
+    <div>Address</div>
+    <input type="text" id="address_input" placeholder="<?= $data['Address'] ?>" />
 <?php
 }
 ?>

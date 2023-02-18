@@ -31,11 +31,12 @@ outputNavbar();
         <h2>Account Details</h2>
         <div class="info-container">
             <div id="account-details-container"></div>
-            <a>
-                Click to edit
-            </a>
+            <a id="edit-account-btn">Click to edit</a>
         </div>
     </div>
+</div>
+<div class="dialog-section">
+    <div id="edit-account-dialog" title="Edit Account"></div>
 </div>
 </div>
 <main>
