@@ -38,12 +38,12 @@
 
 /* || Left container account name styles */
 
-.left-container .account-name {
+#account-name {
   position: relative;
   top: 50%;
 }
 
-.left-container .account-name p {
+#account-name p {
   font-weight: bold;
   font-size: 120%;
 }
@@ -74,24 +74,30 @@
 
 /* || Right container info > details container styles */
 
-.right-container .info-container .details-container {
+#account-details-container {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   margin: 15% 0;
   font-size: 125%;
 }
 
-.right-container .info-container .details-container .value {
+#account-details-container .value {
   color: #515151;
 }
 
-.right-container .info-container .details-container a {
+.right-container .info-container a {
   cursor: pointer;
   transition: 0.25s;
+  background-color: #292c2e;
+  text-decoration: none;
+  color: #dcdad7;
+  padding: 0.6rem 0.8rem;
+
 }
 
-.right-container .info-container .details-container a:hover {
-  font-size: 126%;
+.right-container .info-container a:hover {
+  background-color: #669202;
 }
 
 /* || Your orders styles */

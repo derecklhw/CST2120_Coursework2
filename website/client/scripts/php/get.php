@@ -19,6 +19,17 @@ switch ($info) {
         session_destroy();
         echo "Logged Out";
         break;
+    case 'getAccountName':
+        session_start();
+        if (isset($_SESSION['loggedIn'])) {
+            $collection = $db->users;
+            $findCriteria = [
+                "_id" => new MongoDB\BSON\ObjectId($_SESSION['loggedIn'])
+            ];
+            $cursor = $collection->findOne($findCriteria);
+            echo "<p>" . $cursor['Name'] . " " . $cursor['Surname'] . "</p>";
+        }
+        break;
 }
 
 function getProductStockAvailable(object $db, string $id)
@@ -56,4 +67,11 @@ function getPastOrders(object $db, string $customerId)
         $data[] = $document;
     }
     return $data;
+}
+
+function getUserDetails(object $db, string $customerId)
+{
+    $collection = $db->users;
+    $cursor = $collection->findOne(['_id' => new MongoDB\BSON\ObjectId($customerId)]);
+    return $cursor;
 }

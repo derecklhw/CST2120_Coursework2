@@ -2,6 +2,9 @@
 include "db.php";
 include "get.php";
 
+session_start();
+$customerId = $_SESSION['loggedIn'];
+
 $build = filter_input(INPUT_POST, 'build', FILTER_SANITIZE_STRING);
 $unfilteredCart = json_decode($_POST['cart'], true);
 $filteredCart = [];
@@ -125,10 +128,12 @@ switch ($build) {
         }
         break;
     case 'pastOrderTable':
-        session_start();
-        $customerId = $_SESSION['loggedIn'];
         $data = getPastOrders($db, $customerId);
         buildPastOrderTable($data);
+        break;
+    case 'userDetails':
+        $data = getUserDetails($db, $customerId);
+        buildUserDetails($data);
         break;
 }
 
@@ -297,7 +302,18 @@ function buildPastOrderTable(array $data)
             <td><?= $order["total_price"] ?></td>
             <td><?= $order["address"] ?></td>
         </tr>
-<?php
+    <?php
     }
+}
+
+function buildUserDetails(object $data)
+{
+    ?>
+    <p>Surname: <?= $data['Surname'] ?></p>
+    <p>Name: <?= $data['Name'] ?></p>
+    <p>Email: <?= $data['Email'] ?></p>
+    <p>Phone: <?= $data['Phone'] ?></p>
+    <p>Address: <?= $data['Address'] ?></p>
+<?php
 }
 ?>
