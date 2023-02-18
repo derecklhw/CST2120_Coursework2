@@ -6,9 +6,11 @@ import {
   recordOrder,
 } from "./cart_functionality.js";
 
+// await the html document finished loading for execusion
 $(function () {
   loadCart();
 
+  // event handler for trash button to remove items in cart
   $(".sub-sections").on("click", ".fa-trash", function (event) {
     event.preventDefault();
     let id = $(this).data("id");
@@ -16,6 +18,7 @@ $(function () {
     loadCart();
   });
 
+  // event handler for quantity input fields to update items quantity in cart
   $(".sub-sections").on(
     "change",
     ".number-spinner form input",
@@ -32,7 +35,8 @@ $(function () {
       loadCart();
     }
   );
-
+  
+  // configuration settings for confirmation dialog
   $("#confirmation-dialog").dialog({
     autoOpen: false,
     resizable: false,
@@ -56,6 +60,7 @@ $(function () {
     },
   });
 
+  // configuration settings for approved confirmation dialog
   $("#approved-confirmation-dialog").dialog({
     autoOpen: false,
     resizable: false,
@@ -75,6 +80,7 @@ $(function () {
     },
   });
 
+  // configuration settings for empty cart dialog
   $("#empty-cart-dialog").dialog({
     autoOpen: false,
     resizable: false,
@@ -94,6 +100,7 @@ $(function () {
     },
   });
 
+  // event handler for checkout button
   $(".cart-btn-section").on("click", "p", function () {
     let cart = getCart();
     if (cart.length === 0) {

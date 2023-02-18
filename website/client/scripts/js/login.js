@@ -1,6 +1,8 @@
+// php file path
 let phpFilePath = "scripts/php/";
 
 $(function () {
+  // event handler when user click on the submit button
   $("#form").on("click", "#submit-btn", function () {
     let email = $("#email").val();
     let password = $("#password").val();
@@ -28,6 +30,8 @@ $(function () {
     });
     return
   });
+
+  // configuration setting for success dialog
   $("#success-dialog").dialog({
     autoOpen: false,
     resizable: false,
@@ -46,6 +50,8 @@ $(function () {
       duration: 800,
     },
   });
+
+  // configuration setting for error dialog
   $("#error-dialog").dialog({
     autoOpen: false,
     resizable: false,

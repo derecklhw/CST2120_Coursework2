@@ -2,9 +2,11 @@
 include "db.php";
 include "get.php";
 
+// start session
 session_start();
 $customerId = $_SESSION['loggedIn'];
 
+// get the data from the client and sanitize the post parameters as security.
 $build = filter_input(INPUT_POST, 'build', FILTER_SANITIZE_STRING);
 $unfilteredCart = json_decode($_POST['cart'], true);
 $filteredCart = [];
@@ -20,12 +22,15 @@ foreach ($unfilteredCart as $item) {
     ];
 }
 
+// switch statement to determine which features to build the html structure
 switch ($build) {
     case 'catalogue':
+        // sanitize more post parameters related to the build category
         $mode = filter_input(INPUT_POST, 'mode', FILTER_SANITIZE_STRING);
         $sortType = filter_input(INPUT_POST, 'format', FILTER_SANITIZE_STRING);
         $search_string = filter_input(INPUT_POST, 'search_parameter', FILTER_SANITIZE_STRING);
 
+        // initialize an array to store the retrieved informations from mongodb
         $data = array();
         switch ($mode) {
             case 'default':
@@ -36,11 +41,13 @@ switch ($build) {
                 switch ($sortType) {
                     case 'descending':
                         $data = getProductArray($db);
+                        // sort in descending order algorithm
                         usort($data, fn ($a, $b) => $a['Name'] <=> $b['Name']);
                         buildCatalogue($data, $filteredCart);
                         break;
                     case 'ascending':
                         $data = getProductArray($db);
+                        // sort in ascending order algorithm
                         usort($data, fn ($a, $b) => $b['Name'] <=> $a['Name']);
                         buildCatalogue($data, $filteredCart);
                         break;
@@ -59,6 +66,7 @@ switch ($build) {
                         '$text' => ['$search' => $search_string]
                     ];
                     $data = getProductArrayWithSearchCriteria($db, $search_criteria);
+                    // switch case to decide the sort format to display
                     switch ($sortType) {
                         case 'descending':
                             usort($data, fn ($a, $b) => $a['Name'] <=> $b['Name']);
@@ -82,12 +90,14 @@ switch ($build) {
         buildCart($filteredCart, $db);
         break;
     case 'recommendation':
+        // sanitize the search array received from html session storage
         $unfiltered_search_array = json_decode($_POST['search'], true);
         $filtered_search_array = [];
         foreach ($unfiltered_search_array as $item) {
             $filtered_search_array[] = filter_var($item, FILTER_SANITIZE_STRING);
         }
 
+        // fruit category counter
         $cart_category = [
             "apples and pears" => 0,
             "citrus" => 0,
@@ -97,9 +107,12 @@ switch ($build) {
             "tropical and exotic" => 0
         ];
 
+        // switch case to decide the recommendation algorithm
+        // no value in search and cart; default recommendation will be built
         if (empty($filtered_search_array) && empty($filteredCart)) {
             $data = getProductArray(($db));
             chooseNumberOfItemsForRecommendation($data);
+            // value in search and no value in cart; search based recommendation will be built
         } elseif ($filtered_search_array && empty($filteredCart)) {
             $higher_occurence_word = "";
             $higher_occurence_count = 0;
@@ -114,6 +127,7 @@ switch ($build) {
             ];
             $data = getProductArrayWithSearchCriteria($db, $search_criteria);
             chooseNumberOfItemsForRecommendation($data);
+            // value in both search and cart; cart based recommendation will be built as priority
         } else {
             foreach ($filteredCart as $cartItem) {
                 $cart_category[$cartItem['category']]++;
@@ -141,6 +155,7 @@ switch ($build) {
         break;
 }
 
+// build catalogue html function
 function buildCatalogue(array $data, array $cart)
 {
     foreach ($data as $product_details) { ?>
@@ -174,6 +189,7 @@ function buildCatalogue(array $data, array $cart)
     <?php }
 }
 
+// build cart html function
 function buildCart(array $cart, object $db)
 {
     ?>
@@ -253,6 +269,7 @@ function buildCart(array $cart, object $db)
     <?php
 }
 
+// choose the number of items for display in recommendation section based on result retrived from mongodb
 function chooseNumberOfItemsForRecommendation($data)
 {
     if (count($data)) {
@@ -264,6 +281,7 @@ function chooseNumberOfItemsForRecommendation($data)
     }
 }
 
+// build recommendation html section
 function buildRecommendation(array $data, int $count)
 {
     for ($x = 0; $x <= $count; $x++) { ?>
@@ -279,6 +297,7 @@ function buildRecommendation(array $data, int $count)
     <?php }
 }
 
+// build past order html table
 function buildPastOrderTable(array $data)
 {
     ?>
@@ -310,6 +329,7 @@ function buildPastOrderTable(array $data)
     }
 }
 
+// build user html details
 function buildUserDetails(object $data)
 {
     ?>
@@ -321,6 +341,7 @@ function buildUserDetails(object $data)
 <?php
 }
 
+// build edit account html dialog
 function buildEditAccount(object $data)
 {
 ?>

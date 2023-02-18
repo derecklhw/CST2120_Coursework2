@@ -1,7 +1,7 @@
 // php file path
 let phpFilePath = "scripts/php/";
 
-// get cart from session storage
+// create or initialize cart array from html session storage
 function getCart() {
   let cart;
   if (sessionStorage.cart === undefined || sessionStorage.cart === "") {
@@ -12,7 +12,7 @@ function getCart() {
   return cart;
 }
 
-// load cart to html
+// retrieve carts details from mongodb to load in html
 function loadCart() {
   let cart = getCart();
   $.ajax({
@@ -33,7 +33,7 @@ function loadCart() {
   });
 }
 
-// add item to cart
+// add item to cart html session storage
 function addToCart(id) {
   let cart = getCart();
   $.ajax({
@@ -60,7 +60,7 @@ function addToCart(id) {
   });
 }
 
-// remove items from cart
+// remove items from cart html session storage
 function removeToCart(id) {
   let cart = getCart();
   for (let i = 0; i < cart.length; i++) {
@@ -71,7 +71,7 @@ function removeToCart(id) {
   sessionStorage.cart = JSON.stringify(cart);
 }
 
-// update quantity of items in cart
+// update quantity of items in cart html session storage
 function updateCartProductQty(id, quantity) {
   let cart = getCart();
   for (let i = 0; i < cart.length; i++) {
@@ -82,7 +82,7 @@ function updateCartProductQty(id, quantity) {
   sessionStorage.cart = JSON.stringify(cart);
 }
 
-// record order
+// record order in mongodb order collection
 function recordOrder() {
   let cart = getCart();
   $.ajax({
@@ -90,7 +90,6 @@ function recordOrder() {
     type: "POST",
     data: {
       info: "recordOrder",
-      // userId: "63e297f8e654ae516c04c3f2",
       cart: JSON.stringify(cart),
     },
     success: function (responseTxt, statusTxt, xhr) {

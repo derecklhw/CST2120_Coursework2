@@ -23,14 +23,13 @@ $collection = $db->products;
 
 // Insert the new product
 $insertOneResult = $collection->insertOne([
-'Name' => $name,
-'Price' => $price,
-'Stock_Available' => $stock,
-'Season' => $season,
-'Category' => $category,
-'Image_link' => $image
+    'Name' => $name,
+    'Price' => $price,
+    'Stock_Available' => $stock,
+    'Season' => $season,
+    'Category' => $category,
+    'Image_link' => $image
 ]);
 
 // Print the _id of the new product
 echo json_encode(["_id" => (string)$insertOneResult->getInsertedId()]);
-?>

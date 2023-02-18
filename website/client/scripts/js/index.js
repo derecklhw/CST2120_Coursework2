@@ -1,7 +1,9 @@
 import { getCart, addToCart, removeToCart } from "./cart_functionality.js";
 
+// php filepath
 let phpFilePath = "scripts/php/";
 
+// retrieve recommendation based on "search" or "items in cart" for display
 function buildRecommendation() {
   let cart = getCart();
   let search = getSearch();
@@ -27,6 +29,7 @@ function buildRecommendation() {
   });
 }
 
+// retrieve catalogue based on mode, sort and search for display
 function buildCatalogue(
   modeType,
   sortType = "null",
@@ -63,6 +66,7 @@ function buildCatalogue(
   });
 }
 
+// build catalogue depending on sort or search format
 function search_and_sort_functionality(event) {
   event.preventDefault();
   let sortType = $("#sort-format").val();
@@ -74,6 +78,7 @@ function search_and_sort_functionality(event) {
   }
 }
 
+// retrieve search history from html session storage
 function getSearch() {
   let search;
   if (sessionStorage.search === undefined || sessionStorage.search === "") {
@@ -84,10 +89,12 @@ function getSearch() {
   return search;
 }
 
+// await the html document finished loading for execusion
 $(function () {
   buildRecommendation();
   buildCatalogue("default");
 
+  // test mongodb connection
   $.ajax({
     url: phpFilePath + "db.php",
     success: function (response) {
@@ -98,15 +105,18 @@ $(function () {
     },
   });
 
+  // event handler for sorting button; default, ascending or descending
   $("#sort-format").change(function (event) {
     search_and_sort_functionality(event);
   });
 
+  // event handler for search button
   $("#search-section").on("click", ".fa-magnifying-glass", function (event) {
     search_and_sort_functionality(event);
     buildRecommendation();
   });
 
+  // event handler for add to cart button
   $("#featured-products").on("click", ".add-to-cart-btn", function (event) {
     event.preventDefault();
     let id = $(this).data("id");
@@ -116,6 +126,7 @@ $(function () {
     buildRecommendation();
   });
 
+  // event handler for remove from cart button
   $("#featured-products").on("click", ".remove-to-cart-btn", function (event) {
     event.preventDefault();
     let id = $(this).data("id");

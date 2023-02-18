@@ -11,4 +11,3 @@ foreach ($cursor as $document) {
     $data[] = $document;
 }
 echo json_encode($data);
-?>

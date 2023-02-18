@@ -1,3 +1,4 @@
+// retrieve current login account name and surname for display
 function buildAccountName() {
   $.ajax({
     url: phpFilePath + "get.php",
@@ -11,6 +12,7 @@ function buildAccountName() {
   });
 }
 
+// retrieve current login account details for display
 function buildUserDetails() {
   $.ajax({
     url: phpFilePath + "build.php",
@@ -24,6 +26,7 @@ function buildUserDetails() {
   });
 }
 
+// create the edit account dialog with up-to-date account details
 function editAccountDetails() {
   $.ajax({
     url: phpFilePath + "post.php",
@@ -42,6 +45,7 @@ function editAccountDetails() {
   });
 }
 
+// retrieve login account's past order history for display
 function buildPastOrderTable() {
   $.ajax({
     url: phpFilePath + "build.php",
@@ -55,18 +59,20 @@ function buildPastOrderTable() {
     error: function (responseTxt, statusTxt, xhr) {
       if (statusTxt == "error") {
         $("#order-table").html(
-          '<p>Greetings User <br>No Past Order History found.</p>'
+          "<p>Greetings User <br>No Past Order History found.</p>"
         );
       }
     },
   });
 }
 
+// await the html document finished loading for execusion
 $(function () {
   buildAccountName();
   buildUserDetails();
   buildPastOrderTable();
 
+  // event handler when user click on edit-account button
   $("#edit-account-btn").on("click", function () {
     $.ajax({
       url: phpFilePath + "build.php",
@@ -81,6 +87,7 @@ $(function () {
     $("#edit-account-dialog").dialog("open");
   });
 
+  // configuration settings for the edit account dialog
   $("#edit-account-dialog").dialog({
     autoOpen: false,
     resizable: false,

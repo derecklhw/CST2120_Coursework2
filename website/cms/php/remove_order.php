@@ -15,8 +15,3 @@ $deleteOneResult = $collection->deleteOne(
     ['_id' => new MongoDB\BSON\ObjectId($input)]
 );
 echo json_encode(["_id" => (string)$deleteOneResult->getDeletedCount()]);
-
-
-
-
-?>

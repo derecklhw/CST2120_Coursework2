@@ -1,4 +1,4 @@
-<?php   
+<?php
 require __DIR__ . '/../../vendor/autoload.php';
 
 header("Content-Type: application/json");
@@ -31,13 +31,3 @@ $updateOneResult = $collection->updateOne(
 );
 
 echo $updateOneResult->getModifiedCount();
-
-// if ($updateOneResult->getModifiedCount() > 0) {
-//     echo "Product updated successfully.";
-// } else {
-//     echo "Product not found or no changes were made.";
-// }
-
-
-
-?>

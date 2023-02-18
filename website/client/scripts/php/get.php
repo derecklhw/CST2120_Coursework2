@@ -1,10 +1,12 @@
 <?php
 include 'db.php';
-
+// sanitize the get parameters
 $info = filter_input(INPUT_GET, 'info', FILTER_SANITIZE_STRING);
 
+// switch statement to handle the different get requests
 switch ($info) {
     case 'getProductDetails':
+        // sanitize the other get parameters
         $productId = filter_input(INPUT_GET, 'productId', FILTER_SANITIZE_STRING);
         $collection = $db->products;
         $findCriteria = [
@@ -13,6 +15,7 @@ switch ($info) {
         $cursor = $collection->findOne($findCriteria);
         echo json_encode($cursor);
         break;
+        // clear the php session storage
     case 'logout':
         session_start();
         session_unset();
@@ -32,6 +35,7 @@ switch ($info) {
         break;
 }
 
+// retrieve the current of stock available for specific items
 function getProductStockAvailable(object $db, string $id)
 {
     $collection = $db->products;
@@ -39,6 +43,7 @@ function getProductStockAvailable(object $db, string $id)
     echo $cursor['Stock_Available'];
 }
 
+// retrieve the current list of items
 function getProductArray(object $db)
 {
     $collection = $db->products;
@@ -49,6 +54,7 @@ function getProductArray(object $db)
     return $data;
 }
 
+// retrieve the current list of items from the search criteria
 function getProductArrayWithSearchCriteria(object $db, array $search_criteria)
 {
     $collection = $db->products;
@@ -59,6 +65,7 @@ function getProductArrayWithSearchCriteria(object $db, array $search_criteria)
     return $data;
 }
 
+// retrieve the current login account past order history
 function getPastOrders(object $db, string $customerId)
 {
     $collection = $db->orders;
@@ -69,6 +76,7 @@ function getPastOrders(object $db, string $customerId)
     return $data;
 }
 
+// retrieve the current login account details
 function getUserDetails(object $db, string $customerId)
 {
     $collection = $db->users;

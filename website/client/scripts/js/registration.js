@@ -1,5 +1,6 @@
 let phpFilePath = "scripts/php/";
 
+// set class attribute to error if check is unsuccesful
 const setError = (element, message) => {
   const inputControl = element.parentElement;
   const errorDisplay = inputControl.querySelector(".error");
@@ -9,6 +10,7 @@ const setError = (element, message) => {
   inputControl.classList.remove("success");
 };
 
+// set class attribute to success if check is succesful
 const setSuccess = (element) => {
   const inputControl = element.parentElement;
   const errorDisplay = inputControl.querySelector(".error");
@@ -18,12 +20,14 @@ const setSuccess = (element) => {
   inputControl.classList.remove("error");
 };
 
+// check if email is valid using a regex
 const isValidEmail = (email) => {
   const re =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(email).toLowerCase());
 };
 
+// check if all inputs has passed the validation criteria
 const validateInputs = (
   firstNameValue,
   lastNameValue,
@@ -88,6 +92,7 @@ const validateInputs = (
     validation.retypepassword = true;
   }
 
+  // if validation successful
   if (
     validation.firstname &&
     validation.lastname &&
@@ -100,6 +105,7 @@ const validateInputs = (
   }
 };
 
+// record user data to mongodb user collections
 const recordUser = () => {
   let firstNameValue = $("#firstName").val();
   let lastNameValue = $("#lastName").val();
@@ -131,6 +137,7 @@ const recordUser = () => {
   });
 };
 
+// await the html document finished loading for execusion
 $(function () {
   const firstName = document.getElementById("firstName");
   const lastName = document.getElementById("lastName");
@@ -138,6 +145,7 @@ $(function () {
   const password = document.getElementById("password");
   const retypepassword = document.getElementById("Retypepassword");
 
+  // event handler when user clicks on submit button
   $("#form").on("click", "button", function (event) {
     const firstNameValue = firstName.value.trim();
     const lastNameValue = lastName.value.trim();
@@ -155,6 +163,7 @@ $(function () {
     );
   });
 
+  // configuration settings for confirmation dialog
   $("#confirmation-dialog").dialog({
     autoOpen: false,
     resizable: false,
@@ -176,6 +185,8 @@ $(function () {
       duration: 800,
     },
   });
+
+  // configuration settings for success dialog
   $("#success-dialog").dialog({
     autoOpen: false,
     resizable: false,
@@ -194,6 +205,8 @@ $(function () {
       duration: 800,
     },
   });
+
+  // configuration settings for error dialog
   $("#error-dialog").dialog({
     autoOpen: false,
     resizable: false,
@@ -211,6 +224,8 @@ $(function () {
       duration: 800,
     },
   });
+
+  // configuration settings for existing email dialog
   $("#existing-email-dialog").dialog({
     autoOpen: false,
     resizable: false,

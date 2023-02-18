@@ -19,4 +19,3 @@ if ($Result->getInsertedCount() > 0) {
 } else {
     echo "Data Not Inserted";
 }
-?>
