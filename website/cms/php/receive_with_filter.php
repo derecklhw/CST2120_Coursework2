@@ -46,5 +46,3 @@ foreach ($cursor as $document) {
     array_push($received_data, $document);
 }
 echo json_encode($received_data);
-
-?>

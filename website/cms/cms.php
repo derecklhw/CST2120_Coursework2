@@ -99,9 +99,9 @@
         Cancel
       </button>
     </div>
-  </div> 
+  </div>
 
-  <div class="dialog_popup" id="dialog_delete_order" >
+  <div class="dialog_popup" id="dialog_delete_order">
     <h3>Delete order.</h3>
     <h4>Order Id : </h4>
     <p id='delete_id_order'></p>
@@ -109,7 +109,7 @@
     <p id='delete_product_order'></p>
     <h4>total price : </h4>
     <p id='delete_price_order'></p>
-    
+
     <div>
       <button class="popup_button" id="delete_order" onclick="deleteOrder()">delete</button>
     </div>

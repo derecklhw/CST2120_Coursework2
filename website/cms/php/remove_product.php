@@ -23,13 +23,9 @@ if ($selected_option == 2) {
         ['_id' => new MongoDB\BSON\ObjectId($input)]
     );
     echo json_encode(["_id" => (string)$deleteOneResult->getDeletedCount()]);
-}else if($selected_option == 3){
+} else if ($selected_option == 3) {
     $deleteOneResult = $collection->deleteOne(
         ['Name' => $input]
     );
     echo json_encode(["_id" => (string)$deleteOneResult->getDeletedCount()]);
 }
-
-
-
-?>

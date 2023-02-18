@@ -1,5 +1,6 @@
 phpFilePath = "scripts/php/";
 
+// function when user logged out to destroy the variable php session storage
 function loggedOut() {
   $.ajax({
     url: phpFilePath + "get.php",
