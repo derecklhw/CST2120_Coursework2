@@ -7,6 +7,10 @@ function loggedOut() {
     data: { info: "logout" },
     success: function (responseTxt) {
       if (responseTxt == "Logged Out") {
+        // clear cart in session storage
+        sessionStorage.removeItem("cart");
+        // clear search in session storage
+        sessionStorage.removeItem("search");
         window.location.href = "index.php";
       } else {
         console.log("Error: " + responseTxt);
