@@ -10,21 +10,21 @@ $data = json_decode(file_get_contents('php://input'), true);
 $filter = array();
 
 // loop through the data and filter the data
-foreach($data as $key => $value) {
+foreach ($data as $key => $value) {
     // set the table name
-    if($key == "table"){
+    if ($key == "table") {
         $table = $value;
-    // find id and convert it to object id
-    }else if(($key == "_id") || ($key == "client_id")){
+        // find id and convert it to object id
+    } else if (($key == "_id") || ($key == "client_id")) {
         $id = filter_var($value, FILTER_SANITIZE_STRING);
         $filter[$key] = new MongoDB\BSON\ObjectId($id);
-    // find the price and stock and convert it to int
-    }else if(($key == "Stock_Available") || ($key == "total_price")){
-        $input_data = filter_var( $value, FILTER_SANITIZE_NUMBER_INT);
+        // find the price and stock and convert it to int
+    } else if (($key == "Stock_Available") || ($key == "total_price")) {
+        $input_data = filter_var($value, FILTER_SANITIZE_NUMBER_INT);
         $filter[$key] = (int) $input_data;
-    // Set string to other data
-    }else{
-        $input_data = filter_var( $value, FILTER_SANITIZE_STRING);
+        // Set string to other data
+    } else {
+        $input_data = filter_var($value, FILTER_SANITIZE_STRING);
         $filter[$key] = $input_data;
     }
 }

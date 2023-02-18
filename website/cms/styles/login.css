@@ -1,7 +1,7 @@
 /* || Login section styles */
 
 body {
-    background-color: #d5dfe4;
+  background-color: #d5dfe4;
 }
 
 .login-section {
@@ -92,8 +92,9 @@ body {
   transition: 0.5s;
 }
 
-#success-dialog, #error-dialog, #error-dialog-unauthorized {
-
+#success-dialog,
+#error-dialog,
+#error-dialog-unauthorized {
   position: absolute;
   top: 0px;
   padding: 20px;

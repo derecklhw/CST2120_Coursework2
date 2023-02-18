@@ -35,7 +35,7 @@ $(function () {
       loadCart();
     }
   );
-  
+
   // configuration settings for confirmation dialog
   $("#confirmation-dialog").dialog({
     autoOpen: false,

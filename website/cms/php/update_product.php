@@ -1,4 +1,4 @@
-<?php  
+<?php
 // Include Composer autoloader if not already done. 
 require __DIR__ . '/../../vendor/autoload.php';
 // set the header to json
@@ -37,6 +37,3 @@ $updateOneResult = $collection->updateOne(
 );
 
 echo $updateOneResult->getModifiedCount();
-
-
-?>

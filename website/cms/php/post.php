@@ -17,7 +17,7 @@ $password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
 // set email to find
 $findExistingEmail = [
     'Email' => $email
-    ];
+];
 
 // receive the date from users email
 $resultArray = $collection->find($findExistingEmail)->toArray();
@@ -28,15 +28,13 @@ if (count($resultArray) == 0) {
     // check if password is correct
     if ($resultArray[0]['Password'] == $password) {
         // check if user is admin
-        if ($resultArray[0]['Category'] == 'admin'){
+        if ($resultArray[0]['Category'] == 'admin') {
             echo "Login Successful";
             $_SESSION['loggedIn'] = $resultArray[0]["_id"];
+        } else {
+            echo "Unauthorized";
         }
-        else{
-        echo "Unauthorized";}
     } else {
         echo "Incorrect Password";
     }
 }
-
-?>

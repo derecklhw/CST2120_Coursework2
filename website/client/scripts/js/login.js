@@ -28,7 +28,7 @@ $(function () {
         }
       },
     });
-    return
+    return;
   });
 
   // configuration setting for success dialog

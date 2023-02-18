@@ -20,5 +20,3 @@ $deleteOneResult = $collection->deleteOne(
 );
 // Return number of deleted documents
 echo json_encode(["_id" => (string)$deleteOneResult->getDeletedCount()]);
-
-?>

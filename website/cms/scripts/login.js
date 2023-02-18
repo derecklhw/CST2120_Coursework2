@@ -1,5 +1,5 @@
 // Set the path to the php folder
-let phpFilePath = 'php';
+let phpFilePath = "php";
 
 $(function () {
   // button with submit-btn id is clicked
@@ -23,7 +23,7 @@ $(function () {
         // if the login is successful
         if (responseTxt == "Login Successful") {
           window.location.href = "cms.php";
-        // if the login is not successful
+          // if the login is not successful
         } else if (
           responseTxt == "Incorrect Password" ||
           responseTxt == "Email does not exist"
@@ -32,7 +32,7 @@ $(function () {
           $("#error-dialog").dialog("open");
           $("#email").val("");
           $("#password").val("");
-        // if the user is not authorized
+          // if the user is not authorized
         } else if (responseTxt == "Unauthorized") {
           console.log(responseTxt);
           $("#error-dialog-unauthorized").dialog("open");
@@ -41,64 +41,62 @@ $(function () {
         }
       },
     });
-    return
+    return;
   });
 
   // stting ip error dialog box
   $("#error-dialog").dialog({
-      autoOpen: false,
-      resizable: false,
-      draggable: false,
-      modal: true,
-      buttons: {
-        Confirm: function () {
-          $(this).dialog("close");
-        },
+    autoOpen: false,
+    resizable: false,
+    draggable: false,
+    modal: true,
+    buttons: {
+      Confirm: function () {
+        $(this).dialog("close");
       },
-      show: {
-        duration: 800,
-      },
-      hide: {
-        duration: 800,
-      },
+    },
+    show: {
+      duration: 800,
+    },
+    hide: {
+      duration: 800,
+    },
   });
   // setting unauthorized error dialog box
   $("#error-dialog-unauthorized").dialog({
-      autoOpen: false,
-      resizable: false,
-      draggable: false,
-      modal: true,
-      buttons: {
-        Confirm: function () {
-          $(this).dialog("close");
-        },
+    autoOpen: false,
+    resizable: false,
+    draggable: false,
+    modal: true,
+    buttons: {
+      Confirm: function () {
+        $(this).dialog("close");
       },
-      show: {
-        duration: 800,
-      },
-      hide: {
-        duration: 800,
-      },
+    },
+    show: {
+      duration: 800,
+    },
+    hide: {
+      duration: 800,
+    },
   });
-// setting success dialog box
+  // setting success dialog box
   $("#success-dialog").dialog({
-      autoOpen: false,
-      resizable: false,
-      draggable: false,
-      modal: true,
-      buttons: {
-        Confirm: function () {
-          $(this).dialog("close");
-          window.location.href = "login.php";
-        },
+    autoOpen: false,
+    resizable: false,
+    draggable: false,
+    modal: true,
+    buttons: {
+      Confirm: function () {
+        $(this).dialog("close");
+        window.location.href = "login.php";
       },
-      show: {
-        duration: 800,
-      },
-      hide: {
-        duration: 800,
-      },
+    },
+    show: {
+      duration: 800,
+    },
+    hide: {
+      duration: 800,
+    },
   });
-
-
 });
