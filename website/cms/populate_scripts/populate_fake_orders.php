@@ -7,24 +7,24 @@ $order_data = [
         "orders_product" => [
             [
                 "id" => new MongoDB\BSON\ObjectId("63ce1b92e5f02961a3068323"),
-                "name" => "Product 1",
-                "price" => 100,
+                "name" => "Fresh Watermelon",
+                "price" => 40,
                 "season" => "Summer",
-                "category" => "Shirt",
-                "image_link" => "https://www.google.com",
+                "category" => "melons",
+                "image_link" => "assets/images/fruits/watermelon.jpg",
                 "quantity" => 1
             ],
             [
                 "id" => new MongoDB\BSON\ObjectId("63ce1b92e5f02961a3068324"),
-                "name" => "Product 2",
-                "price" => 30,
+                "name" => "Fresh Pomogranate",
+                "price" => 60,
                 "season" => "Summer",
-                "category" => "Shirt",
-                "image_link" => "https://www.google.com",
+                "category" => "tropical and exotic",
+                "image_link" => "assets/images/fruits/pomegranate.jpg",
                 "quantity" => 6
             ]
         ],
-        "total_price" => 1000,
+        "total_price" => 345,
         "address" => "Rua 1, 123",
         "date" => new MongoDB\BSON\UTCDateTime(time() * 1000)
     ],
@@ -33,31 +33,31 @@ $order_data = [
         "orders_product" => [
             [
                 "id" => new MongoDB\BSON\ObjectId("63ce1b92e5f02961a3068323"),
-                "name" => "Product 1",
-                "price" => 100,
+                "name" => "Fresh Grapes",
+                "price" => 50,
                 "season" => "Summer",
-                "category" => "Shirt",
-                "image_link" => "https://www.google.com",
-                "quantity" => 100
+                "category" => "berries",
+                "image_link" => "assets/images/fruits/grape.jpg",
+                "quantity" => 150
             ],
             [
                 "id" => new MongoDB\BSON\ObjectId("63ce1b92e5f02961a3068324"),
-                "name" => "Product 2",
-                "price" => 30,
+                "name" => "Fresh Cherry",
+                "price" => 50,
                 "season" => "Summer",
-                "category" => "Shirt",
-                "image_link" => "https://www.google.com",
+                "category" => "berries",
+                "image_link" => "assets/images/fruits/cherry.jpg",
                 "quantity" => 30
             ]
         ],
-        "total_price" => 1000,
+        "total_price" => 230,
         "address" => "Rua 1, 123",
         "date" => new MongoDB\BSON\UTCDateTime(time() * 1000)
     ]
 ];
 
 
-$client = new MongoDB\Client;
+$client = new MongoDB\Client('mongodb+srv://derecklhw:test123@cluster0.ydhzu88.mongodb.net/?retryWrites=true&w=majority');
 $db = $client->ecomerce;
 $collection = $db->orders;
 $Result = $collection->insertMany($order_data);

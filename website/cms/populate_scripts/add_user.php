@@ -1,15 +1,15 @@
 <?php
 require __DIR__ . '/../../vendor/autoload.php';
-$client = new MongoDB\Client;
+$client = new MongoDB\Client('mongodb+srv://derecklhw:test123@cluster0.ydhzu88.mongodb.net/?retryWrites=true&w=majority');
 $db = $client->ecomerce;
 $collection = $db->users;
 $data = [
     'Name' => 'Damien',
     'Surname' => 'Maujean',
     'Email' => 'damienmaujean@gmail.com',
-    'Password' => '123456',
-    'Phone' => '123456789',
-    'Address' => '123456789',
+    'Password' => '12345678',
+    'Phone' => '57684567',
+    'Address' => 'Tamarin',
     'Category' => 'admin'
 ];
 $Result = $collection->insertOne($data);
@@ -19,14 +19,4 @@ if ($Result->getInsertedCount() > 0) {
 } else {
     echo "Data Not Inserted";
 }
-
-// $cursor = $collection->find();
-
-
-
-// foreach ($cursor as $document) {
-//     echo $document["Name"] . "
-
-// ";
-// }
 ?>

@@ -3,23 +3,15 @@ require __DIR__ . '/../../vendor/autoload.php';
 $product_data = [
     [
         "Name" => "Fresh Apple",
-        "Price" => 160,
+        "Price" => 180,
         "Stock_Available" => 100,
         "Season" => "Summer",
         "Category" => "apples and pears",
         "Image_link" => "assets/images/fruits/apple.jpg"
     ],
     [
-        "Name" => "Fresh Orange",
-        "Price" => 150,
-        "Stock_Available" => 100,
-        "Season" => "Summer",
-        "Category" => "citrus",
-        "Image_link" => "assets/images/fruits/orange.jpg"
-    ],
-    [
         "Name" => "Fresh Grapes",
-        "Price" => 200,
+        "Price" => 50,
         "Stock_Available" => 100,
         "Season" => "Summer",
         "Category" => "berries",
@@ -27,7 +19,7 @@ $product_data = [
     ],
     [
         "Name" => "Fresh Blueberry",
-        "Price" => 200,
+        "Price" => 20,
         "Stock_Available" => 100,
         "Season" => "Summer",
         "Category" => "berries",
@@ -35,7 +27,7 @@ $product_data = [
     ],
     [
         "Name" => "Fresh Cherry",
-        "Price" => 200,
+        "Price" => 50,
         "Stock_Available" => 100,
         "Season" => "Summer",
         "Category" => "berries",
@@ -43,7 +35,7 @@ $product_data = [
     ],
     [
         "Name" => "Fresh Date",
-        "Price" => 200,
+        "Price" => 10,
         "Stock_Available" => 100,
         "Season" => "Summer",
         "Category" => "stone fruit",
@@ -51,7 +43,7 @@ $product_data = [
     ],
     [
         "Name" => "Fresh Kiwi",
-        "Price" => 200,
+        "Price" => 20,
         "Stock_Available" => 100,
         "Season" => "Summer",
         "Category" => "tropical and exotic",
@@ -59,7 +51,7 @@ $product_data = [
     ],
     [
         "Name" => "Fresh Lemon",
-        "Price" => 200,
+        "Price" => 10,
         "Stock_Available" => 100,
         "Season" => "Summer",
         "Category" => "citrus",
@@ -67,7 +59,7 @@ $product_data = [
     ],
     [
         "Name" => "Fresh Local Orange",
-        "Price" => 200,
+        "Price" => 100,
         "Stock_Available" => 100,
         "Season" => "Summer",
         "Category" => "citrus",
@@ -75,7 +67,7 @@ $product_data = [
     ],
     [
         "Name" => "Fresh Mango",
-        "Price" => 200,
+        "Price" => 90,
         "Stock_Available" => 100,
         "Season" => "Summer",
         "Category" => "tropical and exotic",
@@ -83,7 +75,7 @@ $product_data = [
     ],
     [
         "Name" => "Fresh Green Orange",
-        "Price" => 200,
+        "Price" => 60,
         "Stock_Available" => 100,
         "Season" => "Summer",
         "Category" => "citrus",
@@ -91,7 +83,7 @@ $product_data = [
     ],
     [
         "Name" => "Fresh Peach",
-        "Price" => 200,
+        "Price" => 10,
         "Stock_Available" => 100,
         "Season" => "Summer",
         "Category" => "stone fruit",
@@ -99,7 +91,7 @@ $product_data = [
     ],
     [
         "Name" => "Fresh Pineapple",
-        "Price" => 200,
+        "Price" => 80,
         "Stock_Available" => 100,
         "Season" => "Summer",
         "Category" => "tropical and exotic",
@@ -107,7 +99,7 @@ $product_data = [
     ],
     [
         "Name" => "Fresh Strawberry",
-        "Price" => 200,
+        "Price" => 10,
         "Stock_Available" => 100,
         "Season" => "Summer",
         "Category" => "berries",
@@ -115,7 +107,7 @@ $product_data = [
     ],
     [
         "Name" => "Fresh Watermelon",
-        "Price" => 200,
+        "Price" => 40,
         "Stock_Available" => 100,
         "Season" => "Summer",
         "Category" => "melons",
@@ -123,7 +115,7 @@ $product_data = [
     ],
     [
         "Name" => "Fresh Pomogranate",
-        "Price" => 200,
+        "Price" => 60,
         "Stock_Available" => 100,
         "Season" => "Summer",
         "Category" => "tropical and exotic",
@@ -131,7 +123,7 @@ $product_data = [
     ],
     [
         "Name" => "Fresh Pulm",
-        "Price" => 200,
+        "Price" => 5,
         "Stock_Available" => 100,
         "Season" => "Summer",
         "Category" => "stone fruit",
@@ -139,7 +131,7 @@ $product_data = [
     ]
 ];
 // send these data to database
-$client = new MongoDB\Client;
+$client = new MongoDB\Client('mongodb+srv://derecklhw:test123@cluster0.ydhzu88.mongodb.net/?retryWrites=true&w=majority');
 $db = $client->ecomerce;
 $collection = $db->products;
 $Result = $collection->insertMany($product_data);
@@ -152,6 +144,3 @@ if ($Result->getInsertedCount() > 0) {
 } else {
     echo "Data Not Inserted";
 }
-
-
-?>
