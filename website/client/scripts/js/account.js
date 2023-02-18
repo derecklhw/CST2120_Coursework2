@@ -52,6 +52,13 @@ function buildPastOrderTable() {
     success: function (responseTxt, statusTxt, xhr) {
       $("#order-table").html(responseTxt);
     },
+    error: function (responseTxt, statusTxt, xhr) {
+      if (statusTxt == "error") {
+        $("#order-table").html(
+          '<p>Greetings User <br>No Past Order History found.</p>'
+        );
+      }
+    },
   });
 }
 
