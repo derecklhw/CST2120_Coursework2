@@ -42,6 +42,7 @@ function fillOrderTable(data,headers) {
     
     // Clear the table
     $('#event_table').empty();
+    
     // Set the header of the table
     var header = $('<tr></tr>');
     for (var i = 0; i < headers.length; i++) {
