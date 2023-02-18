@@ -100,6 +100,25 @@ switch ($info) {
             }
         }
         break;
+    case ("editAccountDetails"):
+        $userId = $_SESSION['loggedIn'];
+        $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
+        $surname = filter_var($_POST['surname'], FILTER_SANITIZE_STRING);
+        $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
+        $phone = filter_var($_POST['phone'], FILTER_SANITIZE_STRING);
+        $address = filter_var($_POST['address'], FILTER_SANITIZE_STRING);
+
+        $collection = $db->users;
+        $Result = $collection->updateOne(
+            ['_id' => new MongoDB\BSON\ObjectId($userId)],
+            ['$set' => ['Name' => $name, 'Surname' => $surname, 'Email' => $email, 'Phone' => $phone, 'Address' => $address]]
+        );
+        if ($Result->getModifiedCount() > 0) {
+            echo "Data Updated";
+        } else {
+            echo "Data Not Updated";
+        }
+        break;
 }
 
 function getCustomerAddress(object $db, string $customerId)

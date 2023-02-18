@@ -325,15 +325,15 @@ function buildEditAccount(object $data)
 {
 ?>
     <div>Surname</div>
-    <input type="text" id="surname_input" placeholder="<?= $data['Surname'] ?>" />
+    <input type="text" id="surname_input" value="<?= $data['Surname'] ?>" />
     <div>Name</div>
-    <input type="text" id="name_input" placeholder="<?= $data['Name'] ?>" />
+    <input type="text" id="name_input" value="<?= $data['Name'] ?>" />
     <div>Email</div>
-    <input type="text" id="email_input" placeholder="<?= $data['Email'] ?>" />
+    <input type="text" id="email_input" value="<?= $data['Email'] ?>" />
     <div>Phone</div>
-    <input type="text" id="phone_input" placeholder="<?= $data['Phone'] ?>" />
+    <input type="text" id="phone_input" value="<?= $data['Phone'] ?>" />
     <div>Address</div>
-    <input type="text" id="address_input" placeholder="<?= $data['Address'] ?>" />
+    <input type="text" id="address_input" value="<?= $data['Address'] ?>" />
 <?php
 }
 ?>

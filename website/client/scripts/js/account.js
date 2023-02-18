@@ -24,6 +24,24 @@ function buildUserDetails() {
   });
 }
 
+function editAccountDetails() {
+  $.ajax({
+    url: phpFilePath + "post.php",
+    type: "POST",
+    data: {
+      info: "editAccountDetails",
+      name: $("#name_input").val(),
+      surname: $("#surname_input").val(),
+      email: $("#email_input").val(),
+      phone: $("#phone_input").val(),
+      address: $("#address_input").val(),
+    },
+    success: function (responseTxt, statusTxt, xhr) {
+      buildUserDetails();
+    },
+  });
+}
+
 function buildPastOrderTable() {
   $.ajax({
     url: phpFilePath + "build.php",
@@ -51,8 +69,8 @@ $(function () {
       },
       success: function (responseTxt, statusTxt, xhr) {
         $("#edit-account-dialog").html(responseTxt);
-      }
-    })
+      },
+    });
     $("#edit-account-dialog").dialog("open");
   });
 
@@ -64,6 +82,7 @@ $(function () {
     buttons: {
       Confirm: function () {
         $(this).dialog("close");
+        editAccountDetails();
       },
       Cancel: function () {
         $(this).dialog("close");
