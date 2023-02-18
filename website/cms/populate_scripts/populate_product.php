@@ -131,7 +131,7 @@ $product_data = [
     ]
 ];
 // send these data to database
-$client = new MongoDB\Client('mongodb+srv://derecklhw:test123@cluster0.ydhzu88.mongodb.net/?retryWrites=true&w=majority');
+$client = new MongoDB\Client;
 $db = $client->ecomerce;
 $collection = $db->products;
 $Result = $collection->insertMany($product_data);

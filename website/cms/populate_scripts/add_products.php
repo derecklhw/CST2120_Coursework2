@@ -1,7 +1,7 @@
 <?php
 
 require __DIR__ . '/../../vendor/autoload.php';
-$client = new MongoDB\Client('mongodb+srv://derecklhw:test123@cluster0.ydhzu88.mongodb.net/?retryWrites=true&w=majority');
+$client = new MongoDB\Client;
 $db = $client->ecomerce;
 $collection = $db->products;
 $data = [
