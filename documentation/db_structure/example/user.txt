@@ -13,7 +13,7 @@
     "User_id": USR023,
     "Name": "Ronuk",
     "SurName": "Luchmonee",
-    "Email": "RL334@mdx.ac.uk",
+    "Email": "RL12345@mdx.ac.uk",
     "Password": "abcde",
     "Phone": "+230 545 4567",
     "Address": "vacoas",
